@@ -37,6 +37,7 @@ FROM clientes;
 SELECT id, nome, email
 FROM clientes;
 
+---
 
 WHERE
 O que é?
@@ -88,7 +89,7 @@ Comparar tipos errados (texto com número).
 Usar LIKE quando poderia usar =
 Filtros pouco específicos em tabelas grandes.
 
-
+---
 
 ORDER BY
 O que é?

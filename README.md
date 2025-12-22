@@ -1,11 +1,11 @@
 # SQL – Do Básico ao Avançado (MySQL)
 
-Este repositório reúne estudos, exemplos práticos e anotações sobre SQL,
-indo do nível básico ao avançado, utilizando MySQL como banco de dados.
+Repositório de estudos e exemplos práticos de SQL,
+organizado do nível básico ao avançado, utilizando MySQL.
 
-O material foi organizado com foco em aprendizado progressivo,
-clareza conceitual e aplicação prática, servindo como base de estudo,
-consulta e referência técnica.
+O material tem foco em aprendizado progressivo,
+clareza conceitual e aplicação em cenários reais.
+
 
 ---
 
