@@ -12,6 +12,7 @@ Em termos simples:
 
 👉 Define quais informações você quer ver.
 
+
 Exemplo básico:
 
 SELECT nome, email
@@ -35,6 +36,7 @@ FROM clientes;
 
 SELECT id, nome, email
 FROM clientes;
+
 
 WHERE
 O que é?
@@ -87,6 +89,7 @@ Usar LIKE quando poderia usar =
 Filtros pouco específicos em tabelas grandes.
 
 
+
 ORDER BY
 O que é?
 
@@ -113,6 +116,7 @@ Muito usado para:
 Ver registros mais recentes.
 Analisar últimos eventos ou erros.
 Combinando SELECT, WHERE e ORDER BY.
+
 
 Na prática, esses comandos quase sempre são usados juntos.
 
@@ -141,6 +145,7 @@ ORDER BY
 
 
 
+
 No dia a dia de sustentação e análise, esse padrão é usado para:
 
 Validar dados de clientes.
@@ -149,6 +154,7 @@ Conferir integrações.
 Gerar relatórios rápidos.
 Apoiar decisões técnicas.
 Dominar bem esses três comandos é a base para queries mais complexas.
+
 
 
 Resumo rápido
