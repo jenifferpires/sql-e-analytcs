@@ -24,11 +24,11 @@ Este repositório tem finalidade exclusivamente educacional.
 ## 🗂️ Estrutura do Repositório
 
 
-sql-e-analytics/
-├── fundamentos/
-├── intermediario/
-├── avancado/
-└── database/
+    ```sql-e-analytics/
+    ├── fundamentos/
+    ├── intermediario/
+    ├── avancado/
+    └── database/ ```
 
 
 
