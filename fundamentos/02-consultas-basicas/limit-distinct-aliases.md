@@ -67,6 +67,7 @@ LIMIT 10 OFFSET 10;
 
 📌 DISTINCT — Eliminando valores duplicados. 
 
+
 O que é o DISTINCT?   
 
 O DISTINCT remove valores duplicados do resultado da consulta.  
@@ -106,14 +107,15 @@ Identificar variações de dados
 Evitar duplicações em relatórios   
 Limpeza visual de resultados.  
 
+
 📌 ALIASES — Tornando consultas mais legíveis.
 
 O que é um alias?  
 Um alias é um nome temporário dado a:  
 
-Colunas  
+Colunas   
 
-Tabelas  
+Tabelas   
 
 Ele existe apenas durante a execução da consulta. 
 
@@ -173,8 +175,8 @@ Padrão profissional de escrita SQL
 
 ✅ Sempre utilize aliases em consultas médias ou grandes.
 
-📎 Resumo rápido :
-Conceito	Para que serve.
-LIMIT	Controla quantidade de registros. 
-DISTINCT	Remove duplicações no resultado.  
-ALIAS	Melhora clareza e legibilidade.  
+📎 Resumo rápido : 
+Conceito	Para que serve. 
+LIMIT	Controla quantidade de registros.  
+DISTINCT	Remove duplicações no resultado.   
+ALIAS	Melhora clareza e legibilidade.    
