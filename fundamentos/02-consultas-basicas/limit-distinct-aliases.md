@@ -4,11 +4,11 @@ LIMIT, DISTINCT e ALIASES
 
 Neste módulo você vai aprender três recursos fundamentais do SQL que ajudam a:  
 
-Controlar a quantidade de resultados retornados  
+Controlar a quantidade de resultados retornados.
 
-Eliminar dados duplicados  
+Eliminar dados duplicados.
 
-Melhorar a legibilidade das consultas  
+Melhorar a legibilidade das consultas.
 
 Esses conceitos são extremamente utilizados em ambientes reais de trabalho, especialmente em   análises, relatórios e investigações de dados.  
 
@@ -157,12 +157,12 @@ c representa a tabela clientes
 p representa a tabela pedidos  
 
 
-Benefícios dos aliases 
+Benefícios dos aliases :
 
-Código mais limpo  
-Consultas mais curtas  
-Melhor leitura em joins e subqueries   
-Padrão profissional de escrita SQL  
+Código mais limpo.  
+Consultas mais curtas.  
+Melhor leitura em joins e subqueries.  
+Padrão profissional de escrita SQL. 
 
 
 🧠 Boas práticas deste módulo 
