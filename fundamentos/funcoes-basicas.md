@@ -5,13 +5,10 @@ Elas transformam vários registros em informação útil.
 
 São essenciais para:
 
-relatórios.
-
-análises rápidas.
-
+Relatórios.
+Análises rápidas.
 validações em produção.
-
-apoio à tomada de decisão.
+Apoio à tomada de decisão.
 
 ---
 
@@ -22,7 +19,8 @@ COUNT é usado para contar registros.
 
 Exemplo básico:
 
-SELECT COUNT(*) 
+SELECT COUNT(*)
+
 FROM clientes;
 
 Retorna:
@@ -33,8 +31,10 @@ total de registros da tabela clientes.
 
 COUNT com condição:
 
-SELECT COUNT(*) 
+SELECT COUNT(*)
+
 FROM clientes
+
 WHERE ativo = 1;
 
 Retorna:
@@ -46,6 +46,7 @@ total de clientes ativos.
 COUNT em coluna específica:
 
 SELECT COUNT(email)
+
 FROM clientes;
 
 Conta apenas registros onde email não é NULL.
@@ -54,10 +55,8 @@ Conta apenas registros onde email não é NULL.
 
 Erros comuns com COUNT:
 
-Achar que COUNT(coluna) conta todos os registros
-
-Não considerar valores NULL
-
+Achar que COUNT(coluna) conta todos os registros.
+Não considerar valores NULL.
 Usar COUNT sem WHERE em tabelas grandes sem necessidade.
 
 ---
@@ -72,6 +71,7 @@ SUM é usado para somar valores numéricos.
 Exemplo básico:
 
 SELECT SUM(valor)
+
 FROM pedidos;
 
 Retorna:
@@ -83,7 +83,9 @@ soma total do valor dos pedidos.
 SUM com filtro:
 
 SELECT SUM(valor)
+
 FROM pedidos
+
 WHERE status = 'PAGO';
 
 Muito comum em relatórios financeiros.
@@ -93,9 +95,7 @@ Muito comum em relatórios financeiros.
 Erros comuns com SUM
 
 Usar SUM em colunas não numéricas.
-
 Não filtrar dados corretamente.
-
 Somar valores que já estão agregados.
 
 ---
@@ -110,6 +110,7 @@ AVG calcula a média dos valores.
 Exemplo básico:
 
 SELECT AVG(valor)
+
 FROM pedidos;
 
 Retorna:
@@ -121,7 +122,9 @@ valor médio dos pedidos.
 AVG com filtro:
 
 SELECT AVG(valor)
+
 FROM pedidos
+
 WHERE status = 'PAGO';
 
 ---
@@ -135,9 +138,7 @@ AVG ignora valores NULL, o que pode impactar a análise.
 Erros comuns com AVG:
 
 Não considerar valores NULL.
-
 Usar AVG sem entender o contexto dos dados.
-
 Comparar médias sem filtros adequados.
 
 ---
@@ -153,29 +154,33 @@ MAX → maior valor
 Funcionam com:
 
 números
-
 datas
-
 textos (ordem alfabética)
 
 ---
 
 Exemplo básico:
 
-SELECT MIN(valor), MAX(valor)
+SELECT MIN(valor), 
+
+MAX(valor)
+
 FROM pedidos;
 
 ---
 
 MIN e MAX com datas
 
-SELECT MIN(data_criacao), MAX(data_criacao)
+SELECT MIN(data_criacao), 
+
+MAX(data_criacao)
+
 FROM pedidos;
+
 
 Muito usado para:
 
-identificar períodos
-
+Identificar períodos
 verificar dados antigos ou recentes.
 
 ---
@@ -183,9 +188,7 @@ verificar dados antigos ou recentes.
 Erros comuns com MIN e MAX
 
 Não entender como funcionam com texto.
-
 Esquecer filtros importantes.
-
 Usar sem contexto (valor mínimo de quê?).
 
 ---
@@ -195,31 +198,31 @@ Usando aliases com funções
 É uma boa prática usar aliases para dar nomes claros aos resultados.
 
 SELECT 
+
   COUNT(*) AS total_pedidos,
+
   SUM(valor) AS valor_total,
+
   AVG(valor) AS valor_medio
+
 FROM pedidos
+
 WHERE status = 'PAGO';
 
 Isso deixa o resultado:
 
-mais legível.
-
-mais fácil de interpretar.
-
-melhor para relatórios.
+Mais legível.
+Mais fácil de interpretar.
+Melhor para relatórios.
 
 ---
 
 No dia a dia de trabalho, funções básicas são usadas para:
 
-contar registros impactados em incidentes
-
-validar volumes de dados
-
-gerar métricas rápidas
-
-apoiar decisões técnicas e de negócio
+Contar registros impactados em incidentes
+Validar volumes de dados
+Gerar métricas rápidas
+Apoiar decisões técnicas e de negócio
 
 São funções simples, mas extremamente poderosas.
 
