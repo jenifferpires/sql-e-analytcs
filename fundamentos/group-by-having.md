@@ -1,6 +1,7 @@
 GROUP BY e HAVING 
 
 GROUP BY e HAVING são usados para agrupar dados e aplicar filtros sobre resultados agregados. 
+
 Eles são essenciais para relatórios, métricas e análises. 
 
 --- 
