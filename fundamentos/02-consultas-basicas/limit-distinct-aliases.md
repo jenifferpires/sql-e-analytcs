@@ -175,10 +175,11 @@ Padrão profissional de escrita SQL
 
 ✅ Sempre utilize aliases em consultas médias ou grandes.
 
-📎 Resumo rápido : 
 
-Conceito          	Para que serve.         
+# 📎 Resumo Rápido: Comandos Básicos
 
-LIMITC            Controla quantidade de registros.    
-DISTINCT	     Remove duplicações no resultado.              
-ALIAS	          Melhora clareza e legibilidade.               
+| Conceito | Para que serve |
+| :--- | :--- |
+| **LIMIT** | Controla a quantidade de registros retornados na consulta. |
+| **DISTINCT** | Remove registros duplicados, retornando apenas valores únicos. |
+| **ALIAS (AS)** | Renomeia colunas ou tabelas temporariamente para melhorar a legibilidade. |           
