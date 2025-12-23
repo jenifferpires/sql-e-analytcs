@@ -1,156 +1,159 @@
-LIMIT, DISTINCT e ALIASES
-🎯 Objetivo deste módulo
+LIMIT, DISTINCT e ALIASES 
 
-Neste módulo você vai aprender três recursos fundamentais do SQL que ajudam a:
+🎯 Objetivo deste módulo 
 
-Controlar a quantidade de resultados retornados
+Neste módulo você vai aprender três recursos fundamentais do SQL que ajudam a: 
 
-Eliminar dados duplicados
+Controlar a quantidade de resultados retornados 
 
-Melhorar a legibilidade das consultas
+Eliminar dados duplicados 
 
-Esses conceitos são extremamente utilizados em ambientes reais de trabalho, especialmente em análises, relatórios e investigações de dados.
+Melhorar a legibilidade das consultas 
 
-📌 LIMIT — Controlando a quantidade de registros
-O que é o LIMIT?
+Esses conceitos são extremamente utilizados em ambientes reais de trabalho, especialmente em  análises, relatórios e investigações de dados. 
 
-O LIMIT define quantas linhas o banco de dados deve retornar no resultado da consulta.
+📌 LIMIT — Controlando a quantidade de registros 
+O que é o LIMIT? 
 
-Ele não altera os dados, apenas controla a exibição dos resultados.
+O LIMIT define quantas linhas o banco de dados deve retornar no resultado da consulta. 
 
-Quando usar?
+Ele não altera os dados, apenas controla a exibição dos resultados. 
 
-Testar consultas sem retornar muitos dados
+Quando usar? 
 
-Visualizar apenas os primeiros registros
+Testar consultas sem retornar muitos dados 
 
-Trabalhar com paginação
+Visualizar apenas os primeiros registros 
 
-Evitar consultas pesadas em bases grandes
+Trabalhar com paginação 
 
-Exemplo básico
-SELECT *
-FROM clientes
-LIMIT 5;
+Evitar consultas pesadas em bases grandes 
 
+Exemplo básico:  
+SELECT * 
+FROM clientes 
+LIMIT 5;  
 
-🔎 O que acontece aqui?
-O banco retorna apenas os 5 primeiros registros da tabela clientes.
 
-LIMIT com ORDER BY (uso mais comum)
-SELECT nome, data_cadastro
-FROM clientes
-ORDER BY data_cadastro DESC
-LIMIT 10;
+🔎 O que acontece aqui? 
+O banco retorna apenas os 5 primeiros registros da tabela clientes. 
 
+LIMIT com ORDER BY (uso mais comum) 
+SELECT nome, data_cadastro 
+FROM clientes 
+ORDER BY data_cadastro DESC 
+LIMIT 10; 
+ 
 
-📌 Retorna os 10 clientes mais recentes.
+📌 Retorna os 10 clientes mais recentes. 
 
-💡 Boa prática: quase sempre use LIMIT junto com ORDER BY para garantir previsibilidade no resultado.
+💡 Boa prática: quase sempre use LIMIT junto com ORDER BY para garantir previsibilidade no  resultado. 
 
-LIMIT com OFFSET (introdução à paginação)
-SELECT *
-FROM pedidos
-ORDER BY data_pedido
-LIMIT 10 OFFSET 10;
+LIMIT com OFFSET (introdução à paginação) 
+SELECT * 
+FROM pedidos 
+ORDER BY data_pedido 
+LIMIT 10 OFFSET 10; 
+ 
 
+📌 Ignora os 10 primeiros registros e retorna os próximos 10. 
 
-📌 Ignora os 10 primeiros registros e retorna os próximos 10.
+📌 DISTINCT — Eliminando valores duplicados.
 
-📌 DISTINCT — Eliminando valores duplicados
-O que é o DISTINCT?
+O que é o DISTINCT?  
 
-O DISTINCT remove valores duplicados do resultado da consulta.
+O DISTINCT remove valores duplicados do resultado da consulta. 
 
-Ele age sobre as colunas selecionadas, não sobre a linha inteira.
+Ele age sobre as colunas selecionadas, não sobre a linha inteira. 
 
-Exemplo simples
-SELECT DISTINCT cidade
-FROM clientes;
+Exemplo simples 
+SELECT DISTINCT cidade 
+FROM clientes; 
 
 
-📌 Retorna apenas uma ocorrência de cada cidade, mesmo que existam vários clientes na mesma cidade.
+📌 Retorna apenas uma ocorrência de cada cidade, mesmo que existam vários clientes na mesma cidade. 
 
-DISTINCT em múltiplas colunas
-SELECT DISTINCT cidade, estado
-FROM clientes;
+DISTINCT em múltiplas colunas 
+SELECT DISTINCT cidade, estado 
+FROM clientes; 
 
 
-📌 A combinação cidade + estado precisa ser única.
+📌 A combinação cidade + estado precisa ser única. 
 
-⚠️ Importante:
-Se apenas uma coluna variar, o registro não será considerado duplicado.
+⚠️ Importante: 
+Se apenas uma coluna variar, o registro não será considerado duplicado. 
 
-Quando usar DISTINCT?
+Quando usar DISTINCT? 
 
-Listar categorias únicas
+Listar categorias únicas 
 
-Identificar variações de dados
+Identificar variações de dados 
 
-Evitar duplicações em relatórios
+Evitar duplicações em relatórios 
 
-Limpeza visual de resultados
+Limpeza visual de resultados.
 
-📌 ALIASES — Tornando consultas mais legíveis
-O que é um alias?
+📌 ALIASES — Tornando consultas mais legíveis.
 
-Um alias é um nome temporário dado a:
+O que é um alias? 
 
-Colunas
+Um alias é um nome temporário dado a: 
 
-Tabelas
+Colunas 
 
-Ele existe apenas durante a execução da consulta.
+Tabelas 
 
-🔹 Alias para colunas
-Exemplo simples
-SELECT nome AS cliente, email AS contato
-FROM clientes;
+Ele existe apenas durante a execução da consulta. 
 
+🔹 Alias para colunas 
+Exemplo simples 
+SELECT nome AS cliente, email AS contato 
+FROM clientes; 
 
-📌 O resultado exibirá as colunas com nomes mais claros.
 
-Alias sem o AS (válido no MySQL)
-SELECT nome cliente, email contato
-FROM clientes;
+📌 O resultado exibirá as colunas com nomes mais claros. 
 
+Alias sem o AS (válido no MySQL) 
+SELECT nome cliente, email contato 
+FROM clientes; 
 
-💡 Funciona da mesma forma, mas o uso de AS melhora a legibilidade.
 
-🔹 Alias para tabelas
+💡 Funciona da mesma forma, mas o uso de AS melhora a legibilidade. 
 
-Muito utilizado em consultas maiores, principalmente com JOIN.
+🔹 Alias para tabelas 
 
-SELECT c.nome, p.valor
-FROM clientes c
-JOIN pedidos p ON c.id = p.cliente_id;
+Muito utilizado em consultas maiores, principalmente com JOIN. 
 
+SELECT c.nome, p.valor 
+FROM clientes c 
+JOIN pedidos p ON c.id = p.cliente_id; 
 
-📌 Aqui:
+ 
+📌 Aqui: 
 
-c representa a tabela clientes
+c representa a tabela clientes 
 
-p representa a tabela pedidos
+p representa a tabela pedidos 
 
-Benefícios dos aliases
+Benefícios dos aliases 
 
-Código mais limpo
+Código mais limpo 
 
-Consultas mais curtas
+Consultas mais curtas 
 
-Melhor leitura em joins e subqueries
+Melhor leitura em joins e subqueries 
 
-Padrão profissional de escrita SQL.
+Padrão profissional de escrita SQL 
 
-🧠 Boas práticas deste módulo
+🧠 Boas práticas deste módulo 
 
-✅ Use LIMIT ao explorar dados
-✅ Combine LIMIT com ORDER BY
-✅ Use DISTINCT com atenção ao contexto
-✅ Sempre utilize aliases em consultas médias ou grandes
+✅ Use LIMIT ao explorar dados 
+✅ Combine LIMIT com ORDER BY 
+✅ Use DISTINCT com atenção ao contexto 
+✅ Sempre utilize aliases em consultas médias ou grandes 
 
-📎 Resumo rápido
-Conceito	Para que serve
-LIMIT	Controla quantidade de registros
-DISTINCT	Remove duplicações no resultado
-ALIAS	Melhora clareza e legibilidade.
+📎 Resumo rápido 
+Conceito	Para que serve 
+LIMIT	Controla quantidade de registros 
+DISTINCT	Remove duplicações no resultado 
+ALIAS	Melhora clareza e legibilidade. 
