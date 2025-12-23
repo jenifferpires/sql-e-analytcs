@@ -1,161 +1,156 @@
 LIMIT, DISTINCT e ALIASES
+🎯 Objetivo deste módulo
 
-Esses três recursos ajudam a controlar o volume de dados, evitar duplicidades e tornar as queries mais legíveis.
-São muito usados no dia a dia e fazem grande diferença na clareza das consultas. 
+Neste módulo você vai aprender três recursos fundamentais do SQL que ajudam a:
 
-LIMIT
-O que é?
+Controlar a quantidade de resultados retornados
 
-LIMIT é utilizado para restringir a quantidade de registros retornados por uma consulta.
+Eliminar dados duplicados
 
-É especialmente útil durante:
+Melhorar a legibilidade das consultas
 
-análises iniciais
+Esses conceitos são extremamente utilizados em ambientes reais de trabalho, especialmente em análises, relatórios e investigações de dados.
 
-testes
+📌 LIMIT — Controlando a quantidade de registros
+O que é o LIMIT?
 
-validação de dados
+O LIMIT define quantas linhas o banco de dados deve retornar no resultado da consulta.
+
+Ele não altera os dados, apenas controla a exibição dos resultados.
+
+Quando usar?
+
+Testar consultas sem retornar muitos dados
+
+Visualizar apenas os primeiros registros
+
+Trabalhar com paginação
+
+Evitar consultas pesadas em bases grandes
 
 Exemplo básico
-SELECT id, nome
+SELECT *
 FROM clientes
-LIMIT 10;
-
-
-Essa query retorna apenas os 10 primeiros registros da tabela.
-
-LIMIT com ORDER BY
-
-LIMIT quase sempre deve ser usado junto com ORDER BY,
-para garantir que os registros retornados façam sentido.
-
-SELECT id, data_criacao
-FROM pedidos
-ORDER BY data_criacao DESC
 LIMIT 5;
 
 
-Exemplo comum:
+🔎 O que acontece aqui?
+O banco retorna apenas os 5 primeiros registros da tabela clientes.
 
-buscar os últimos registros criados
+LIMIT com ORDER BY (uso mais comum)
+SELECT nome, data_cadastro
+FROM clientes
+ORDER BY data_cadastro DESC
+LIMIT 10;
 
-Erros comuns com LIMIT
 
-Usar LIMIT sem ORDER BY
+📌 Retorna os 10 clientes mais recentes.
 
-Esquecer de remover LIMIT em queries finais
+💡 Boa prática: quase sempre use LIMIT junto com ORDER BY para garantir previsibilidade no resultado.
 
-Achar que LIMIT melhora performance (ele só limita o retorno) 
+LIMIT com OFFSET (introdução à paginação)
+SELECT *
+FROM pedidos
+ORDER BY data_pedido
+LIMIT 10 OFFSET 10;
 
-DISTINCT
-O que é?
 
-DISTINCT é utilizado para eliminar registros duplicados no resultado de uma consulta.
+📌 Ignora os 10 primeiros registros e retorna os próximos 10.
 
-Ele atua sobre o conjunto de colunas selecionadas.
+📌 DISTINCT — Eliminando valores duplicados
+O que é o DISTINCT?
 
-Exemplo básico
+O DISTINCT remove valores duplicados do resultado da consulta.
+
+Ele age sobre as colunas selecionadas, não sobre a linha inteira.
+
+Exemplo simples
 SELECT DISTINCT cidade
 FROM clientes;
 
 
-Essa query retorna:
+📌 Retorna apenas uma ocorrência de cada cidade, mesmo que existam vários clientes na mesma cidade.
 
-lista de cidades sem repetição 
-
-DISTINCT com múltiplas colunas 
+DISTINCT em múltiplas colunas
 SELECT DISTINCT cidade, estado
 FROM clientes;
 
 
-Nesse caso, a combinação cidade + estado deve ser única. 
+📌 A combinação cidade + estado precisa ser única.
 
-Quando usar DISTINCT
+⚠️ Importante:
+Se apenas uma coluna variar, o registro não será considerado duplicado.
 
-Identificar valores únicos
+Quando usar DISTINCT?
 
-Gerar listas para filtros
+Listar categorias únicas
 
-Evitar duplicidade em relatórios 
+Identificar variações de dados
 
-Erros comuns com DISTINCT 
+Evitar duplicações em relatórios
 
-Usar DISTINCT sem entender o motivo da duplicidade
+Limpeza visual de resultados
 
-Achar que DISTINCT substitui GROUP BY
+📌 ALIASES — Tornando consultas mais legíveis
+O que é um alias?
 
-Usar DISTINCT como “correção rápida” de JOIN mal feito
+Um alias é um nome temporário dado a:
 
-ALIASES (AS)
-O que é?
+Colunas
 
-Aliases permitem renomear colunas ou tabelas temporariamente dentro da query.
+Tabelas
 
-Eles não alteram o nome real no banco.
+Ele existe apenas durante a execução da consulta.
 
-Alias para colunas
-SELECT nome AS nome_cliente,
-       email AS email_cliente
+🔹 Alias para colunas
+Exemplo simples
+SELECT nome AS cliente, email AS contato
 FROM clientes;
 
 
-Isso melhora:
+📌 O resultado exibirá as colunas com nomes mais claros.
 
-legibilidade
+Alias sem o AS (válido no MySQL)
+SELECT nome cliente, email contato
+FROM clientes;
 
-entendimento por quem lê o resultado
 
-Alias para tabelas
-SELECT c.nome, p.id
+💡 Funciona da mesma forma, mas o uso de AS melhora a legibilidade.
+
+🔹 Alias para tabelas
+
+Muito utilizado em consultas maiores, principalmente com JOIN.
+
+SELECT c.nome, p.valor
 FROM clientes c
-JOIN pedidos p ON p.cliente_id = c.id;
+JOIN pedidos p ON c.id = p.cliente_id;
 
 
-Muito usado em:
+📌 Aqui:
 
-JOINs
+c representa a tabela clientes
 
-queries maiores
+p representa a tabela pedidos
 
-consultas complexas
+Benefícios dos aliases
 
-Boas práticas com aliases
+Código mais limpo
 
-Use nomes curtos e claros
+Consultas mais curtas
 
-Evite abreviações confusas
+Melhor leitura em joins e subqueries
 
-Seja consistente ao longo da query
+Padrão profissional de escrita SQL.
 
-Erros comuns com aliases 
+🧠 Boas práticas deste módulo
 
-Usar aliases que não fazem sentido
+✅ Use LIMIT ao explorar dados
+✅ Combine LIMIT com ORDER BY
+✅ Use DISTINCT com atenção ao contexto
+✅ Sempre utilize aliases em consultas médias ou grandes
 
-Misturar alias e nome real da tabela
-
-Esquecer de usar o alias após defini-lo.
-
-
-Ligação com o mundo real:
-
-No dia a dia de trabalho, esses recursos são usados para:
-
-analisar dados sem sobrecarregar o banco.
-
-gerar relatórios mais limpos.
-
-facilitar leitura por outras pessoas do time.
-
-validar rapidamente informações em produção.
-
-Eles ajudam a escrever queries mais seguras e profissionais. 
-
-Resumo rápido
-
-LIMIT → controla quantidade de registros
-
-DISTINCT → remove duplicidades
-
-ALIASES → melhoram clareza e leitura
-
-Pequenos recursos que fazem grande diferença
+📎 Resumo rápido
+Conceito	Para que serve
+LIMIT	Controla quantidade de registros
+DISTINCT	Remove duplicações no resultado
+ALIAS	Melhora clareza e legibilidade.
