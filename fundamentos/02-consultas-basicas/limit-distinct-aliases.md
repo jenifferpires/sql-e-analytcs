@@ -12,48 +12,58 @@ Melhorar a legibilidade das consultas
 
 Esses conceitos são extremamente utilizados em ambientes reais de trabalho, especialmente em  análises, relatórios e investigações de dados. 
 
-📌 LIMIT — Controlando a quantidade de registros 
+📌 LIMIT — Controlando a quantidade de registros.
+
 O que é o LIMIT? 
 
 O LIMIT define quantas linhas o banco de dados deve retornar no resultado da consulta. 
 
 Ele não altera os dados, apenas controla a exibição dos resultados. 
 
-Quando usar? 
-
-Testar consultas sem retornar muitos dados 
-
-Visualizar apenas os primeiros registros 
-
-Trabalhar com paginação 
-
-Evitar consultas pesadas em bases grandes 
+💡Quando usar?  
+ 
+Testar consultas sem retornar muitos dados  
+Visualizar apenas os primeiros registros  
+Trabalhar com paginação  
+Evitar consultas pesadas em bases grandes  
 
 Exemplo básico:  
+
+```sql
 SELECT * 
 FROM clientes 
 LIMIT 5;  
 
+```
 
-🔎 O que acontece aqui? 
+
+🔎 O que acontece aqui?  
+
 O banco retorna apenas os 5 primeiros registros da tabela clientes. 
 
-LIMIT com ORDER BY (uso mais comum) 
-SELECT nome, data_cadastro 
-FROM clientes 
-ORDER BY data_cadastro DESC 
+LIMIT com ORDER BY (uso mais comum)  
+
+```sql
+SELECT nome, data_cadastro  
+FROM clientes  
+ORDER BY data_cadastro DESC  
 LIMIT 10; 
- 
+
+```
+
 
 📌 Retorna os 10 clientes mais recentes. 
 
-💡 Boa prática: quase sempre use LIMIT junto com ORDER BY para garantir previsibilidade no  resultado. 
+🧠 Boa prática: quase sempre use LIMIT junto com ORDER BY para garantir previsibilidade no  resultado. 
 
 LIMIT com OFFSET (introdução à paginação) 
+
+```sql
 SELECT * 
 FROM pedidos 
 ORDER BY data_pedido 
 LIMIT 10 OFFSET 10; 
+```
  
 
 📌 Ignora os 10 primeiros registros e retorna os próximos 10. 
@@ -66,16 +76,23 @@ O DISTINCT remove valores duplicados do resultado da consulta.
 
 Ele age sobre as colunas selecionadas, não sobre a linha inteira. 
 
-Exemplo simples 
+Exemplo simples :
+
+```sql
 SELECT DISTINCT cidade 
 FROM clientes; 
+```
 
 
 📌 Retorna apenas uma ocorrência de cada cidade, mesmo que existam vários clientes na mesma cidade. 
 
-DISTINCT em múltiplas colunas 
+DISTINCT em múltiplas colunas:7
+
+```sql
 SELECT DISTINCT cidade, estado 
 FROM clientes; 
+```
+
 
 
 📌 A combinação cidade + estado precisa ser única. 
@@ -83,7 +100,7 @@ FROM clientes;
 ⚠️ Importante: 
 Se apenas uma coluna variar, o registro não será considerado duplicado. 
 
-Quando usar DISTINCT? 
+💡Quando usar DISTINCT? 
 
 Listar categorias únicas 
 
