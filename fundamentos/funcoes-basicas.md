@@ -1,243 +1,221 @@
-Funções Básicas (COUNT, SUM, AVG, MIN, MAX)
+Funções Básicas 
+(COUNT, SUM, AVG, MIN, MAX)
 
-As funções básicas de agregação permitem resumir e analisar dados.
-Elas transformam vários registros em informação útil.
+As funções básicas de agregação permitem resumir e analisar dados. 
+Elas transformam vários registros em informação útil. 
 
-São essenciais para:
+São essenciais para: 
 
-Relatórios.
-Análises rápidas.
-validações em produção.
+Relatórios. 
+
+Análises rápidas. 
+validações em produção. 
 Apoio à tomada de decisão.
 
----
+--- 
 
-COUNT
-O que é?
+COUNT 
+O que é? 
 
-COUNT é usado para contar registros.
+COUNT é usado para contar registros. 
 
-Exemplo básico:
+Exemplo básico: 
 
-SELECT COUNT(*)
+SELECT COUNT(*) 
+FROM clientes; 
 
-FROM clientes;
+Retorna: 
 
-Retorna:
+total de registros da tabela clientes. 
 
-total de registros da tabela clientes.
+--- 
 
----
+COUNT com condição: 
 
-COUNT com condição:
+SELECT COUNT(*) 
+FROM clientes 
+WHERE ativo = 1; 
 
-SELECT COUNT(*)
+Retorna: 
 
-FROM clientes
+total de clientes ativos. 
 
-WHERE ativo = 1;
+--- 
 
-Retorna:
+COUNT em coluna específica: 
 
-total de clientes ativos.
+SELECT COUNT(email) 
+FROM clientes;  
+Conta apenas registros onde email não é NULL. 
 
----
+--- 
 
-COUNT em coluna específica:
+Erros comuns com COUNT: 
 
-SELECT COUNT(email)
+Achar que COUNT(coluna) conta todos os registros. 
+Não considerar valores NULL. 
+Usar COUNT sem WHERE em tabelas grandes sem necessidade. 
 
-FROM clientes;
+--- 
 
-Conta apenas registros onde email não é NULL.
+SUM 
+O que é? 
 
----
+SUM é usado para somar valores numéricos. 
 
-Erros comuns com COUNT:
+--- 
 
-Achar que COUNT(coluna) conta todos os registros.
-Não considerar valores NULL.
-Usar COUNT sem WHERE em tabelas grandes sem necessidade.
+Exemplo básico: 
 
----
+SELECT SUM(valor) 
+FROM pedidos; 
 
-SUM
-O que é?
+Retorna: 
 
-SUM é usado para somar valores numéricos.
+soma total do valor dos pedidos. 
 
----
+--- 
 
-Exemplo básico:
+SUM com filtro: 
 
-SELECT SUM(valor)
+SELECT SUM(valor) 
+FROM pedidos 
+WHERE status = 'PAGO'; 
 
-FROM pedidos;
+Muito comum em relatórios financeiros. 
 
-Retorna:
+--- 
 
-soma total do valor dos pedidos.
+Erros comuns com SUM 
 
----
+Usar SUM em colunas não numéricas. 
+Não filtrar dados corretamente. 
+Somar valores que já estão agregados. 
 
-SUM com filtro:
+--- 
 
-SELECT SUM(valor)
+AVG 
+O que é? 
 
-FROM pedidos
+AVG calcula a média dos valores. 
 
-WHERE status = 'PAGO';
+--- 
 
-Muito comum em relatórios financeiros.
+Exemplo básico: 
 
----
+SELECT AVG(valor) 
+FROM pedidos; 
 
-Erros comuns com SUM
+Retorna: 
 
-Usar SUM em colunas não numéricas.
-Não filtrar dados corretamente.
-Somar valores que já estão agregados.
+valor médio dos pedidos. 
 
----
+--- 
 
-AVG
-O que é?
+AVG com filtro: 
 
-AVG calcula a média dos valores.
+SELECT AVG(valor) 
+FROM pedidos 
+WHERE status = 'PAGO'; 
 
----
+--- 
 
-Exemplo básico:
+Observação importante: 
 
-SELECT AVG(valor)
+AVG ignora valores NULL, o que pode impactar a análise. 
 
-FROM pedidos;
+--- 
 
-Retorna:
+Erros comuns com AVG: 
 
-valor médio dos pedidos.
+Não considerar valores NULL. 
+Usar AVG sem entender o contexto dos dados. 
+Comparar médias sem filtros adequados. 
 
----
+--- 
 
-AVG com filtro:
+MIN e MAX 
+O que são? 
 
-SELECT AVG(valor)
+MIN → menor valor 
+MAX → maior valor 
 
-FROM pedidos
 
-WHERE status = 'PAGO';
+Funcionam com: 
 
----
+números 
+datas 
+textos (ordem alfabética) 
 
-Observação importante:
+--- 
 
-AVG ignora valores NULL, o que pode impactar a análise.
+Exemplo básico: 
 
----
+SELECT MIN(valor),  
+MAX(valor) 
+FROM pedidos; 
 
-Erros comuns com AVG:
+--- 
 
-Não considerar valores NULL.
-Usar AVG sem entender o contexto dos dados.
-Comparar médias sem filtros adequados.
+MIN e MAX com datas 
 
----
+SELECT MIN(data_criacao),  
+MAX(data_criacao) 
+FROM pedidos; 
 
-MIN e MAX
-O que são?
 
-MIN → menor valor
+Muito usado para: 
 
-MAX → maior valor
+Identificar períodos 
+verificar dados antigos ou recentes. 
 
+--- 
 
-Funcionam com:
+Erros comuns com MIN e MAX 
 
-números
-datas
-textos (ordem alfabética)
+Não entender como funcionam com texto. 
+Esquecer filtros importantes. 
+Usar sem contexto (valor mínimo de quê?). 
 
----
+--- 
 
-Exemplo básico:
+Usando aliases com funções 
 
-SELECT MIN(valor), 
+É uma boa prática usar aliases para dar nomes claros aos resultados. 
 
-MAX(valor)
+SELECT  
 
-FROM pedidos;
+  COUNT(*) AS total_pedidos, 
+  SUM(valor) AS valor_total, 
+  AVG(valor) AS valor_medio 
+FROM pedidos 
+WHERE status = 'PAGO'; 
 
----
+Isso deixa o resultado: 
 
-MIN e MAX com datas
+Mais legível. 
+Mais fácil de interpretar. 
+Melhor para relatórios. 
 
-SELECT MIN(data_criacao), 
+--- 
 
-MAX(data_criacao)
+No dia a dia de trabalho, funções básicas são usadas para: 
 
-FROM pedidos;
+Contar registros impactados em incidentes.
+Validar volumes de dados. 
+Gerar métricas rápidas. 
+Apoiar decisões técnicas e de negócio. 
 
+São funções simples, mas extremamente poderosas. 
 
-Muito usado para:
+--- 
 
-Identificar períodos
-verificar dados antigos ou recentes.
+Resumo rápido: 
 
----
+COUNT → quantidade de registros. 
+SUM → soma de valores. 
+AVG → média. 
+MIN / MAX → menor e maior valor. 
+Sempre usar com contexto e filtros. 
 
-Erros comuns com MIN e MAX
-
-Não entender como funcionam com texto.
-Esquecer filtros importantes.
-Usar sem contexto (valor mínimo de quê?).
-
----
-
-Usando aliases com funções
-
-É uma boa prática usar aliases para dar nomes claros aos resultados.
-
-SELECT 
-
-  COUNT(*) AS total_pedidos,
-
-  SUM(valor) AS valor_total,
-
-  AVG(valor) AS valor_medio
-
-FROM pedidos
-
-WHERE status = 'PAGO';
-
-Isso deixa o resultado:
-
-Mais legível.
-Mais fácil de interpretar.
-Melhor para relatórios.
-
----
-
-No dia a dia de trabalho, funções básicas são usadas para:
-
-Contar registros impactados em incidentes
-Validar volumes de dados
-Gerar métricas rápidas
-Apoiar decisões técnicas e de negócio
-
-São funções simples, mas extremamente poderosas.
-
----
-
-Resumo rápido:
-
-COUNT → quantidade de registros.
-
-SUM → soma de valores.
-
-AVG → média.
-
-MIN / MAX → menor e maior valor.
-
-Sempre usar com contexto e filtros.
-
----
+--- 
