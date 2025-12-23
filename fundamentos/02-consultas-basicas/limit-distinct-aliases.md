@@ -177,7 +177,8 @@ Padrão profissional de escrita SQL
 
 📎 Resumo rápido : 
 
-Conceito       	Para que serve.                
-LIMITC         Controla quantidade de registros. 
-DISTINCT	   Remove duplicações no resultado.    
-ALIAS	       Melhora clareza e legibilidade.     
+Conceito          	Para que serve.         
+
+LIMITC            Controla quantidade de registros.    
+DISTINCT	     Remove duplicações no resultado.              
+ALIAS	          Melhora clareza e legibilidade.               
