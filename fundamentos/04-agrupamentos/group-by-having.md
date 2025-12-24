@@ -1,166 +1,153 @@
+# GROUP BY e HAVING
 
-GROUP BY e HAVING
+Neste módulo, vamos aprofundar o uso de **agrupamentos em SQL**, que permitem
+resumir dados e extrair informações analíticas a partir de grandes volumes
+de registros.
 
-GROUP BY e HAVING são usados para agrupar dados e aplicar filtros sobre resultados agregados.
-Eles são essenciais para relatórios, métricas e análises.
+Esses conceitos são amplamente utilizados em relatórios, dashboards
+e análises de negócio no dia a dia profissional.
 
-GROUP BY
-O que é?
+---
 
-GROUP BY agrupa registros com valores iguais em uma ou mais colunas,
-permitindo o uso de funções de agregação como COUNT, SUM e AVG.
+## 📌 O que é GROUP BY?
 
-Em termos simples:
-👉 transforma vários registros em resumos organizados.
+O `GROUP BY` é utilizado para **agrupar linhas que possuem valores iguais**
+em uma ou mais colunas, permitindo a aplicação de **funções de agregação**
+sobre esses grupos.
 
-Exemplo básico
-SELECT status, COUNT(*) AS total
+Em outras palavras, ele transforma dados detalhados em **dados resumidos**.
+
+### Exemplo de pergunta respondida com GROUP BY:
+- Quantos pedidos existem por cliente?
+- Qual o total de vendas por mês?
+- Qual a média salarial por departamento?
+
+---
+
+## 🧠 Sintaxe básica
+
+```sql
+SELECT coluna_agrupamento, FUNCAO_AGREGACAO(coluna)
+FROM tabela
+GROUP BY coluna_agrupamento;
+
+🔹 Toda coluna no SELECT que não estiver dentro de uma função de agregação
+precisa aparecer no GROUP BY.
+
+🔢 Funções de agregação mais usadas
+Função	Descrição
+COUNT()	Conta registros
+SUM()	Soma valores
+AVG()	Calcula média
+MIN()	Retorna o menor valor
+MAX()	Retorna o maior valor
+
+📊 Exemplos práticos de GROUP BY
+1️⃣ Contar registros por grupo
+
+SELECT status, COUNT(*) AS total_pedidos
 FROM pedidos
 GROUP BY status;
 
+➡️ Retorna a quantidade de pedidos para cada status.
 
-Resultado:
+2️⃣ Soma de valores por categoria
 
-quantidade de pedidos por status
+SELECT categoria, SUM(valor) AS total_vendas
+FROM produtos
+GROUP BY categoria;
 
-GROUP BY com mais de uma coluna
-SELECT cidade, status, COUNT(*) AS total
-FROM clientes
-GROUP BY cidade, status;
+➡️ Mostra o total de vendas por categoria de produto.
 
+3️⃣ Média por grupo
 
-Agrupa:
+SELECT departamento, AVG(salario) AS salario_medio
+FROM funcionarios
+GROUP BY departamento;
 
-clientes por cidade e status
+➡️ Calcula o salário médio por departamento.
 
-Regra importante do GROUP BY
+📌 GROUP BY com múltiplas colunas
+É possível agrupar por mais de uma coluna, criando grupos mais específicos.
 
-Toda coluna presente no SELECT que não esteja dentro de uma função
-de agregação deve estar no GROUP BY.
+SELECT departamento, cargo, AVG(salario) AS media_salarial
+FROM funcionarios
+GROUP BY departamento, cargo;
 
-❌ Exemplo inválido:
+➡️ Cada combinação de departamento + cargo será tratada como um grupo distinto.
 
-SELECT status, data_criacao, COUNT(*)
-FROM pedidos
-GROUP BY status;
+⚠️ Erro comum com GROUP BY
+❌ Erro clássico:
 
+SELECT departamento, nome, AVG(salario)
+FROM funcionarios
+GROUP BY departamento;
 
-✅ Exemplo correto:
+➡️ nome não está nem em função de agregação nem no GROUP BY.
 
-SELECT status, COUNT(*)
-FROM pedidos
-GROUP BY status;
+✅ Correção:
 
-Erros comuns com GROUP BY
+Remover a coluna
+Ou adicioná-la ao GROUP BY
+Ou aplicar uma função sobre ela.
 
-Esquecer colunas no GROUP BY
+🎯 O que é HAVING?
+O HAVING é usado para filtrar resultados após o agrupamento.
 
-Agrupar dados sem entender o objetivo
+👉 Enquanto o WHERE filtra linhas antes do GROUP BY,
+👉 o HAVING filtra grupos depois do GROUP BY.
 
-Criar agrupamentos que não fazem sentido para a análise
+🔍 Diferença entre WHERE e HAVING
+WHERE	HAVING
+Filtra linhas	Filtra grupos
+Executado antes do GROUP BY	Executado após o GROUP BY
+Não usa funções de agregação	Usa funções de agregação.
 
-Confundir GROUP BY com ORDER BY
+📊 Exemplos práticos com HAVING
+1️⃣ Grupos com mais de X registros
 
-HAVING
-O que é?
-
-HAVING é usado para filtrar resultados após o agrupamento.
-
-Enquanto:
-
-WHERE filtra registros
-
-HAVING filtra grupos
-
-Exemplo básico
-SELECT status, COUNT(*) AS total
-FROM pedidos
-GROUP BY status
-HAVING COUNT(*) > 10;
-
-
-Retorna:
-
-apenas status com mais de 10 pedidos
-
-HAVING com SUM
-SELECT cliente_id, SUM(valor) AS total_gasto
+SELECT cliente_id, COUNT(*) AS total_pedidos
 FROM pedidos
 GROUP BY cliente_id
-HAVING SUM(valor) > 5000;
+HAVING COUNT(*) > 5;
 
+➡️ Retorna apenas clientes com mais de 5 pedidos.
 
-Muito usado para:
+2️⃣ Soma acima de um valor específico
 
-identificar clientes relevantes
+SELECT categoria, SUM(valor) AS total_vendas
+FROM produtos
+GROUP BY categoria
+HAVING SUM(valor) > 10000;
 
-análises financeiras
+➡️ Mostra apenas categorias com vendas acima de 10.000.
 
-WHERE x HAVING (comparação clara)
-WHERE	HAVING
-Filtra registros	Filtra grupos
-Antes do GROUP BY	Depois do GROUP BY
-Não usa agregação	Usa agregação
+🔄 Combinando WHERE + GROUP BY + HAVING
 
-📌 Sempre que possível:
+SELECT departamento, AVG(salario) AS salario_medio
+FROM funcionarios
+WHERE ativo = 1
+GROUP BY departamento
+HAVING AVG(salario) > 5000;
 
-use WHERE para reduzir dados antes
+Fluxo de execução:
+1️⃣ WHERE filtra funcionários ativos
+2️⃣ GROUP BY agrupa por departamento
+3️⃣ HAVING filtra departamentos com média salarial alta
 
-use HAVING apenas para filtros agregados
+🧩 Boas práticas
+✔ Use WHERE sempre que possível para reduzir o volume de dados
+✔ Use HAVING apenas para condições sobre agregações
+✔ Nomeie colunas agregadas com AS para melhorar a leitura
+✔ Evite SELECT * em queries com GROUP BY
 
-Erros comuns com HAVING
+📎 Conclusão:
 
-Usar HAVING no lugar de WHERE
+GROUP BY permite transformar dados brutos em informações resumidas
 
-Criar filtros complexos sem necessidade
+Funções de agregação são essenciais para análises
 
-Esquecer que HAVING depende de GROUP BY
+HAVING complementa o GROUP BY filtrando resultados agregados
 
-Exemplo completo (fluxo real)
-SELECT status,
-       COUNT(*) AS total_pedidos,
-       SUM(valor) AS valor_total
-FROM pedidos
-WHERE data_criacao >= '2024-01-01'
-GROUP BY status
-HAVING SUM(valor) > 10000
-ORDER BY valor_total DESC;
+Esse conjunto é a base de queries analíticas e relatórios profissionais.
 
-
-Raciocínio da query:
-
-Filtra pedidos recentes (WHERE)
-
-Agrupa por status (GROUP BY)
-
-Calcula métricas
-
-Filtra grupos relevantes (HAVING)
-
-Ordena o resultado
-
-Ligação com o mundo real
-
-No dia a dia, GROUP BY e HAVING são usados para:
-
-gerar relatórios gerenciais
-
-analisar volumes e métricas
-
-identificar padrões
-
-apoiar decisões estratégicas
-
-investigar problemas em produção
-
-Eles são base para dashboards e análises mais avançadas.
-
-Resumo rápido:
-
-GROUP BY → agrupa dados
-
-HAVING → filtra grupos
-
-WHERE → filtra registros
-
-Juntos, permitem análises completas.
