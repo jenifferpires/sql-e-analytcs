@@ -51,9 +51,9 @@ Considere uma tabela `pedidos` com:
 
 ---
 
-## 🔵 Desafio
+## 🔵 Desafios:
 
-Considere uma tabela `funcionarios` com:
+.1 Considere uma tabela `funcionarios` com:
 
 - `nome`
 - `salario`
@@ -62,6 +62,16 @@ Considere uma tabela `funcionarios` com:
 1. Calcule quantos anos o funcionário está na empresa.
 2. Retorne o salário arredondado para o valor inteiro mais próximo.
 3. Exiba o nome do funcionário junto com o ano de admissão.
+
+.2 O time de RH precisa de um relatório com:
+- Nome do cliente
+- Idade
+- Salário formatado
+- Email tratado (sem valores nulos)
+
+Crie uma query que entregue essas informações de forma clara e organizada.
+
+💡 **Dica:** Combine funções de texto, numéricas, datas e tratamento de NULL.
 
 ---
 

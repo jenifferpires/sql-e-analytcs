@@ -1,198 +1,129 @@
-Funções Básicas (COUNT, SUM, AVG, MIN, MAX)
+# Funções Básicas em SQL  
 
-As funções básicas de agregação permitem resumir e analisar dados.
-Elas transformam vários registros em informação útil.
+As funções básicas em SQL permitem **manipular, transformar e analisar dados** diretamente nas consultas, sem necessidade de processamento adicional na aplicação.
 
-São essenciais para:
+Elas são amplamente utilizadas para:
+- Ajustar formatos de dados
+- Realizar cálculos
+- Tratar valores nulos
+- Trabalhar com textos e datas
+- Preparar dados para relatórios e análises
 
-relatórios
+Neste módulo, o foco é **entendimento conceitual + uso prático**, sempre pensando em cenários reais de trabalho.
 
-análises rápidas
+---
 
-validações em produção
+## 📌 O que são funções em SQL?
 
-apoio à tomada de decisão
+Uma função é uma **instrução que recebe valores como entrada**, processa esses valores e **retorna um resultado**.
 
-COUNT
-O que é?
+Estrutura geral:  
 
-COUNT é usado para contar registros.
+```sql  
+FUNCAO(coluna_ou_valor) 
+``` 
 
-Exemplo básico
-SELECT COUNT(*) 
-FROM clientes;
+Exemplo simples:
 
+```SQL 
+SELECT UPPER(nome) FROM clientes;
 
-Retorna:
+🔢 Funções Numéricas
+Usadas para realizar cálculos matemáticos em colunas numéricas.
 
-total de registros da tabela clientes
+Principais funções:
 
-COUNT com condição
-SELECT COUNT(*) 
-FROM clientes
-WHERE ativo = 1;
+Função	Descrição
+SUM()	Soma valores
+AVG()	Calcula média
+MIN()	Retorna o menor valor
+MAX()	Retorna o maior valor
+ROUND()	Arredonda números
+ABS()	Valor absoluto
 
-
-Retorna:
-
-total de clientes ativos
-
-COUNT em coluna específica
-SELECT COUNT(email)
-FROM clientes;
-
-
-Conta apenas registros onde email não é NULL.
-
-Erros comuns com COUNT
-
-Achar que COUNT(coluna) conta todos os registros
-
-Não considerar valores NULL
-
-Usar COUNT sem WHERE em tabelas grandes sem necessidade
-
-SUM
-O que é?
-
-SUM é usado para somar valores numéricos.
-
-Exemplo básico
-SELECT SUM(valor)
-FROM pedidos;
-
-
-Retorna:
-
-soma total do valor dos pedidos
-
-SUM com filtro
-SELECT SUM(valor)
-FROM pedidos
-WHERE status = 'PAGO';
-
-
-Muito comum em relatórios financeiros.
-
-Erros comuns com SUM
-
-Usar SUM em colunas não numéricas
-
-Não filtrar dados corretamente
-
-Somar valores que já estão agregados
-
-AVG
-O que é?
-
-AVG calcula a média dos valores.
-
-Exemplo básico
-SELECT AVG(valor)
-FROM pedidos;
-
-
-Retorna:
-
-valor médio dos pedidos
-
-AVG com filtro
-SELECT AVG(valor)
-FROM pedidos
-WHERE status = 'PAGO';
-
-Observação importante
-
-AVG ignora valores NULL, o que pode impactar a análise.
-
-Erros comuns com AVG
-
-Não considerar valores NULL
-
-Usar AVG sem entender o contexto dos dados
-
-Comparar médias sem filtros adequados
-
-MIN e MAX
-O que são?
-
-MIN → menor valor
-
-MAX → maior valor
-
-Funcionam com:
-
-números
-
-datas
-
-textos (ordem alfabética)
-
-Exemplo básico
-SELECT MIN(valor), MAX(valor)
-FROM pedidos;
-
-MIN e MAX com datas
-SELECT MIN(data_criacao), MAX(data_criacao)
-FROM pedidos;
-
-
-Muito usado para:
-
-identificar períodos
-
-verificar dados antigos ou recentes
-
-Erros comuns com MIN e MAX
-
-Não entender como funcionam com texto
-
-Esquecer filtros importantes
-
-Usar sem contexto (valor mínimo de quê?)
-
-Usando aliases com funções
-
-É uma boa prática usar aliases para dar nomes claros aos resultados.
+Exemplo prático:
 
 SELECT 
-  COUNT(*) AS total_pedidos,
-  SUM(valor) AS valor_total,
-  AVG(valor) AS valor_medio
-FROM pedidos
-WHERE status = 'PAGO';
+  SUM(valor) AS total_vendas,
+  AVG(valor) AS media_vendas
+FROM pedidos;
 
+🔤 Funções de Texto (Strings)
+Utilizadas para manipulação e padronização de textos, muito comuns em cadastros.
 
-Isso deixa o resultado:
+Principais funções: 
 
-mais legível
+Função	Descrição
+UPPER()	Converte para maiúsculas
+LOWER()	Converte para minúsculas
+LENGTH()	Conta caracteres
+CONCAT()	Junta textos
+SUBSTRING()	Extrai parte do texto
+TRIM()	Remove espaços
 
-mais fácil de interpretar
+Exemplo prático: 
 
-melhor para relatórios
+SELECT 
+  UPPER(nome) AS nome_maiusculo,
+  LENGTH(email) AS tamanho_email
+FROM usuarios;
 
-Ligação com o mundo real
+📅 Funções de Data e Hora
+Permitem manipular datas para análises temporais, filtros e relatórios.
 
-No dia a dia de trabalho, funções básicas são usadas para:
+Principais funções (MySQL) 
 
-contar registros impactados em incidentes
+Função	Descrição
+NOW()	Data e hora atual
+CURDATE()	Data atual
+YEAR()	Extrai o ano
+MONTH()	Extrai o mês
+DATEDIFF()	Diferença entre datas
 
-validar volumes de dados
+Exemplo prático:
 
-gerar métricas rápidas
+SELECT 
+  pedido_id,
+  DATEDIFF(CURDATE(), data_pedido) AS dias_desde_pedido
+FROM pedidos;
 
-apoiar decisões técnicas e de negócio
+⚠️ Tratamento de Valores Nulos (NULL)
+Valores NULL representam ausência de dado, e precisam de atenção especial.
 
-São funções simples, mas extremamente poderosas.
+Funções importantes: 
+Função	Descrição
+IS NULL	Verifica se é nulo
+IS NOT NULL	Verifica se não é nulo
+IFNULL()	Substitui NULL por outro valor
+COALESCE()	Retorna o primeiro valor não nulo
 
-Resumo rápido
+Exemplo prático:
 
-COUNT → quantidade de registros
+SELECT 
+  nome,
+  IFNULL(telefone, 'Não informado') AS telefone
+FROM clientes;
 
-SUM → soma de valores
+🧠 Funções + SELECT
+Funções são frequentemente combinadas com SELECT, WHERE, ORDER BY e GROUP BY.
 
-AVG → média
+Exemplo combinando conceitos:
 
-MIN / MAX → menor e maior valor
+SELECT 
+  UPPER(categoria) AS categoria,
+  ROUND(AVG(preco), 2) AS preco_medio
+FROM produtos
+GROUP BY categoria
+ORDER BY preco_medio DESC;
 
-Sempre usar com contexto e filtros.
+💼 Cenário real de uso
+Em um ambiente corporativo, funções SQL são usadas para:
+
+Criar relatórios consolidados
+Ajustar dados inconsistentes
+Preparar informações para dashboards
+Reduzir processamento na aplicação
+Garantir padronização de dados
+
+Dominar funções básicas é essencial para evoluir para consultas avançadas e analíticas.
+
