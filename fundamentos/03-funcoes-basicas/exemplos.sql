@@ -1,87 +1,86 @@
 /*
-===========================================
-FUNÇÕES BÁSICAS - EXEMPLOS PRÁTICOS (MySQL)
-===========================================
+============================================================
+       FUNÇÕES BÁSICAS - EXEMPLOS PRÁTICOS (MySQL)
+============================================================
 
-Este arquivo contém exemplos de:
+Este arquivo contém exemplos aplicados de:
 - Funções numéricas
 - Funções de texto
 - Funções de data
 - Tratamento de valores NULL
 
-Utilize junto com uma tabela de exemplo, como:
-clientes(id, nome, salario, data_nascimento, email, data_cadastro)
-
+Base de dados sugerida: 
+clientes(id, nome, salario, data_nascimento, email, data_cadastro) 
 */
 
---------------------------------------------------
+-- ---------------------------------------------------------
 -- 1. FUNÇÕES NUMÉRICAS
---------------------------------------------------
+-- ---------------------------------------------------------
 
--- Arredondar valores
+-- Arredondar valores (2 casas decimais)
 SELECT
     salario,
     ROUND(salario, 2) AS salario_arredondado
 FROM clientes;
 
--- Valor absoluto
+-- Valor absoluto (remove sinal de negativo)
 SELECT
     salario,
     ABS(salario) AS salario_absoluto
 FROM clientes;
 
--- Maior e menor valor
+-- Maior e menor valor do conjunto
 SELECT
     MAX(salario) AS maior_salario,
     MIN(salario) AS menor_salario
 FROM clientes;
 
--- Média e soma
+-- Média e soma total
 SELECT
     AVG(salario) AS media_salarial,
     SUM(salario) AS total_salarios
 FROM clientes;
 
 
---------------------------------------------------
+-- ---------------------------------------------------------
 -- 2. FUNÇÕES DE TEXTO
---------------------------------------------------
+-- ---------------------------------------------------------
 
--- Converter texto
+-- Converter texto para maiúsculo e minúsculo
 SELECT
     nome,
     UPPER(nome) AS nome_maiusculo,
     LOWER(nome) AS nome_minusculo
 FROM clientes;
 
--- Concatenar campos
+-- Concatenar campos (Juntar textos)
 SELECT
     CONCAT(nome, ' - ', email) AS identificacao
 FROM clientes;
 
--- Tamanho do texto
+-- Tamanho do texto (quantidade de caracteres)
 SELECT
     nome,
     LENGTH(nome) AS tamanho_nome
 FROM clientes;
 
--- Extrair parte do texto
+-- Extrair parte do texto (Início, posição_inicial, quantidade)
 SELECT
     nome,
     SUBSTRING(nome, 1, 5) AS inicio_nome
 FROM clientes;
 
 
---------------------------------------------------
+-- ---------------------------------------------------------
 -- 3. FUNÇÕES DE DATA
---------------------------------------------------
+-- ---------------------------------------------------------
 
--- Data atual
+-- Data e Hora atual
 SELECT
     CURRENT_DATE() AS data_atual,
     CURRENT_TIMESTAMP() AS data_hora_atual;
 
--- Extrair partes da data
+-- Extrair partes específicas da data
 SELECT
     data_nascimento,
     YEAR(data_nascimento) AS ano,
@@ -89,32 +88,32 @@ SELECT
     DAY(data_nascimento) AS dia
 FROM clientes;
 
--- Diferença entre datas
+-- Diferença entre datas (Cálculo de idade)
 SELECT
     nome,
     TIMESTAMPDIFF(YEAR, data_nascimento, CURRENT_DATE()) AS idade
 FROM clientes;
 
 
---------------------------------------------------
+-- ---------------------------------------------------------
 -- 4. TRATAMENTO DE NULL
---------------------------------------------------
+-- ---------------------------------------------------------
 
--- Substituir NULL por valor padrão
+-- Substituir NULL por um texto padrão
 SELECT
     nome,
     IFNULL(email, 'Email não informado') AS email_tratado
 FROM clientes;
 
--- Verificar NULL explicitamente
+-- Filtrar registros que possuem valores nulos
 SELECT
     nome,
     email
 FROM clientes
 WHERE email IS NULL;
 
--- Uso de COALESCE (retorna o primeiro valor não nulo)
+-- COALESCE: Retorna o primeiro valor não nulo da lista
 SELECT
     nome,
     COALESCE(email, 'Email ausente', 'Sem contato') AS email_final
-FROM clientes;
+FROM clientes; 

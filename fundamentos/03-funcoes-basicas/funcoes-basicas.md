@@ -56,15 +56,16 @@ FROM pedidos;
 Utilizadas para manipulação e padronização de textos, muito comuns em cadastros.
 
 Principais funções: 
-```sql 
-Função	Descrição
-UPPER()	Converte para maiúsculas
-LOWER()	Converte para minúsculas
-LENGTH()	Conta caracteres
-CONCAT()	Junta textos
-SUBSTRING()	Extrai parte do texto
-TRIM()	Remove espaços
-```
+### Funções de Texto em SQL
+
+| Função | Descrição |
+| :--- | :--- |
+| **UPPER()** | Converte o texto para letras maiúsculas. |
+| **LOWER()** | Converte o texto para letras minúsculas. |
+| **LENGTH()** | Conta a quantidade total de caracteres. |
+| **CONCAT()** | Junta (concatena) dois ou mais textos. |
+| **SUBSTRING()** | Extrai uma parte específica do texto. |
+| **TRIM()** | Remove espaços em branco do início e do fim. |
 
 Exemplo prático: 
 ```sql 
@@ -78,15 +79,15 @@ FROM usuarios;
 Permitem manipular datas para análises temporais, filtros e relatórios.
 
 Principais funções (MySQL) 
-```sql
+### Funções de Data em SQL
 
-Função	Descrição
-NOW()	Data e hora atual
-CURDATE()	Data atual
-YEAR()	Extrai o ano
-MONTH()	Extrai o mês
-DATEDIFF()	Diferença entre datas
-```
+| Função | Descrição |
+| :--- | :--- |
+| **NOW()** | Retorna a data e a hora atuais do sistema. |
+| **CURDATE()** | Retorna apenas a data atual (sem a hora). |
+| **YEAR()** | Extrai a parte do ano de uma data específica. |
+| **MONTH()** | Extrai a parte do mês de uma data específica. |
+| **DATEDIFF()** | Calcula a diferença de dias entre duas datas. |
 
 Exemplo prático:
 ```sql 
@@ -98,14 +99,15 @@ FROM pedidos;
 
 ⚠️ Tratamento de Valores Nulos (NULL)
 Valores NULL representam ausência de dado, e precisam de atenção especial.
-```sql 
-Funções importantes: 
-Função	Descrição
-IS NULL	Verifica se é nulo
-IS NOT NULL	Verifica se não é nulo
-IFNULL()	Substitui NULL por outro valor
-COALESCE()	Retorna o primeiro valor não nulo
-```
+
+F### Funções para Tratamento de Valores Nulos (NULL)
+
+| Função | Descrição |
+| :--- | :--- |
+| **IS NULL** | Verifica se um campo está vazio (nulo). |
+| **IS NOT NULL** | Verifica se um campo contém algum valor (não é nulo). |
+| **IFNULL()** | Substitui um valor NULL por um valor alternativo especificado. |
+| **COALESCE()** | Retorna o primeiro valor não nulo de uma lista de colunas ou valores. |
 
 Exemplo prático:
 ```sql
