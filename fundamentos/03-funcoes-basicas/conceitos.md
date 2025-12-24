@@ -1,175 +1,78 @@
-# Funções Básicas em SQL 
- 
-As **funções SQL** são utilizadas para **manipular, transformar e analisar dados** 
-retornados pelas consultas. 
+# 🛠️ Funções Básicas em SQL
 
-Elas permitem realizar cálculos, tratar textos, datas e valores nulos, 
-tornando as consultas mais poderosas e expressivas. 
- 
-Neste módulo, vamos estudar as **funções mais utilizadas no dia a dia**, 
-com foco em clareza conceitual e aplicação prática em MySQL. 
- 
----         
+As **funções SQL** são comandos essenciais para manipular, transformar e analisar dados. Elas permitem realizar cálculos e tratar textos ou datas diretamente na consulta.
 
-## 🎯 O que são funções em SQL? 
+---
 
-Uma **função** é um comando que:    
+## 🎯 O que é uma Função?
 
-- Recebe **um ou mais valores** como entrada    
-- Executa uma operação específica   
-- Retorna **um único valor** como resultado 
+Uma função recebe um valor, processa-o e retorna um resultado.
 
-📌 Funções geralmente são usadas dentro do `SELECT`, `WHERE`, `ORDER BY` ou `HAVING`.   
+| Tipo | Descrição | Exemplos |
+| :--- | :--- | :--- |
+| **🔢 Numéricas** | Cálculos matemáticos e estatísticos | `SUM`, `AVG`, `ROUND` |
+| **🔤 Texto** | Manipulação de strings | `UPPER`, `CONCAT`, `LENGTH` |
+| **📅 Data** | Operações com calendário | `NOW`, `YEAR`, `DATEDIFF` |
+| **🚫 NULL** | Tratamento de valores ausentes | `IFNULL`, `COALESCE` |
 
-Exemplo simples:    
+---
 
-```sql  
-SELECT UPPER('sql');    
+## 🔢 Funções Numéricas
 
-Resultado:  
-SQL 
-```
-🧠 Tipos de funções     
-As funções em SQL podem ser agrupadas em categorias:    
-
-🔢 Funções Numéricas    
-Utilizadas para cálculos matemáticos.   
-
-Exemplos:   
-
-COUNT() 
-SUM()   
-AVG()     
-MIN()   
-MAX()   
-ROUND() 
-
-🔤 Funções de Texto (String)    
-Utilizadas para manipular textos.   
-
-Exemplos:   
-
-UPPER() 
-LOWER() 
-LENGTH()    
-CONCAT()    
-SUBSTRING() 
-TRIM()  
-
-📅 Funções de Data e Hora   
-Utilizadas para trabalhar com datas.    
-
-Exemplos:   
-
-NOW()   
-CURDATE()    
-YEAR()  
-MONTH() 
-DATEDIFF()  
-
-🚫 Funções de Tratamento de NULL    
-Utilizadas para lidar com valores nulos.    
-
-Exemplos:   
-
-IS NULL     
-IS NOT NULL 
-IFNULL()    
-COALESCE()  
-
-🔢 Funções Numéricas – Conceitos    
-
-COUNT() 
-Conta a quantidade de registros.    
-
-SELECT COUNT(*) FROM clientes;  
-📌 Conta todas as linhas, inclusive com valores nulos.  
-
-
-SELECT COUNT(email) FROM clientes;  
-📌 Conta apenas linhas onde email não é NULL.   
-
-SUM() e AVG()   
-Somam ou calculam a média de valores numéricos. 
+Utilizadas para gerar métricas e estatísticas.
 
 ```sql
-SELECT SUM(valor) FROM pedidos; 
-SELECT AVG(valor) FROM pedidos; 
-MIN() e MAX()   
-Retornam o menor ou maior valor.    
+SELECT 
+    COUNT(*) AS total_clientes,
+    AVG(salario) AS media_salarial,
+    MAX(salario) AS maior_salario
+FROM clientes;
+```
 
-SELECT MIN(preco), MAX(preco) FROM produtos;    
+🔤 Funções de Texto
+Essenciais para padronização de cadastros.
 
-🔤 Funções de Texto – Conceitos 
-UPPER() e LOWER()   
-Convertem textos para maiúsculas ou minúsculas. 
+UPPER / LOWER: Padroniza para maiúsculo/minúsculo.
+CONCAT: Une duas ou mais colunas.
+LENGTH: Retorna a quantidade de caracteres.
 
-SELECT UPPER(nome), LOWER(email) FROM usuarios; 
-LENGTH()    
-Retorna o tamanho de uma string.    
+```sql
+SELECT 
+    CONCAT(nome, ' - ', email) AS contato,
+    UPPER(cidade) AS cidade_padrao
+FROM clientes;
+```
 
-SELECT LENGTH(nome) FROM clientes; 
-CONCAT()
-Concatena textos.   
+📅 Funções de Data
+Permitem cálculos temporais precisos.
 
-SELECT CONCAT(nome, ' ', sobrenome) AS nome_completo    
-FROM clientes;  
+CURDATE(): Retorna a data atual.
 
-📌 Muito utilizada para montar campos derivados.    
+DATEDIFF(data1, data2): Diferença em dias entre datas.
 
-📅 Funções de Data – Conceitos  
-NOW() e CURDATE()   
-Retornam data e hora atuais.    
+YEAR() / MONTH(): Extrai partes específicas.
 
-SELECT NOW();   
-SELECT CURDATE();   
-Extraindo partes da data    
+```sql
+SELECT 
+    nome, 
+    DATEDIFF(CURDATE(), data_nascimento) / 365 AS idade_aproximada
+FROM clientes;
+```
 
+🚫 Tratamento de NULL
+Evita que valores vazios quebrem seus cálculos ou relatórios.
 
-SELECT YEAR(data_pedido), MONTH(data_pedido)    
-FROM pedidos;   
-DATEDIFF()  
-Calcula a diferença entre duas datas (em dias). 
+IFNULL(coluna, substituto): Troca o NULL por um valor fixo.
 
+COALESCE(v1, v2, ...): Retorna o primeiro valor não nulo encontrado.
 
-SELECT DATEDIFF(data_fim, data_inicio) FROM contratos;  
+```sql
+SELECT 
+    nome, 
+    IFNULL(telefone, 'Sem Telefone') AS status_contato
+FROM clientes;
+```
 
-🚫 Tratamento de valores NULL   
-IS NULL e IS NOT NULL   
-Utilizados para filtrar valores nulos.  
-
-
-SELECT * FROM clientes WHERE email IS NULL; 
-IFNULL()    
-
-Substitui valores NULL por outro valor. 
-
-
-SELECT IFNULL(email, 'Não informado') FROM clientes;    
-COALESCE()  
-
-Retorna o primeiro valor não nulo da lista. 
-``` 
-
-```sql  
-SELECT COALESCE(telefone, celular,'Sem contato')    
-FROM clientes;  
-``` 
-
-
-⚠️ Pontos de Atenção:
-
-Funções podem impactar performance em grandes volumes de dados .
-Usar funções no WHERE pode impedir uso de índices. 
-Sempre valide se o tipo do dado é compatível com a função.
-
-📌 Conclusão:   
-As funções básicas são essenciais para: 
-
-Análise de dados    
-Criação de relatórios   
-Limpeza e padronização de informações.  
-Resolução de problemas reais em ambientes corporativos.  
-
-Dominar essas funções é um passo fundamental    
-antes de avançar para JOINs, subqueries e funções analíticas.   
+⚠️ Atenção: 
+Performance
+Evite usar funções diretamente na cláusula WHERE em colunas indexadas (ex: WHERE YEAR(data) = 2024), pois isso pode deixar a consulta lenta em bases muito grandes.
