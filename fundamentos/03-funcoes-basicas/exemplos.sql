@@ -11,6 +11,7 @@ Este arquivo contém exemplos de:
 
 Utilize junto com uma tabela de exemplo, como:
 clientes(id, nome, salario, data_nascimento, email, data_cadastro)
+
 */
 
 --------------------------------------------------
