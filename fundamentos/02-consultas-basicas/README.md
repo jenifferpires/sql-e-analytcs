@@ -1,92 +1,177 @@
-# Consultas Básicas em SQL
+📘 Consultas Básicas em SQL
+🎯 Objetivo do Módulo
 
-Este módulo aborda os **comandos essenciais para consulta de dados em SQL**.
-Praticamente **todo uso real de SQL** começa aqui.
+Este módulo apresenta os fundamentos das consultas SQL, ensinando como extrair dados de tabelas de forma clara, organizada e segura.
 
-Dominar bem este conteúdo é fundamental para:
-- Análise de dados
-- Suporte técnico
-- Debug de sistemas
-- Integrações e relatórios
+Aqui você aprenderá a ler dados, aplicar filtros, ordenar resultados e compreender como o banco processa uma consulta básica.
 
----
+📌 Este é um dos módulos mais importantes do aprendizado em SQL — ele sustenta praticamente tudo que vem depois.
 
-## 🎯 Objetivo do módulo
+🧠 O que são Consultas Básicas?
 
-Ao final deste módulo, você será capaz de:
+Consultas básicas são instruções SQL usadas para:
 
-- Consultar dados de forma correta e eficiente
-- Filtrar resultados conforme regras de negócio
-- Ordenar e limitar dados
-- Tornar queries mais legíveis e profissionais
+Selecionar dados de tabelas
 
----
+Filtrar registros
 
-## 📚 Conteúdos abordados
+Ordenar resultados
 
-### 🔹 Conceitos
-📄 `conceitos.md`
+Limitar volumes de dados retornados
 
-- O que significa consultar dados
-- Como o banco interpreta uma query
-- Ordem lógica de execução do SQL
-- Boas práticas de leitura e escrita de queries
+Dar significado aos dados extraídos
 
----
+Elas respondem perguntas como:
 
-### 🔹 SELECT, WHERE e ORDER BY
-📄 `select-where-order-by.md`
+Quais clientes estão ativos?
 
-- SELECT: escolher colunas
-- WHERE: filtrar registros
-- ORDER BY: ordenar resultados
-- Exemplos práticos e comuns do dia a dia
+Quais pedidos foram feitos hoje?
 
----
+Qual produto é mais caro?
 
-### 🔹 LIMIT, DISTINCT e ALIASES
-📄 `limit-distinct-aliases.md`
+Quais registros atendem determinada condição?
 
-- LIMIT: controle de volume de dados
-- DISTINCT: remoção de duplicidades
-- ALIASES: clareza e legibilidade nas consultas
+🧩 Conteúdos abordados neste módulo
 
----
+Este módulo está organizado nos seguintes arquivos:
 
-### 🔹 Exemplos práticos
-📄 `exemplos.sql`
+📄 conceitos.md
 
-- Queries simples
-- Queries mais realistas
-- Padrões usados em ambientes profissionais
+Apresenta os conceitos fundamentais das consultas SQL, incluindo:
 
----
+O papel do SELECT
 
-### 🔹 Exercícios
-📄 `exercicios.md`
+Como o SQL lê uma consulta
 
-- Fixação dos conceitos
-- Desenvolvimento do raciocínio SQL
-- Preparação para cenários reais
+Estrutura básica de uma query
 
----
+Boas práticas iniciais
 
-## 🧠 Como estudar este módulo
+📄 select-where-order-by.md
 
-1. Leia o arquivo `conceitos.md`
-2. Avance para os arquivos teóricos
-3. Execute os exemplos no MySQL
-4. Resolva os exercícios
-5. Volte aos conceitos sempre que necessário
+Aprofunda o uso de:
 
----
+SELECT → escolha de colunas
 
-## 📌 Observação importante
+WHERE → filtros de dados
 
-Este módulo prioriza:
-- Clareza
-- Leitura fácil
-- SQL limpo
-- Entendimento real do que está sendo feito
+ORDER BY → ordenação de resultados
 
-Mais importante do que escrever rápido é **escrever certo e entender o impacto da query**.
+Inclui exemplos práticos e erros comuns.
+
+📄 limit-distinct-aliases.md
+
+Explora recursos essenciais para controle e clareza:
+
+LIMIT → restringir quantidade de resultados
+
+DISTINCT → remover duplicidades
+
+AS (Aliases) → tornar consultas mais legíveis
+
+📄 exemplos.sql
+
+Arquivo prático contendo:
+
+Consultas simples
+
+Filtros comuns
+
+Ordenações
+
+Uso de LIMIT, DISTINCT e aliases
+
+Estrutura comentada para estudo e testes
+
+⚙️ Estrutura base de uma consulta SQL
+
+A maioria das consultas básicas segue este formato:
+
+SELECT coluna1, coluna2
+FROM tabela
+WHERE condição
+ORDER BY coluna;
+
+
+📌 Nem todas as cláusulas são obrigatórias, mas a ordem é importante.
+
+🧠 Como pensar uma consulta SQL
+
+Antes de escrever uma query, pergunte:
+
+Qual informação eu quero?
+
+De qual tabela vêm os dados?
+
+Existe algum filtro necessário?
+
+Preciso ordenar o resultado?
+
+Quantos registros preciso visualizar?
+
+Esse raciocínio evita erros e torna o SQL mais intuitivo.
+
+⚠️ Erros comuns neste estágio
+
+Alguns erros frequentes de quem está começando:
+
+Usar SELECT * sem necessidade
+
+Esquecer o WHERE e retornar dados demais
+
+Ordenar por colunas que não fazem sentido
+
+Confundir filtro (WHERE) com ordenação (ORDER BY)
+
+Não usar aliases, dificultando a leitura
+
+Todos esses pontos são tratados ao longo do módulo.
+
+🧪 Como usar este módulo na prática
+
+Sugestão de estudo:
+
+1️⃣ Leia o conceitos.md
+2️⃣ Estude select-where-order-by.md com calma
+3️⃣ Pratique com limit-distinct-aliases.md
+4️⃣ Execute os comandos do exemplos.sql
+5️⃣ Modifique as queries e observe os resultados
+
+📌 SQL se aprende fazendo, não apenas lendo.
+
+📈 Conexão com o mundo real:
+
+As consultas deste módulo são usadas diariamente em:
+
+Suporte técnico
+
+Análise de dados
+
+Relatórios operacionais
+
+Validação de informações
+
+Investigações em produção
+
+Dominar essas consultas traz autonomia e segurança no uso de dados.
+
+🚀 Próximos Passos
+
+Após dominar Consultas Básicas, você estará pronto para avançar para:
+
+➡ Funções Básicas:
+
+Numéricas
+
+Texto
+
+Datas
+
+Tratamento de NULL
+
+Esses recursos ampliam muito o poder das consultas.
+
+📘 Resumo:
+
+Consultas básicas são a base do SQL.
+Quem domina SELECT, WHERE e ORDER BY consegue evoluir com muito mais facilidade.

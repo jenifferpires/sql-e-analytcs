@@ -1,119 +1,164 @@
-/*
-============================================================
-       FUNÇÕES BÁSICAS - EXEMPLOS PRÁTICOS (MySQL)
-============================================================
+========================================================
+FUNÇÕES BÁSICAS EM SQL
+Numéricas | Texto | Datas | Tratamento de NULL
+========================================================
 
-Este arquivo contém exemplos aplicados de:
-- Funções numéricas
-- Funções de texto
-- Funções de data
-- Tratamento de valores NULL
+Objetivo:
+Demonstrar o uso prático das funções básicas do SQL
+para manipular, transformar e tratar dados em consultas.
 
-Base de dados sugerida: 
-clientes(id, nome, salario, data_nascimento, email, data_cadastro) 
-*/
+--------------------------------------------------------
+FUNÇÕES NUMÉRICAS
+--------------------------------------------------------
 
--- ---------------------------------------------------------
--- 1. FUNÇÕES NUMÉRICAS
--- ---------------------------------------------------------
+-- Exemplo 1: Arredondamento de valores
+-- Pergunta: Como exibir valores monetários com 2 casas decimais?
 
--- Arredondar valores (2 casas decimais)
 SELECT
-    salario,
-    ROUND(salario, 2) AS salario_arredondado
-FROM clientes;
+    valor,
+    ROUND(valor, 2) AS valor_arredondado
+FROM vendas;
 
--- Valor absoluto (remove sinal de negativo)
+--------------------------------------------------------
+
+-- Exemplo 2: Valor absoluto
+-- Pergunta: Como remover sinal negativo de um valor?
+
 SELECT
-    salario,
-    ABS(salario) AS salario_absoluto
-FROM clientes;
+    ABS(-150) AS valor_absoluto;
 
--- Maior e menor valor do conjunto
+--------------------------------------------------------
+
+-- Exemplo 3: Arredondamento para cima e para baixo
+
 SELECT
-    MAX(salario) AS maior_salario,
-    MIN(salario) AS menor_salario
-FROM clientes;
+    CEILING(4.3) AS arredonda_para_cima,
+    FLOOR(4.7)   AS arredonda_para_baixo;
 
--- Média e soma total
-SELECT
-    AVG(salario) AS media_salarial,
-    SUM(salario) AS total_salarios
-FROM clientes;
+========================================================
+FUNÇÕES DE TEXTO
+========================================================
 
+-- Exemplo 4: Padronização de texto
+-- Pergunta: Como padronizar nomes para maiúsculas?
 
--- ---------------------------------------------------------
--- 2. FUNÇÕES DE TEXTO
--- ---------------------------------------------------------
-
--- Converter texto para maiúsculo e minúsculo
 SELECT
     nome,
-    UPPER(nome) AS nome_maiusculo,
-    LOWER(nome) AS nome_minusculo
+    UPPER(nome) AS nome_maiusculo
 FROM clientes;
 
--- Concatenar campos (Juntar textos)
-SELECT
-    CONCAT(nome, ' - ', email) AS identificacao
-FROM clientes;
+--------------------------------------------------------
 
--- Tamanho do texto (quantidade de caracteres)
+-- Exemplo 5: Contagem de caracteres
+
 SELECT
     nome,
     LENGTH(nome) AS tamanho_nome
 FROM clientes;
 
--- Extrair parte do texto (Início, posição_inicial, quantidade)
+--------------------------------------------------------
+
+-- Exemplo 6: Extração parcial de texto
+-- Pergunta: Como extrair parte de um e-mail?
+
 SELECT
-    nome,
-    SUBSTRING(nome, 1, 5) AS inicio_nome
+    email,
+    SUBSTRING(email, 1, 5) AS inicio_email
+FROM usuarios;
+
+--------------------------------------------------------
+
+-- Exemplo 7: Remoção de espaços em branco
+
+SELECT
+    TRIM(nome) AS nome_sem_espacos
 FROM clientes;
 
+--------------------------------------------------------
 
--- ---------------------------------------------------------
--- 3. FUNÇÕES DE DATA
--- ---------------------------------------------------------
+-- Exemplo 8: Concatenação de campos
 
--- Data e Hora atual
 SELECT
-    CURRENT_DATE() AS data_atual,
-    CURRENT_TIMESTAMP() AS data_hora_atual;
+    CONCAT(nome, ' - ', cargo) AS descricao_funcionario
+FROM funcionarios;
 
--- Extrair partes específicas da data
+========================================================
+FUNÇÕES DE DATA
+========================================================
+
+-- Exemplo 9: Data atual do sistema
+
+SELECT
+    CURRENT_DATE AS data_atual;
+
+--------------------------------------------------------
+
+-- Exemplo 10: Data e hora atual
+
+SELECT
+    NOW() AS data_hora_atual;
+
+--------------------------------------------------------
+
+-- Exemplo 11: Extração de partes da data
+
 SELECT
     data_nascimento,
-    YEAR(data_nascimento) AS ano,
+    YEAR(data_nascimento)  AS ano,
     MONTH(data_nascimento) AS mes,
-    DAY(data_nascimento) AS dia
+    DAY(data_nascimento)   AS dia
+FROM pessoas;
+
+--------------------------------------------------------
+
+-- Exemplo 12: Diferença entre datas
+-- Pergunta: Quantos dias se passaram desde o cadastro?
+
+SELECT
+    nome,
+    DATEDIFF(CURRENT_DATE, data_cadastro) AS dias_desde_cadastro
 FROM clientes;
 
--- Diferença entre datas (Cálculo de idade)
+========================================================
+TRATAMENTO DE VALORES NULL
+========================================================
+
+-- Exemplo 13: Substituição de NULL com COALESCE
+-- Pergunta: Como exibir um valor padrão quando o dado é NULL?
+
 SELECT
     nome,
-    TIMESTAMPDIFF(YEAR, data_nascimento, CURRENT_DATE()) AS idade
+    COALESCE(email, 'não informado') AS email
 FROM clientes;
 
+--------------------------------------------------------
 
--- ---------------------------------------------------------
--- 4. TRATAMENTO DE NULL
--- ---------------------------------------------------------
+-- Exemplo 14: NULLIF
+-- Pergunta: Quando transformar um valor específico em NULL?
 
--- Substituir NULL por um texto padrão
 SELECT
-    nome,
-    IFNULL(email, 'Email não informado') AS email_tratado
-FROM clientes;
+    NULLIF(status, 'inativo') AS status_tratado
+FROM usuarios;
 
--- Filtrar registros que possuem valores nulos
-SELECT
-    nome,
-    email
-FROM clientes
-WHERE email IS NULL;
+--------------------------------------------------------
 
--- COALESCE: Retorna o primeiro valor não nulo da lista
+-- Exemplo 15: Evitando erros em cálculos com NULL
+
 SELECT
-    nome,
-    COALESCE(email, 'Email ausente', 'Sem contato') AS email_final
-FROM clientes; 
+    valor,
+    COALESCE(valor, 0) AS valor_seguro
+FROM pagamentos;
+
+========================================================
+OBSERVAÇÕES IMPORTANTES
+========================================================
+
+-- • Funções simples atuam linha a linha
+-- • Valores NULL precisam sempre de tratamento
+-- • Use aliases claros para facilitar leitura
+-- • Teste funções isoladamente antes de combiná-las
+
+========================================================
+FIM DOS EXEMPLOS
+========================================================
+-- Pratique aplicando essas funções em seus próprios conjuntos de dados!

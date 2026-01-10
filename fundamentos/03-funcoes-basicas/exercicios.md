@@ -1,85 +1,201 @@
-# Exercícios – Funções Básicas
+🧠 Exercícios – Funções Básicas em SQL
+🎯 Objetivo
 
-Este conjunto de exercícios foi pensado para
-reforçar o entendimento das funções mais usadas
-em ambientes reais de trabalho com SQL.
+Este conjunto de exercícios tem como objetivo fixar o uso das funções básicas em SQL, desenvolvendo:
 
----
+Raciocínio lógico
 
-## 🟢 Nível 1 – Aquecimento
+Capacidade de leitura de dados
 
-1. Retorne o valor absoluto de `-25`.
-2. Arredonde o número `9.876` para 1 casa decimal.
-3. Converta o texto `BancoDeDados` para letras minúsculas.
-4. Retorne o tamanho da palavra `MySQL`.
+Escrita de consultas mais expressivas
 
----
+Visão prática de uso no dia a dia
 
-## 🟡 Nível 2 – Aplicação prática
+📌 Dica: execute os exercícios no MySQL e observe atentamente os resultados.
 
-Considere uma tabela chamada `clientes` com as colunas:
+🔢 Parte 1 – Funções Numéricas
+1️⃣ Arredondamento de valores
 
-- `id`
-- `nome`
-- `email`
-- `data_cadastro`
+Considere a tabela vendas(valor).
 
-### Exercícios:
+👉 Crie uma consulta que:
 
-1. Retorne o nome do cliente em letras maiúsculas.
-2. Mostre apenas o ano de cadastro dos clientes.
-3. Concatene `nome` e `email` em uma única coluna chamada `cliente_info`.
-4. Retorne apenas os 5 primeiros caracteres do nome.
+Exiba o valor original
 
----
+Exiba o valor arredondado com 2 casas decimais
 
-## 🟠 Nível 3 – Cenários reais
+2️⃣ Valor absoluto
 
-Considere uma tabela `pedidos` com:
+Considere a tabela movimentacoes(valor).
 
-- `id`
-- `valor_total`
-- `data_pedido`
-- `data_entrega`
+👉 Crie uma consulta que:
 
-### Exercícios:
+Retorne o valor absoluto de cada movimentação
 
-1. Arredonde o `valor_total` para 2 casas decimais.
-2. Calcule a diferença de dias entre `data_pedido` e `data_entrega`.
-3. Retorne a data do pedido no formato ano/mês/dia.
-4. Substitua valores `NULL` de `data_entrega` por `Data não informada`.
+📌 Quando esse tipo de cálculo é útil no mundo real?
 
----
+3️⃣ Arredondamento estratégico
 
-## 🔵 Desafios:
+Considere a tabela notas(media_final).
 
-.1 Considere uma tabela `funcionarios` com:
+👉 Crie uma consulta que:
 
-- `nome`
-- `salario`
-- `data_admissao`
+Arredonde a média para cima
 
-1. Calcule quantos anos o funcionário está na empresa.
-2. Retorne o salário arredondado para o valor inteiro mais próximo.
-3. Exiba o nome do funcionário junto com o ano de admissão.
+Arredonde a média para baixo
 
-.2 O time de RH precisa de um relatório com:
-- Nome do cliente
-- Idade
-- Salário formatado
-- Email tratado (sem valores nulos)
+🔤 Parte 2 – Funções de Texto
+4️⃣ Padronização de nomes
 
-Crie uma query que entregue essas informações de forma clara e organizada.
+Considere a tabela clientes(nome).
 
-💡 **Dica:** Combine funções de texto, numéricas, datas e tratamento de NULL.
+👉 Crie uma consulta que:
 
----
+Exiba o nome original
 
-## ✅ Objetivo dos exercícios
+Exiba o nome em letras maiúsculas
 
-Ao concluir este módulo, você deve ser capaz de:
+5️⃣ Contagem de caracteres
 
-- Aplicar funções diretamente em consultas
-- Tratar dados nulos corretamente
-- Manipular textos, números e datas
-- Resolver problemas comuns do dia a dia com SQL.
+Considere a tabela usuarios(email).
+
+👉 Crie uma consulta que:
+
+Exiba o e-mail
+
+Exiba a quantidade de caracteres do e-mail
+
+6️⃣ Extração parcial
+
+Considere a tabela usuarios(email).
+
+👉 Crie uma consulta que:
+
+Retorne apenas os 5 primeiros caracteres do e-mail
+
+7️⃣ Limpeza de dados
+
+Considere a tabela clientes(nome) com espaços extras.
+
+👉 Crie uma consulta que:
+
+Remova espaços em branco antes e depois do nome
+
+📌 Por que isso é importante em bases reais?
+
+8️⃣ Concatenação de informações
+
+Considere a tabela funcionarios(nome, cargo).
+
+👉 Crie uma consulta que:
+
+Retorne uma descrição no formato:
+Nome - Cargo
+
+📅 Parte 3 – Funções de Data
+9️⃣ Data atual
+
+👉 Crie uma consulta que:
+
+Retorne a data atual do sistema
+
+🔟 Data e hora atual
+
+👉 Crie uma consulta que:
+
+Retorne a data e hora atual
+
+1️⃣1️⃣ Extração de partes da data
+
+Considere a tabela pessoas(data_nascimento).
+
+👉 Crie uma consulta que:
+
+Retorne o ano, mês e dia de nascimento separadamente
+
+1️⃣2️⃣ Diferença entre datas
+
+Considere a tabela clientes(data_cadastro).
+
+👉 Crie uma consulta que:
+
+Calcule quantos dias se passaram desde o cadastro até hoje
+
+📌 Esse cálculo é comum em relatórios de churn e retenção.
+
+🚫 Parte 4 – Tratamento de NULL
+1️⃣3️⃣ Substituição de valores NULL
+
+Considere a tabela clientes(nome, email) onde email pode ser NULL.
+
+👉 Crie uma consulta que:
+
+Substitua valores NULL por "não informado"
+
+1️⃣4️⃣ NULLIF
+
+Considere a tabela usuarios(status).
+
+👉 Crie uma consulta que:
+
+Retorne NULL quando o status for 'inativo'
+
+📌 Em quais cenários isso pode ser útil?
+
+1️⃣5️⃣ Evitando erro em cálculos
+
+Considere a tabela pagamentos(valor) onde o valor pode ser NULL.
+
+👉 Crie uma consulta que:
+
+Garanta que valores NULL sejam tratados como 0
+
+🧪 Parte 5 – Exercícios de Raciocínio (Mundo Real)
+1️⃣6️⃣ Relatório de clientes
+
+👉 Crie uma consulta que:
+
+Exiba o nome do cliente em maiúsculo
+
+Substitua e-mails nulos
+
+Mostre quantos dias o cliente está cadastrado
+
+1️⃣7️⃣ Qualidade de dados
+
+👉 Crie uma consulta que:
+
+Limpe espaços em nomes
+
+Padronize textos
+
+Garanta que campos numéricos não retornem NULL
+
+🧠 Reflexão Final
+
+Responda mentalmente ou documente:
+
+Quando devo usar funções no SQL?
+
+Qual função evita mais erros em dados reais?
+
+Qual função você mais usou até agora?
+
+Onde funções simplificam regras de negócio?
+
+🚀 Próximo Passo
+
+➡ Agrupamentos (GROUP BY)
+
+Funções de agregação
+
+Métricas
+
+Dashboards
+
+Indicadores de negócio
+
+📘 Resumo
+
+Funções básicas são o alicerce para análises mais avançadas.
+Quem domina funções escreve SQL mais limpo, seguro e profissional.

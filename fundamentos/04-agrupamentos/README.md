@@ -1,105 +1,117 @@
-# Agrupamentos de Dados em SQL
+📊 Agrupamentos em SQL (GROUP BY)
+🎯 Objetivo do Módulo
 
-Neste módulo, exploramos como **agrupar dados e gerar informações consolidadas**
-a partir de conjuntos maiores de registros utilizando SQL.
+Este módulo apresenta o uso de agrupamentos em SQL por meio da cláusula GROUP BY, um dos conceitos mais importantes para análise de dados, relatórios e dashboards.
 
-O foco está no uso de **funções de agregação**, **GROUP BY** e **HAVING**,
-conceitos essenciais para análises, relatórios e consultas analíticas
-em ambientes reais de trabalho.
-
----
-
-## 🎯 Objetivos do Módulo
+Aqui você aprenderá a resumir dados, gerar métricas e extrair informações relevantes a partir de grandes volumes de registros.
 
 Ao final deste módulo, você será capaz de:
 
-- Entender o conceito de **agregação de dados**
-- Utilizar corretamente o `GROUP BY`
-- Aplicar **funções agregadoras** como `COUNT`, `SUM`, `AVG`, `MIN` e `MAX`
-- Filtrar dados agregados usando `HAVING`
-- Diferenciar `WHERE` de `HAVING`
-- Criar consultas analíticas claras e eficientes
+Agrupar dados corretamente
 
----
+Utilizar funções de agregação
 
-## 📚 Conteúdos Abordados
+Diferenciar WHERE e HAVING
 
-### 🔹 Conceitos
-- O que são dados agregados
-- Diferença entre dados detalhados e consolidados
-- Regras do `GROUP BY`
-- Ordem lógica de execução da query
+Evitar erros comuns em consultas agregadas
 
-📄 Arquivo:  
-- `conceitos.md`
+Resolver cenários reais de negócio
 
----
+🧠 Conceitos Abordados
 
-### 🔹 Funções de Agregação
-- `COUNT()` — contagem de registros
-- `SUM()` — soma de valores
-- `AVG()` — média
-- `MIN()` / `MAX()` — menor e maior valor
+Neste módulo você encontrará explicações claras sobre:
 
-📄 Arquivo:  
-- `group-by-having.md`
+O que é GROUP BY
 
----
+Como funcionam as funções de agregação:
 
-### 🔹 GROUP BY
-- Agrupamento por uma ou mais colunas
-- Relação entre colunas selecionadas e agrupadas
-- Erros comuns e como evitá-los
+SUM
 
-📄 Arquivo:  
-- `group-by-having.md`
+COUNT
 
----
+AVG
 
-### 🔹 HAVING
-- Filtragem de dados **após** a agregação
-- Diferença prática entre `WHERE` e `HAVING`
-- Uso combinado com funções agregadas
+MIN
 
-📄 Arquivo:  
-- `group-by-having.md`
+MAX
 
----
+Regras obrigatórias de agrupamento
 
-## 🧪 Exemplos Práticos
+Uso correto de HAVING
 
-Consultas SQL com exemplos reais e comentados para facilitar o entendimento:
+Diferença entre filtro antes e depois do agrupamento
 
-📄 Arquivo:  
-- `exemplos.sql`
+Erros comuns e boas práticas
 
----
+📄 Arquivo:
+➡️ conceitos.md
 
-## ✍️ Exercícios
+🧪 Exemplos Práticos
 
-Exercícios progressivos para fixação dos conceitos, incluindo:
+Os exemplos demonstram como aplicar GROUP BY em cenários reais, como:
 
-- Agrupamentos simples
-- Agrupamentos com múltiplas colunas
-- Uso de HAVING
-- Cenários próximos ao dia a dia profissional.
+Total de vendas por cliente
 
-📄 Arquivo:  
-- `exercicios.md`
+Quantidade de pedidos por status
 
----
+Média salarial por departamento
 
-## 💡 Importância no Mundo Real
+Menor e maior valor por categoria
 
-Consultas com `GROUP BY` são amplamente utilizadas em:
+Filtros com WHERE e HAVING
 
-- Relatórios gerenciais
-- Dashboards
-- Análises financeiras
-- Monitoramento de métricas
-- Business Intelligence (BI)
+Correção de consultas inválidas
 
-Dominar esse conteúdo é **fundamental** para quem trabalha com dados,
-sistemas corporativos ou análise de informações.
+📄 Arquivo:
+➡️ exemplos.sql
 
----
+🧩 Exercícios Práticos
+
+Os exercícios foram pensados para reforçar o raciocínio analítico e a aplicação prática do conteúdo, com:
+
+Exercícios progressivos (básico → avançado)
+
+Perguntas de negócio
+
+Desafios de interpretação de erros
+
+Cenários próximos da realidade profissional
+
+📄 Arquivo:
+➡️ exercicios.md
+
+🔗 Tópicos Relacionados
+
+Este módulo se conecta diretamente com:
+
+Funções Básicas
+
+Consultas com WHERE
+
+Subqueries
+
+JOIN com GROUP BY
+
+Funções de janela (WINDOW FUNCTIONS)
+
+📌 Boas Práticas Reforçadas
+
+Evitar SELECT * em consultas agregadas
+
+Usar aliases claros
+
+Validar agrupamentos antes de aplicar HAVING
+
+Garantir que toda coluna não agregada esteja no GROUP BY
+
+🚀 Próximo Passo
+
+Após dominar este módulo, avance para:
+
+➡️ GROUP BY com JOIN
+➡️ Análises avançadas com funções de janela
+
+📘 Resumo
+
+GROUP BY transforma dados brutos em informação estratégica.
+É um dos pilares do SQL para análise de dados em ambientes reais.
