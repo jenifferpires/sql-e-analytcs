@@ -164,3 +164,9 @@ Relatórios financeiros.
 ✔ Combine com HAVING para filtros agregados
 ✔ Sempre valide os dados antes de interpretar resultados.
 
+📘 Resumo 
+ 
+GROUP BY organiza os dados
+Funções de agregação resumem informações
+Juntos, são a base de análises em SQL
+Dominar esse conceito é essencial para evoluir do SQL básico para o intermediário.
