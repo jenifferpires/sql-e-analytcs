@@ -8,10 +8,10 @@ O foco aqui é entender o que é SQL, para que ele é usado e como realizar as p
 
 Ao final deste módulo, você será capaz de: 
 
-Compreender o papel do SQL no dia a dia profissional   
-Entender o conceito de tabelas, colunas e registros 
-Executar consultas simples de leitura de dados 
-Ler e interpretar uma query SQL básica 
+Compreender o papel do SQL no dia a dia profissional        
+Entender o conceito de tabelas, colunas e registros     
+Executar consultas simples de leitura de dados    
+Ler e interpretar uma query SQL básica   
 
 🧠 Conceitos Abordados 
 
