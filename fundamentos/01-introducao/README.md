@@ -13,92 +13,81 @@ Entender o conceito de tabelas, colunas e registros
 Executar consultas simples de leitura de dados    
 Ler e interpretar uma query SQL básica   
 
-🧠 Conceitos Abordados 
+🧠 Conceitos Abordados   
 
-Neste módulo são apresentados os conceitos essenciais para qualquer pessoa que irá trabalhar com SQL: 
+Neste módulo são apresentados os conceitos essenciais para qualquer pessoa que irá trabalhar com SQL:  
 
-O que é SQL e para que ele serve 
-Diferença entre banco de dados e tabela 
-Estrutura básica de uma tabela 
-O que é uma query.
+O que é SQL e para que ele serve    
+Diferença entre banco de dados e tabela      
+Estrutura básica de uma tabela     
+O que é uma query.         
 
-Conceito de linhas (registros) e colunas (campos) 
+Conceito de linhas (registros) e colunas (campos)    
 
-Leitura de dados com SELECT 
+Leitura de dados com SELECT    
 
-📄 Arquivo: 
-➡️ conceitos.md 
+📄 Arquivo:  
+➡️ conceitos.md    
 
-📖 Introdução Teórica 
+📖 Introdução Teórica  
 
 Aqui você encontrará uma explicação mais detalhada sobre: 
 
-A história e o propósito do SQL 
+A história e o propósito do SQL          
+Onde o SQL é utilizado no mercado       
+Relação entre SQL, sistemas e análise de dados      
+Boas práticas iniciais ao escrever consultas     
 
-Onde o SQL é utilizado no mercado
+📄 Arquivo:   
+➡️ introducao-ao-sql.md  
 
-Relação entre SQL, sistemas e análise de dados
 
-Boas práticas iniciais ao escrever consultas
+🧪 Exemplos Práticos   
 
-📄 Arquivo:
-➡️ introducao-ao-sql.md
+Os exemplos práticos foram criados para proporcionar o primeiro contato real com SQL, permitindo executar consultas simples e observar os resultados.  
 
-🧪 Exemplos Práticos
+Você verá exemplos como:  
 
-Os exemplos práticos foram criados para proporcionar o primeiro contato real com SQL, permitindo executar consultas simples e observar os resultados.
+Selecionar todos os dados de uma tabela  
+Selecionar colunas específicas     
+Ordenar resultados     
+Limitar a quantidade de registros retornados       
+Utilizar aliases para melhorar a leitura do resultado    
 
-Você verá exemplos como:
+📄 Arquivo:   
+➡️ exemplos.sql 
+    
 
-Selecionar todos os dados de uma tabela
+📌 Boas Práticas Reforçadas   
 
-Selecionar colunas específicas
+Desde o início, este módulo reforça práticas importantes:    
 
-Ordenar resultados
+Começar sempre com consultas simples     
+Evitar complexidade desnecessária    
+Ler o resultado da query com atenção    
+Usar aliases para melhorar clareza    
+Entender o dado antes de tentar transformá-lo   
 
-Limitar a quantidade de registros retornados
 
-Utilizar aliases para melhorar a leitura do resultado
+🔗 Conexão com os Próximos Módulos      
 
-📄 Arquivo:
-➡️ exemplos.sql
+Este módulo serve como base direta para:   
 
-📌 Boas Práticas Reforçadas
+Consultas Básicas (SELECT, WHERE, ORDER BY)   
+Funções Básicas        
+Agrupamentos    
+Subqueries e JOINs    
+    
+Dominar estes conceitos iniciais facilita muito o aprendizado dos próximos tópicos.    
 
-Desde o início, este módulo reforça práticas importantes:
-
-Começar sempre com consultas simples
-
-Evitar complexidade desnecessária
-
-Ler o resultado da query com atenção
-
-Usar aliases para melhorar clareza
-
-Entender o dado antes de tentar transformá-lo
-
-🔗 Conexão com os Próximos Módulos
-
-Este módulo serve como base direta para:
-
-Consultas Básicas (SELECT, WHERE, ORDER BY)
-
-Funções Básicas
-
-Agrupamentos
-
-Subqueries e JOINs
-
-Dominar estes conceitos iniciais facilita muito o aprendizado dos próximos tópicos.
-
-🚀 Próximo Passo
-
-Após concluir este módulo, avance para:
-
-➡️ Consultas Básicas
-Onde você aprenderá a filtrar, ordenar e estruturar consultas SQL de forma mais robusta.
-
-📘 Resumo
-
-SQL é uma linguagem de leitura e análise de dados.
-Uma base sólida nos conceitos iniciais torna o aprendizado dos níveis intermediário e avançado muito mais natural.
+🚀 Próximo Passo    
+ 
+Após concluir este módulo, avance para:   
+ 
+➡️ Consultas Básicas  
+Onde você aprenderá a filtrar, ordenar e estruturar consultas SQL de forma mais robusta.   
+ 
+📘 Resumo 
+ 
+SQL é uma linguagem de leitura e análise de dados.   
+Uma base sólida nos conceitos iniciais torna o aprendizado dos níveis intermediário e avançado muito mais natural.  
