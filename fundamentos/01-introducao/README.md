@@ -1,44 +1,39 @@
-📘 Introdução ao SQL
+📘 Introdução ao SQL 
+
 🎯 Objetivo do Módulo
 
-Este módulo apresenta os fundamentos iniciais de SQL, servindo como ponto de partida para quem está começando ou para quem deseja reforçar a base conceitual antes de avançar para consultas mais complexas.
+Este módulo apresenta os fundamentos iniciais de SQL, servindo como ponto de partida para quem  está começando ou para quem deseja reforçar a base conceitual antes de avançar para consultas mais complexas. 
 
-O foco aqui é entender o que é SQL, para que ele é usado e como realizar as primeiras consultas, sempre conectando teoria com prática.
+O foco aqui é entender o que é SQL, para que ele é usado e como realizar as primeiras consultas, sempre conectando teoria com prática. 
 
-Ao final deste módulo, você será capaz de:
+Ao final deste módulo, você será capaz de: 
 
-Compreender o papel do SQL no dia a dia profissional
+Compreender o papel do SQL no dia a dia profissional   
+Entender o conceito de tabelas, colunas e registros 
+Executar consultas simples de leitura de dados 
+Ler e interpretar uma query SQL básica 
 
-Entender o conceito de tabelas, colunas e registros
+🧠 Conceitos Abordados 
 
-Executar consultas simples de leitura de dados
+Neste módulo são apresentados os conceitos essenciais para qualquer pessoa que irá trabalhar com SQL: 
 
-Ler e interpretar uma query SQL básica
+O que é SQL e para que ele serve 
+Diferença entre banco de dados e tabela 
+Estrutura básica de uma tabela 
+O que é uma query.
 
-🧠 Conceitos Abordados
+Conceito de linhas (registros) e colunas (campos) 
 
-Neste módulo são apresentados os conceitos essenciais para qualquer pessoa que irá trabalhar com SQL:
+Leitura de dados com SELECT 
 
-O que é SQL e para que ele serve
+📄 Arquivo: 
+➡️ conceitos.md 
 
-Diferença entre banco de dados e tabela
+📖 Introdução Teórica 
 
-Estrutura básica de uma tabela
+Aqui você encontrará uma explicação mais detalhada sobre: 
 
-O que é uma query
-
-Conceito de linhas (registros) e colunas (campos)
-
-Leitura de dados com SELECT
-
-📄 Arquivo:
-➡️ conceitos.md
-
-📖 Introdução Teórica
-
-Aqui você encontrará uma explicação mais detalhada sobre:
-
-A história e o propósito do SQL
+A história e o propósito do SQL 
 
 Onde o SQL é utilizado no mercado
 
