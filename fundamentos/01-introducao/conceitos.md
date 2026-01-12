@@ -1,9 +1,9 @@
-🧠 Conceitos Fundamentais de SQL 
-📌 O que é SQL? 
+🧠 Conceitos Fundamentais de SQL. 
+📌 O que é SQL?  
 
 SQL (Structured Query Language) é a linguagem padrão utilizada para consultar, manipular e analisar dados armazenados em bancos de dados relacionais.       
 
-Com SQL é possível: 
+Com SQL é possível:  
 
 Ler dados.  
 Filtrar informações.    
@@ -20,19 +20,19 @@ Um banco de dados é um local estruturado onde os dados são armazenados de form
 
 Ele permite:    
 
-Armazenar grandes volumes de dados. 
-Acessar informações rapidamente.    
-Garantir integridade e consistência.    
-Compartilhar dados entre sistemas.  
+Armazenar grandes volumes de dados.  
+Acessar informações rapidamente.     
+Garantir integridade e consistência.     
+Compartilhar dados entre sistemas.   
 
-📌 Exemplos de bancos de dados relacionais: 
+📌 Exemplos de bancos de dados relacionais:  
 
-MySQL 
-PostgreSQL 
-SQL Server 
-Oracle 
+MySQL  
+PostgreSQL  
+SQL Server  
+Oracle  
 
-📊 Tabelas, Linhas e Colunas 
+📊 Tabelas, Linhas e Colunas.
 
 Em bancos de dados relacionais, os dados são organizados em tabelas. 
 
@@ -47,8 +47,8 @@ Linhas → registros individuais (ex: um cliente)
 
 📌 Pense em uma tabela como uma planilha, onde: 
 
-cada linha é um registro    
-cada coluna é uma informação específica 
+Cada linha é um registro.   
+Cada coluna é uma informação específica.
 
 
 🔍 O que é uma Query?   
@@ -57,8 +57,9 @@ Uma query é uma instrução SQL utilizada para consultar ou manipular dados den
 
 Exemplo simples de query:   
 
+```sql
 SELECT * FROM clientes; 
-
+``` 
 
 Essa instrução significa:   
 
@@ -71,16 +72,17 @@ FROM clientes → da tabela clientes
 📌 Queries são usadas para fazer perguntas aos dados.   
 
 
-📥 O que é SELECT?  
+📥 O que é SELECT?   
 
-SELECT é o comando mais básico e mais utilizado em SQL. 
-Ele serve para ler dados de uma ou mais tabelas.    
+SELECT é o comando mais básico e mais utilizado em SQL.  
+Ele serve para ler dados de uma ou mais tabelas.     
 
-Exemplo:    
+Exemplo:     
 
-SELECT nome, email  
-FROM clientes;  
-
+```sql
+SELECT nome, email   
+FROM clientes;   
+```
 
 ➡️ Retorna apenas os nomes e e-mails dos clientes.  
 
@@ -118,13 +120,13 @@ Essas práticas ajudam a evitar erros e facilitam a evolução no aprendizado.
 
 Os conceitos apresentados aqui são a base para entender:    
 
-WHERE (filtros) 
-ORDER BY (ordenação)    
+WHERE (filtros)  
+ORDER BY (ordenação)     
 Funções SQL 
-Agrupamentos (GROUP BY) 
-JOINs e Subqueries  
+Agrupamentos (GROUP BY)  
+JOINs e Subqueries   
 
-Sem esse entendimento inicial, os módulos seguintes se tornam mais difíceis.    
+Sem esse entendimento inicial, os módulos seguintes se tornam mais difíceis.     
 
 📘 Resumo:  
 

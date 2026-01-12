@@ -13,10 +13,9 @@ de forma simples e segura.
 -- Exemplo 1: Selecionar todos os registros de uma tabela   
 -- Pergunta: O que existe dentro da tabela? 
 -- -----------------------------------------------------    
-
-SELECT  
+SELECT   
     *   
-FROM clientes;  
+FROM clientes;   
 
 
 -- -----------------------------------------------------    
@@ -27,8 +26,7 @@ FROM clientes;
 SELECT  
     nome,   
     email   
-FROM clientes;  
-
+FROM clientes;   
 
 -- -----------------------------------------------------    
 -- Exemplo 3: Limitar resultados    
@@ -39,7 +37,6 @@ SELECT
     *   
 FROM clientes   
 LIMIT 5;    
-
 
 -- -----------------------------------------------------    
 -- Exemplo 4: Ordenar dados 

@@ -1,49 +1,45 @@
-🔧 Funções Básicas em SQL
-🎯 Objetivo
+🔧 Funções Básicas em SQL.     
+🎯 Objetivo:  
 
-Este arquivo apresenta as funções básicas do SQL, utilizadas para manipular, transformar e tratar dados diretamente nas consultas.
+Este arquivo apresenta as funções básicas do SQL, utilizadas para manipular, transformar e tratar dados diretamente nas consultas. 
 
-Funções permitem:
+Funções permitem: 
 
-Criar cálculos
+Criar cálculos.
+Ajustar formatos.   
+Tratar valores inválidos.   
+Preparar dados para análise e relatórios.   
 
-Ajustar formatos
+📌 Dominar funções é essencial para escrever SQL eficiente e profissional.  
 
-Tratar valores inválidos
+🧠 O que são Funções?   
 
-Preparar dados para análise e relatórios
+Funções são operações aplicadas a valores ou colunas que retornam um novo valor.    
 
-📌 Dominar funções é essencial para escrever SQL eficiente e profissional.
+Exemplo simples:   
 
-🧠 O que são Funções?
+```sql
+SELECT UPPER(nome)      
+FROM clientes;      
+```
 
-Funções são operações aplicadas a valores ou colunas que retornam um novo valor.
+➡ A função UPPER() transforma o texto para letras maiúsculas.  
 
-Exemplo simples:
+🔢 Funções Numéricas    
 
-SELECT UPPER(nome)
-FROM clientes;
+Utilizadas para cálculos matemáticos.   
 
+Funções mais comuns:    
 
-➡ A função UPPER() transforma o texto para letras maiúsculas.
+SUM() → soma valores    
+AVG() → média   
+ROUND() → arredondamento    
+ABS() → valor absoluto  
+CEILING() / FLOOR() → arredondamento para cima ou para baixo.       
 
-🔢 Funções Numéricas
+Exemplos:   
 
-Utilizadas para cálculos matemáticos.
-
-Funções mais comuns:
-
-SUM() → soma valores
-
-AVG() → média
-
-ROUND() → arredondamento
-
-ABS() → valor absoluto
-
-CEILING() / FLOOR() → arredondamento para cima ou para baixo
-
-Exemplos:
+```sql 
 SELECT 
     valor,
     ROUND(valor, 2) AS valor_arredondado
@@ -51,27 +47,25 @@ FROM vendas;
 
 SELECT 
     ABS(-100) AS valor_absoluto;
+``` 
 
+📌 Muito usadas em relatórios financeiros.  
 
-📌 Muito usadas em relatórios financeiros.
+🔤 Funções de Texto:    
 
-🔤 Funções de Texto
+Permitem padronizar e manipular strings.    
 
-Permitem padronizar e manipular strings.
+Funções mais comuns:    
 
-Funções mais comuns:
+UPPER() / LOWER()       
+LENGTH()    
+SUBSTRING() 
+TRIM()  
+CONCAT()    
 
-UPPER() / LOWER()
+Exemplos:   
 
-LENGTH()
-
-SUBSTRING()
-
-TRIM()
-
-CONCAT()
-
-Exemplos:
+```sql  
 SELECT 
     nome,
     UPPER(nome) AS nome_maiusculo
@@ -80,46 +74,46 @@ FROM clientes;
 SELECT 
     SUBSTRING(email, 1, 5) AS inicio_email
 FROM usuarios;
+```
 
+📌 Essenciais para limpeza de dados.    
 
-📌 Essenciais para limpeza de dados.
+📅 Funções de Data: 
 
-📅 Funções de Data
+Usadas para trabalhar com datas e horários. 
 
-Usadas para trabalhar com datas e horários.
+Funções mais comuns:    
 
-Funções mais comuns:
+CURRENT_DATE    
+NOW()   
+YEAR(), MONTH(), DAY()  
+DATEDIFF()  
 
-CURRENT_DATE
+Exemplos:   
 
-NOW()
+```sql 
+SELECT  
+    CURRENT_DATE AS data_atual; 
 
-YEAR(), MONTH(), DAY()
+SELECT  
+    DATEDIFF(CURRENT_DATE, data_nascimento) AS dias_de_vida 
+FROM pessoas;   
+```
 
-DATEDIFF()
+📌 Muito utilizadas em análises temporais.  
 
-Exemplos:
-SELECT 
-    CURRENT_DATE AS data_atual;
+🚫 Tratamento de Valores NULL.  
 
-SELECT 
-    DATEDIFF(CURRENT_DATE, data_nascimento) AS dias_de_vida
-FROM pessoas;
+Valores NULL representam ausência de informação e precisam de atenção especial. 
 
+Funções principais: 
 
-📌 Muito utilizadas em análises temporais.
+COALESCE() → substitui NULL 
+NULLIF() → retorna NULL se valores forem iguais 
 
-🚫 Tratamento de Valores NULL
+Exemplos:   
 
-Valores NULL representam ausência de informação e precisam de atenção especial.
-
-Funções principais:
-
-COALESCE() → substitui NULL
-
-NULLIF() → retorna NULL se valores forem iguais
-
-Exemplos:
+```sql
 SELECT 
     nome,
     COALESCE(email, 'não informado') AS email
@@ -128,75 +122,69 @@ FROM clientes;
 SELECT 
     NULLIF(status, 'inativo')
 FROM usuarios;
+```
 
 
-📌 Evita erros em cálculos e exibições.
+📌 Evita erros em cálculos e exibições. 
 
-⚠️ Diferença entre Funções Simples e de Agregação
+⚠️ Diferença entre Funções Simples e de Agregação:  
 
-Funções simples → atuam linha a linha
+Funções simples → atuam linha a linha.  
+Funções de agregação → atuam sobre conjuntos (SUM, COUNT, etc.).    
 
-Funções de agregação → atuam sobre conjuntos (SUM, COUNT, etc.)
+Exemplo:   
 
-Exemplo:
-
+```sql
 SELECT 
     COUNT(*) 
 FROM vendas;
+```
 
+📌 Funções de agregação serão aprofundadas no módulo de Agrupamentos.   
 
-📌 Funções de agregação serão aprofundadas no módulo de Agrupamentos.
+⚠️ Erros Comuns 
 
-⚠️ Erros Comuns
+❌ Ignorar NULL em cálculos.    
+❌ Não usar aliases (AS).   
+❌ Misturar funções simples com agregações sem GROUP BY.    
+❌ Usar funções sem necessidade.    
 
-❌ Ignorar NULL em cálculos
-❌ Não usar aliases (AS)
-❌ Misturar funções simples com agregações sem GROUP BY
-❌ Usar funções sem necessidade
+✔️ Sempre valide o resultado da consulta.   
 
-✔️ Sempre valide o resultado da consulta.
+🧠 Boas Práticas: 
 
-🧠 Boas Práticas
-
-Use aliases claros
-
-Separe lógica complexa em etapas
-
-Evite funções em excesso
-
-Teste funções isoladamente
-
-Comente consultas complexas
+Use aliases claros.
+Separe lógica complexa em etapas.   
+Evite funções em excesso.   
+Teste funções isoladamente. 
+Comente consultas complexas.    
 
 📘 Uso no Mundo Real
 
-Funções são usadas em:
+Funções são usadas em:  
 
-Relatórios
+Relatórios. 
 
-Dashboards
+Dashboards. 
 
-Tratamento de dados
+Tratamento de dados.    
 
-Regras de negócio
+Regras de negócio.  
 
-Preparação para BI e Analytics
+Preparação para BI e Analytics. 
 
-Sem funções, o SQL fica limitado e manual.
+Sem funções, o SQL fica limitado e manual.  
 
-🚀 Próximo Passo
+🚀 Próximo Passo: 
 
-➡ Agrupamentos (GROUP BY)
+➡ Agrupamentos (GROUP BY).
 
-Funções de agregação
+Funções de agregação.
+Métricas.
+Indicadores.
+Análises consolidadas.
 
-Métricas
+📌 Resumo: 
 
-Indicadores
-
-Análises consolidadas
-
-📌 Resumo
-
-Funções SQL permitem transformar dados brutos em informação útil.
-São indispensáveis para qualquer ambiente profissional.
+Funções SQL permitem transformar dados brutos em informação útil.   
+São indispensáveis para qualquer ambiente profissional. 
