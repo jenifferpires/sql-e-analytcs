@@ -43,8 +43,8 @@ SELECT
 FROM clientes;
 ```
 
-📅 Funções de Data
-Permitem cálculos temporais precisos.
+📅 Funções de Data      
+Permitem cálculos temporais precisos.       
 
 CURDATE(): Retorna a data atual.
 
@@ -59,8 +59,8 @@ SELECT
 FROM clientes;
 ```
 
-🚫 Tratamento de NULL
-Evita que valores vazios quebrem seus cálculos ou relatórios.
+🚫 Tratamento de NULL       
+Evita que valores vazios quebrem seus cálculos ou relatórios.       
 
 IFNULL(coluna, substituto): Troca o NULL por um valor fixo.
 
