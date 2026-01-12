@@ -174,19 +174,16 @@ ORDER BY data_cadastro DESC;
 
 ``` 
 
-➡️ Retorna apenas clientes ativos. 
-➡️ Mostra nome, email e data de cadastro. 
-➡️ Ordena do mais recente para o mais antigo. 
+➡️ Retorna apenas clientes ativos.    
+➡️ Mostra nome, email e data de cadastro.    
+➡️ Ordena do mais recente para o mais antigo.     
 
-Esse tipo de consulta é extremamente comum em:  
+Esse tipo de consulta é extremamente comum em:   
 
-Telas administrativas. 
- 
-Relatórios. 
-
-Dashboards. 
-
-APIs. 
+Telas administrativas.  
+Relatórios.  
+Dashboards.  
+APIs.  
 
 ⚠️ Erros comuns:  
 ❌ Esquecer o WHERE e retornar dados demais.  
