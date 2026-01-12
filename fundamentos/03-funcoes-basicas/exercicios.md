@@ -31,17 +31,16 @@ Retorne o valor absoluto de cada movimentação.
 
 📌 Quando esse tipo de cálculo é útil no mundo real?    
 
-3️⃣ Arredondamento estratégico    
-
-Considere a tabela notas(media_final).  
+3️⃣ Arredondamento estratégico     
+Considere a tabela notas(media_final).   
 
 👉 Crie uma consulta que:   
 
 Arredonde a média para cima.    
 Arredonde a média para baixo.   
 
-🔤 Parte 2 – Funções de Texto       
-4️⃣ Padronização de nomes         
+🔤 Parte 2 – Funções de Texto        
+4️⃣ Padronização de nomes          
 
 Considere a tabela clientes(nome).      
 
@@ -50,26 +49,23 @@ Considere a tabela clientes(nome).
 Exiba o nome original.  
 Exiba o nome em letras maiúsculas.  
 
-5️⃣ Contagem de caracteres    
-
-Considere a tabela usuarios(email).     
+5️⃣ Contagem de caracteres     
+Considere a tabela usuarios(email).      
 
 👉 Crie uma consulta que:       
 
 Exiba o e-mail      
 Exiba a quantidade de caracteres do e-mail.         
 
-6️⃣ Extração parcial  
-
-Considere a tabela usuarios(email).     
+6️⃣ Extração parcial   
+Considere a tabela usuarios(email).      
 
 👉 Crie uma consulta que:   
 
 Retorne apenas os 5 primeiros caracteres do e-mail  
 
-7️⃣ Limpeza de dados  
-
-Considere a tabela clientes(nome) com espaços extras.   
+7️⃣ Limpeza de dados   
+Considere a tabela clientes(nome) com espaços extras.    
 
 👉 Crie uma consulta que:   
 
@@ -77,9 +73,8 @@ Remova espaços em branco antes e depois do nome.
  
 📌 Por que isso é importante em bases reais?    
 
-8️⃣ Concatenação de informações   
-
-Considere a tabela funcionarios(nome, cargo).   
+8️⃣ Concatenação de informações    
+Considere a tabela funcionarios(nome, cargo).    
 
 👉 Crie uma consulta que:   
 
@@ -93,23 +88,20 @@ Nome - Cargo.
 
 Retorne a data atual do sistema     
 
-🔟 Data e hora atual    
-
-👉 Crie uma consulta que:   
+🔟 Data e hora atual     
+👉 Crie uma consulta que:    
 
 Retorne a data e hora atual .    
 
-1️⃣1️⃣ Extração de partes da data   
-
-Considere a tabela pessoas(data_nascimento).    
+1️⃣1️⃣ Extração de partes da data    
+Considere a tabela pessoas(data_nascimento).     
 
 👉 Crie uma consulta que:   
 
 Retorne o ano, mês e dia de nascimento separadamente.
 
-1️⃣2️⃣ Diferença entre datas    
- 
-Considere a tabela clientes(data_cadastro).     
+1️⃣2️⃣ Diferença entre datas     
+ Considere a tabela clientes(data_cadastro).     
 
 👉 Crie uma consulta que:   
 
@@ -126,8 +118,7 @@ Considere a tabela clientes(nome, email) onde email pode ser NULL.
 
 Substitua valores NULL por "não informado". 
 
-1️⃣4️⃣ NULLIF   
-
+1️⃣4️⃣ NULLIF    
 Considere a tabela usuarios(status).    
 
 👉 Crie uma consulta que:   
@@ -136,16 +127,15 @@ Retorne NULL quando o status for 'inativo'.
 
 📌 Em quais cenários isso pode ser útil?    
 
-1️⃣5️⃣ Evitando erro em cálculos    
-
-Considere a tabela pagamentos(valor) onde o valor pode ser NULL.    
+1️⃣5️⃣ Evitando erro em cálculos     
+Considere a tabela pagamentos(valor) onde o valor pode ser NULL.     
 
 👉 Crie uma consulta que:   
 
 Garanta que valores NULL sejam tratados como 0. 
 
-🧪 Parte 5 – Exercícios de Raciocínio (Mundo Real)  
-1️⃣6️⃣ Relatório de clientes    
+🧪 Parte 5 – Exercícios de Raciocínio (Mundo Real)   
+1️⃣6️⃣ Relatório de clientes     
 
 👉 Crie uma consulta que:   
 
@@ -153,8 +143,7 @@ Exiba o nome do cliente em maiúsculo.
 Substitua e-mails nulos.    
 Mostre quantos dias o cliente está cadastrado.  
 
-1️⃣7️⃣ Qualidade de dados   
-
+1️⃣7️⃣ Qualidade de dados    
 👉 Crie uma consulta que:   
 
 Limpe espaços em nomes. 
