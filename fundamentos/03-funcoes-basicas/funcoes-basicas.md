@@ -1,190 +1,209 @@
-🔧 Funções Básicas em SQL.     
-🎯 Objetivo:  
+# Funções Básicas em SQL
 
-Este arquivo apresenta as funções básicas do SQL, utilizadas para manipular, transformar e tratar dados diretamente nas consultas. 
+As **funções SQL** são utilizadas para **manipular, transformar e analisar dados**
+retornados pelas consultas.
 
-Funções permitem: 
+Elas permitem realizar cálculos, tratar textos, datas e valores nulos,
+tornando as consultas mais poderosas e expressivas.
 
-Criar cálculos.
-Ajustar formatos.   
-Tratar valores inválidos.   
-Preparar dados para análise e relatórios.   
+Neste módulo, vamos estudar as **funções mais utilizadas no dia a dia**,
+com foco em clareza conceitual e aplicação prática em MySQL.
 
-📌 Dominar funções é essencial para escrever SQL eficiente e profissional.  
+---
 
-🧠 O que são Funções?   
+## 🎯 O que são funções em SQL?
 
-Funções são operações aplicadas a valores ou colunas que retornam um novo valor.    
+Uma **função** é um comando que:
 
-Exemplo simples:   
+- Recebe **um ou mais valores** como entrada.
+- Executa uma operação específica.
+- Retorna **um único valor** como resultado.
 
+📌 Funções geralmente são usadas dentro do `SELECT`, `WHERE`, `ORDER BY` ou `HAVING`.
+
+Exemplo simples: 
 ```sql
-SELECT UPPER(nome)      
-FROM clientes;      
+SELECT UPPER('sql');
+
+Resultado:
+SQL
+```
+🧠 Tipos de funções
+As funções em SQL podem ser agrupadas em categorias:
+
+🔢 Funções Numéricas
+Utilizadas para cálculos matemáticos.
+
+Exemplos:
+
+COUNT()
+
+SUM()
+
+AVG()
+
+MIN()
+
+MAX()
+
+ROUND()
+
+🔤 Funções de Texto (String)
+Utilizadas para manipular textos.
+
+Exemplos:
+
+UPPER()
+
+LOWER()
+
+LENGTH()
+
+CONCAT()
+
+SUBSTRING()
+
+TRIM()
+
+📅 Funções de Data e Hora
+Utilizadas para trabalhar com datas.
+
+Exemplos:
+
+NOW()
+
+CURDATE()
+
+YEAR()
+
+MONTH()
+
+DATEDIFF()
+
+🚫 Funções de Tratamento de NULL
+Utilizadas para lidar com valores nulos.
+
+Exemplos:
+
+IS NULL
+
+IS NOT NULL
+
+IFNULL()
+
+COALESCE()
+
+🔢 Funções Numéricas – Conceitos
+COUNT()
+Conta a quantidade de registros.
+
+``` sql
+SELECT COUNT(*) FROM clientes;
 ```
 
-➡ A função UPPER() transforma o texto para letras maiúsculas.  
+📌 Conta todas as linhas, inclusive com valores nulos.
 
-🔢 Funções Numéricas    
+```sql
+SELECT COUNT(email) FROM clientes;
+```
 
-Utilizadas para cálculos matemáticos.   
+📌 Conta apenas linhas onde email não é NULL.
 
-Funções mais comuns:    
+SUM() e AVG()
+Somam ou calculam a média de valores numéricos.
 
-SUM() → soma valores    
-AVG() → média   
-ROUND() → arredondamento    
-ABS() → valor absoluto  
-CEILING() / FLOOR() → arredondamento para cima ou para baixo.       
-
-Exemplos:   
-
-```sql 
-SELECT 
-    valor,
-    ROUND(valor, 2) AS valor_arredondado
-FROM vendas;
-
-SELECT 
-    ABS(-100) AS valor_absoluto;
+```sql
+SELECT SUM(valor) FROM pedidos;
+SELECT AVG(valor) FROM pedidos;
+MIN() e MAX()
 ``` 
-
-📌 Muito usadas em relatórios financeiros.  
-
-🔤 Funções de Texto:    
-
-Permitem padronizar e manipular strings.    
-
-Funções mais comuns:    
-
-UPPER() / LOWER()       
-LENGTH()    
-SUBSTRING() 
-TRIM()  
-CONCAT()    
-
-Exemplos:   
-
-```sql  
-SELECT 
-    nome,
-    UPPER(nome) AS nome_maiusculo
-FROM clientes;
-
-SELECT 
-    SUBSTRING(email, 1, 5) AS inicio_email
-FROM usuarios;
-```
-
-📌 Essenciais para limpeza de dados.    
-
-📅 Funções de Data: 
-
-Usadas para trabalhar com datas e horários. 
-
-Funções mais comuns:    
-
-CURRENT_DATE    
-NOW()   
-YEAR(), MONTH(), DAY()  
-DATEDIFF()  
-
-Exemplos:   
-
-```sql 
-SELECT  
-    CURRENT_DATE AS data_atual; 
-
-SELECT  
-    DATEDIFF(CURRENT_DATE, data_nascimento) AS dias_de_vida 
-FROM pessoas;   
-```
-
-📌 Muito utilizadas em análises temporais.  
-
-🚫 Tratamento de Valores NULL.  
-
-Valores NULL representam ausência de informação e precisam de atenção especial. 
-
-Funções principais: 
-
-COALESCE() → substitui NULL 
-NULLIF() → retorna NULL se valores forem iguais 
-
-Exemplos:   
+Retornam o menor ou maior valor.
 
 ```sql
-SELECT 
-    nome,
-    COALESCE(email, 'não informado') AS email
-FROM clientes;
-
-SELECT 
-    NULLIF(status, 'inativo')
-FROM usuarios;
+SELECT MIN(preco), MAX(preco) FROM produtos;
 ```
 
-
-📌 Evita erros em cálculos e exibições. 
-
-⚠️ Diferença entre Funções Simples e de Agregação:  
-
-Funções simples → atuam linha a linha.  
-Funções de agregação → atuam sobre conjuntos (SUM, COUNT, etc.).    
-
-Exemplo:   
+🔤 Funções de Texto – Conceitos
+UPPER() e LOWER()
+Convertem textos para maiúsculas ou minúsculas. 
 
 ```sql
-SELECT 
-    COUNT(*) 
-FROM vendas;
+SELECT UPPER(nome), LOWER(email) FROM usuarios;
+LENGTH()
+```
+Retorna o tamanho de uma string.
+
+```sql
+SELECT LENGTH(nome) FROM clientes;
+CONCAT()
+```
+Concatena textos.
+
+```sql
+SELECT CONCAT(nome, ' ', sobrenome) AS nome_completo
+FROM clientes;
+```
+📌 Muito utilizada para montar campos derivados.
+
+📅 Funções de Data – Conceitos. 
+NOW() e CURDATE()
+Retornam data e hora atuais. 
+
+```sql
+SELECT NOW();
+SELECT CURDATE();
+```
+Extraindo partes da data.
+
+```sql
+SELECT YEAR(data_pedido), MONTH(data_pedido)
+FROM pedidos;
+DATEDIFF()
+```
+Calcula a diferença entre duas datas (em dias).
+
+```sql
+SELECT DATEDIFF(data_fim, data_inicio) FROM contratos;
 ```
 
-📌 Funções de agregação serão aprofundadas no módulo de Agrupamentos.   
+🚫 Tratamento de valores NULL
+IS NULL e IS NOT NULL 
+Utilizados para filtrar valores nulos. 
 
-⚠️ Erros Comuns 
+```sql
+SELECT * FROM clientes WHERE email IS NULL;
+IFNULL()
+```
+Substitui valores NULL por outro valor.
 
-❌ Ignorar NULL em cálculos.    
-❌ Não usar aliases (AS).   
-❌ Misturar funções simples com agregações sem GROUP BY.    
-❌ Usar funções sem necessidade.    
+```sql
+SELECT IFNULL(email, 'Não informado') FROM clientes;
+COALESCE()`
+```
+Retorna o primeiro valor não nulo da lista.
 
-✔️ Sempre valide o resultado da consulta.   
+```sql
+SELECT COALESCE(telefone, celular, 'Sem contato')
+FROM clientes;
+```
 
-🧠 Boas Práticas: 
+⚠️ Pontos de Atenção: 
+Funções podem impactar performance em grandes volumes de dados. 
+Usar funções no WHERE pode impedir uso de índices.
+Sempre valide se o tipo do dado é compatível com a função. 
 
-Use aliases claros.
-Separe lógica complexa em etapas.   
-Evite funções em excesso.   
-Teste funções isoladamente. 
-Comente consultas complexas.    
+📌 Conclusão: 
+As funções básicas são essenciais para: 
 
-📘 Uso no Mundo Real
+Análise de dados. 
 
-Funções são usadas em:  
+Criação de relatórios. 
 
-Relatórios. 
+Limpeza e padronização de informações. 
 
-Dashboards. 
+Resolução de problemas reais em ambientes corporativos.
 
-Tratamento de dados.    
+Dominar essas funções é um passo fundamental
+antes de avançar para JOINs, subqueries e funções analíticas. 
 
-Regras de negócio.  
 
-Preparação para BI e Analytics. 
-
-Sem funções, o SQL fica limitado e manual.  
-
-🚀 Próximo Passo: 
-
-➡ Agrupamentos (GROUP BY).
-
-Funções de agregação.
-Métricas.
-Indicadores.
-Análises consolidadas.
-
-📌 Resumo: 
-
-Funções SQL permitem transformar dados brutos em informação útil.   
-São indispensáveis para qualquer ambiente profissional. 
