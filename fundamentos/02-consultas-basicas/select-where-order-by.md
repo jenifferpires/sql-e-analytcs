@@ -1,4 +1,4 @@
-# SELECT, WHERE e ORDER BY 
+# SELECT, WHERE e ORDER BY  
 
 Este arquivo aborda os três comandos mais fundamentais do SQL: 
 **SELECT**, **WHERE** e **ORDER BY**. 
@@ -49,24 +49,24 @@ FROM clientes;
 ⚠️ Boa prática:     
 Evite usar SELECT * em ambientes reais, pois: 
 
-Retorna mais dados do que o necessário. 
+Retorna mais dados do que o necessário.  
 
-Impacta performance.
+Impacta performance. 
 
-Dificulta leitura e manutenção da query. 
+Dificulta leitura e manutenção da query.  
 
-📌 O comando WHERE:  
+📌 O comando WHERE:   
 
 O WHERE é usado para filtrar registros, retornando apenas aqueles 
-que atendem a uma condição específica. 
+que atendem a uma condição específica.  
 
 Sintaxe básica: 
 
-SELECT colunas 
-FROM tabela 
-WHERE condição; 
+SELECT colunas  
+FROM tabela  
+WHERE condição;  
 
-Exemplo simples: 
+Exemplo simples:  
 
 ```sql 
 SELECT nome, cidade
@@ -74,22 +74,22 @@ FROM clientes
 WHERE cidade = 'São Paulo';
 ``` 
 
-➡️ Retorna apenas clientes que moram em São Paulo. 
+➡️ Retorna apenas clientes que moram em São Paulo.  
 
-🔎 Operadores mais comuns no WHERE : 
-Operador	Descrição 
-=	Igual 
-<> ou !=	Diferente 
->	Maior que 
-<	Menor que 
->=	Maior ou igual 
-<=	Menor ou igual 
-LIKE	Busca por padrão 
-IN	Lista de valores 
-BETWEEN	Intervalo de valores 
-IS NULL	Valores nulos 
+🔎 Operadores mais comuns no WHERE :  
+Operador	    Descrição  
+=	             Igual  
+<> ou !=	     Diferente  
+>	             Maior que  
+<	             Menor que  
+>=	             Maior ou igual  
+<=	             Menor ou igual  
+LIKE	         Busca por padrão  
+IN	             Lista de valores  
+BETWEEN	         Intervalo de valores  
+IS NULL	         Valores nulos  
 
-Exemplos: 
+Exemplos:  
 ```sql
 SELECT *
 FROM pedidos
@@ -105,15 +105,16 @@ FROM pedidos
 WHERE status IN ('PAGO', 'ENVIADO');
 ```
 
-📌 O comando ORDER BY 
-O ORDER BY define a ordem dos resultados retornados pela consulta. 
+📌 O comando ORDER BY  
+O ORDER BY define a ordem dos resultados retornados pela consulta.  
 
-Sintaxe básica: 
+Sintaxe básica:  
 
-SELECT colunas 
-FROM tabela 
-ORDER BY coluna; 
-Ordenação crescente (padrão) 
+SELECT colunas  
+FROM tabela  
+ORDER BY coluna;  
+
+Ordenação crescente (padrão)  
 
 ```sql
 SELECT nome, data_cadastro
@@ -121,79 +122,79 @@ FROM clientes
 ORDER BY data_cadastro;
 ```
 
-➡️ Ordena do mais antigo para o mais recente. 
+➡️ Ordena do mais antigo para o mais recente.  
 
-Ordenação decrescente: 
-
-```sql
+Ordenação decrescente:  
+ 
+```sql 
 SELECT nome, data_cadastro
 FROM clientes
-ORDER BY data_cadastro DESC;
+ORDER BY data_cadastro DESC; 
 ```
 
-➡️ Ordena do mais recente para o mais antigo. 
+➡️ Ordena do mais recente para o mais antigo.  
 
-📊 Ordenando por mais de uma coluna: 
+📊 Ordenando por mais de uma coluna:  
 ```sql 
 SELECT nome, cidade, idade
 FROM clientes
-ORDER BY cidade ASC, idade DESC;
+ORDER BY cidade ASC, idade DESC; 
 ```
 
-➡️ Primeiro ordena por cidade (A–Z) 
-➡️ Dentro da mesma cidade, ordena por idade (maior → menor) 
+➡️ Primeiro ordena por cidade (A–Z)      
+➡️ Dentro da mesma cidade, ordena por idade (maior → menor)    
 
-🧠 Ordem lógica de execução. 
-Embora a query seja escrita assim: 
+🧠 Ordem lógica de execução.  
+Embora a query seja escrita assim:  
 
-SELECT colunas 
-FROM tabela 
-WHERE condição 
-ORDER BY coluna; 
+SELECT colunas   
+FROM tabela   
+WHERE condição   
+ORDER BY coluna;   
 
-O banco executa nesta ordem: 
+O banco executa nesta ordem:   
 
-FROM – identifica a tabela 
-WHERE – filtra os dados 
-SELECT – escolhe as colunas 
-ORDER BY – organiza o resultado final. 
+FROM – identifica a tabela   
+WHERE – filtra os dados   
+SELECT – escolhe as colunas   
+ORDER BY – organiza o resultado final.   
 
-👉 Entender isso ajuda muito a debugar consultas e melhorar performance. 
+👉 Entender isso ajuda muito a debugar consultas e melhorar performance.   
 
-🧪 Exemplo completo (cenário real): 
+🧪 Exemplo completo (cenário real):   
 
 ```sql
 SELECT nome, email, data_cadastro
 FROM clientes
 WHERE ativo = 1
-ORDER BY data_cadastro DESC;
+ORDER BY data_cadastro DESC; 
 
-```
+``` 
 
-➡️ Retorna apenas clientes ativos.
-➡️ Mostra nome, email e data de cadastro.
-➡️ Ordena do mais recente para o mais antigo.
+➡️ Retorna apenas clientes ativos. 
+➡️ Mostra nome, email e data de cadastro. 
+➡️ Ordena do mais recente para o mais antigo. 
 
-Esse tipo de consulta é extremamente comum em: 
+Esse tipo de consulta é extremamente comum em:  
 
-Telas administrativas.
+Telas administrativas. 
+ 
+Relatórios. 
 
-Relatórios.
+Dashboards. 
 
-Dashboards.
+APIs. 
 
-APIs.
-
-⚠️ Erros comuns: 
-❌ Esquecer o WHERE e retornar dados demais. 
-❌ Usar SELECT * sem necessidade. 
-❌ Não ordenar resultados quando a ordem é importante. 
-❌ Comparar valores nulos usando = NULL (o correto é IS NULL). 
+⚠️ Erros comuns:  
+❌ Esquecer o WHERE e retornar dados demais.  
+❌ Usar SELECT * sem necessidade.  
+❌ Não ordenar resultados quando a ordem é importante.  
+❌ Comparar valores nulos usando = NULL (o correto é IS NULL).  
 
 
-✅ Boas práticas: 
-✔️ Seja explícito nas colunas do SELECT. 
-✔️ Use WHERE para limitar dados sempre que possível. 
-✔️ Use ORDER BY quando a ordem importa para o negócio. 
-✔️ Escreva queries legíveis e bem formatadas. 
+✅ Boas práticas:  
+✔️ Seja explícito nas colunas do SELECT.  
+✔️ Use WHERE para limitar dados sempre que possível.  
+✔️ Use ORDER BY quando a ordem importa para o negócio.  
+✔️ Escreva queries legíveis e bem formatadas.  
 
