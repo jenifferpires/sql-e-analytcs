@@ -31,8 +31,8 @@ SQL
 🧠 Tipos de funções
 As funções em SQL podem ser agrupadas em categorias:
 
-🔢 Funções Numéricas
-Utilizadas para cálculos matemáticos.
+🔢 Funções Numéricas        
+Utilizadas para cálculos matemáticos.   
 
 Exemplos:
 
@@ -80,8 +80,8 @@ MONTH()
 
 DATEDIFF()
 
-🚫 Funções de Tratamento de NULL
-Utilizadas para lidar com valores nulos.
+🚫 Funções de Tratamento de NULL        
+Utilizadas para lidar com valores nulos.        
 
 Exemplos:
 
@@ -93,24 +93,24 @@ IFNULL()
 
 COALESCE()
 
-🔢 Funções Numéricas – Conceitos
-COUNT()
-Conta a quantidade de registros.
+🔢 Funções Numéricas – Conceitos        
+COUNT()     
+Conta a quantidade de registros.        
 
 ``` sql
 SELECT COUNT(*) FROM clientes;
 ```
 
-📌 Conta todas as linhas, inclusive com valores nulos.
+📌 Conta todas as linhas, inclusive com valores nulos.  
 
 ```sql
 SELECT COUNT(email) FROM clientes;
 ```
 
-📌 Conta apenas linhas onde email não é NULL.
+📌 Conta apenas linhas onde email não é NULL.   
 
-SUM() e AVG()
-Somam ou calculam a média de valores numéricos.
+SUM() e AVG()   
+Somam ou calculam a média de valores numéricos.     
 
 ```sql
 SELECT SUM(valor) FROM pedidos;
@@ -123,9 +123,9 @@ Retornam o menor ou maior valor.
 SELECT MIN(preco), MAX(preco) FROM produtos;
 ```
 
-🔤 Funções de Texto – Conceitos 
-UPPER() e LOWER()   
-Convertem textos para maiúsculas ou minúsculas.     
+🔤 Funções de Texto – Conceitos         
+UPPER() e LOWER()           
+Convertem textos para maiúsculas ou minúsculas.             
 
 ```sql
 SELECT UPPER(nome), LOWER(email) FROM usuarios;
@@ -188,9 +188,11 @@ FROM clientes;
 ```
 
 ⚠️ Pontos de Atenção:           
-Funções podem impactar performance em grandes volumes de dados.     
-Usar funções no WHERE pode impedir uso de índices.  
-Sempre valide se o tipo do dado é compatível com a função.  
+Funções podem impactar performance em grandes volumes de dados.      
+
+Usar funções no WHERE pode impedir uso de índices.   
+
+Sempre valide se o tipo do dado é compatível com a função.   
 
 📌 Conclusão:   
 As funções básicas são essenciais para:     
