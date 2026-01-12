@@ -29,12 +29,12 @@ SELECT
 FROM clientes;
 ```
 
-🔤 Funções de Texto
-Essenciais para padronização de cadastros.
+🔤 Funções de Texto     
+Essenciais para padronização de cadastros.      
 
-UPPER / LOWER: Padroniza para maiúsculo/minúsculo.
-CONCAT: Une duas ou mais colunas.
-LENGTH: Retorna a quantidade de caracteres.
+UPPER / LOWER: Padroniza para maiúsculo/minúsculo.      
+CONCAT: Une duas ou mais colunas.       
+LENGTH: Retorna a quantidade de caracteres.     
 
 ```sql
 SELECT 
@@ -73,6 +73,6 @@ SELECT
 FROM clientes;
 ```
 
-⚠️ Atenção: 
-Performance
-Evite usar funções diretamente na cláusula WHERE em colunas indexadas (ex: WHERE YEAR(data) = 2024), pois isso pode deixar a consulta lenta em bases muito grandes.
+⚠️ Atenção:  
+Performance 
+Evite usar funções diretamente na cláusula WHERE em colunas indexadas (ex: WHERE YEAR(data) = 2024), pois isso pode deixar a consulta lenta em bases muito grandes. 
