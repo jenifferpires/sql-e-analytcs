@@ -87,9 +87,9 @@ Operador	    Descrição
 LIKE	         Busca por padrão  
 IN	             Lista de valores  
 BETWEEN	         Intervalo de valores  
-IS NULL	         Valores nulos  
+IS NULL	         Valores nulos   
 
-Exemplos:  
+Exemplos:   
 ```sql
 SELECT *
 FROM pedidos
