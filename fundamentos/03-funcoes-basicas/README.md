@@ -1,84 +1,82 @@
-📌 Funções Básicas em SQL
-🎯 Objetivo do módulo
+📌 Funções Básicas em SQL 
+🎯 Objetivo do módulo: 
 
-Este módulo apresenta as funções básicas do SQL, fundamentais para manipulação, transformação e análise de dados em consultas.
+Este módulo apresenta as funções básicas do SQL, fundamentais para manipulação, transformação e análise de dados em consultas. 
 
-Ao final deste conteúdo, você será capaz de:
+Ao final deste conteúdo, você será capaz de: 
 
-Utilizar funções para tratar textos, números e datas
+Utilizar funções para tratar textos, números e datas.
+Aplicar funções em consultas reais com SELECT. 
+Combinar funções com filtros e ordenações. 
+Compreender quando e por que usar cada tipo de função.
 
-Aplicar funções em consultas reais com SELECT
+Este conhecimento é amplamente utilizado em ambientes corporativos, relatórios, dashboards e integrações de sistemas. 
 
-Combinar funções com filtros e ordenações
+🧠 O que são funções em SQL? 
 
-Compreender quando e por que usar cada tipo de função
+Funções em SQL são operações pré-definidas que recebem valores como entrada e retornam um resultado. 
 
-Este conhecimento é amplamente utilizado em ambientes corporativos, relatórios, dashboards e integrações de sistemas.
+Elas permitem: 
 
-🧠 O que são funções em SQL?
+Manipular dados (ex: converter texto, arredondar números). 
+Realizar cálculos. 
+Extrair partes de valores. 
+Preparar dados para análise. 
 
-Funções em SQL são operações pré-definidas que recebem valores como entrada e retornam um resultado.
 
-Elas permitem:
+📌 Importante: 
+Funções são aplicadas linha a linha, antes de qualquer agregação (GROUP BY). 
 
-Manipular dados (ex: converter texto, arredondar números)
-Realizar cálculos
-Extrair partes de valores
-Preparar dados para análise
+🗂️ Tipos de funções abordadas 
 
-📌 Importante:
-Funções são aplicadas linha a linha, antes de qualquer agregação (GROUP BY).
+Neste módulo, trabalhamos com os principais grupos de funções básicas: 
 
-🗂️ Tipos de funções abordadas
+🔤 Funções de Texto 
 
-Neste módulo, trabalhamos com os principais grupos de funções básicas:
+Usadas para manipular e tratar strings. 
 
-🔤 Funções de Texto
+Exemplos: 
 
-Usadas para manipular e tratar strings.
+UPPER() – converte texto para maiúsculo 
+LOWER() – converte texto para minúsculo 
+LENGTH() – retorna o tamanho do texto 
+CONCAT() – concatena textos 
+SUBSTRING() – extrai parte de um texto 
+TRIM() – remove espaços extras 
 
-Exemplos:
+🔢 Funções Numéricas 
 
-UPPER() – converte texto para maiúsculo
-LOWER() – converte texto para minúsculo
-LENGTH() – retorna o tamanho do texto
-CONCAT() – concatena textos
-SUBSTRING() – extrai parte de um texto
-TRIM() – remove espaços extras
+Utilizadas para cálculos e ajustes de valores numéricos. 
 
-🔢 Funções Numéricas
+Exemplos: 
 
-Utilizadas para cálculos e ajustes de valores numéricos.
+ROUND() – arredonda valores 
+CEILING() – arredonda para cima 
+FLOOR() – arredonda para baixo 
+ABS() – valor absoluto 
+MOD() – resto da divisão 
 
-Exemplos:
+📅 Funções de Data e Hora 
 
-ROUND() – arredonda valores
-CEILING() – arredonda para cima
-FLOOR() – arredonda para baixo
-ABS() – valor absoluto
-MOD() – resto da divisão
+Essenciais para trabalhar com datas em sistemas reais. 
 
-📅 Funções de Data e Hora
+Exemplos: 
 
-Essenciais para trabalhar com datas em sistemas reais.
+NOW() – data e hora atual 
+CURDATE() – data atual 
+YEAR(), MONTH(), DAY() – extração de partes da data 
+DATEDIFF() – diferença entre datas 
 
-Exemplos:
+🧩 Uso das funções em consultas 
 
-NOW() – data e hora atual
-CURDATE() – data atual
-YEAR(), MONTH(), DAY() – extração de partes da data
-DATEDIFF() – diferença entre datas
+As funções são normalmente utilizadas dentro do SELECT, podendo ser combinadas com: 
 
-🧩 Uso das funções em consultas
-
-As funções são normalmente utilizadas dentro do SELECT, podendo ser combinadas com:
-
-WHERE
-ORDER BY
-GROUP BY (mais adiante)
-ALIASES
-
-Exemplo conceitual:
+WHERE 
+ORDER BY 
+GROUP BY (mais adiante) 
+ALIASES 
+ 
+Exemplo conceitual: 
 
 ```sql
 SELECT
@@ -88,39 +86,39 @@ FROM funcionarios;
 ```
 
 
-📌 Boa prática:
-Sempre utilize aliases (AS) para deixar o resultado mais legível.
+📌 Boa prática: 
+Sempre utilize aliases (AS) para deixar o resultado mais legível. 
 
-📁 Organização dos arquivos deste módulo: 
-03-funcoes-basicas/
-├── README.md           → Visão geral e objetivos do módulo
-├── conceitos.md        → Explicação detalhada das funções
-├── funcoes-basicas.md  → Conteúdo técnico com exemplos explicados
-├── exemplos.sql        → Exemplos práticos executáveis
-└── exercicios.md       → Exercícios para fixação
+📁 Organização dos arquivos deste módulo:  
+03-funcoes-basicas/ 
+├── README.md           → Visão geral e objetivos do módulo 
+├── conceitos.md        → Explicação detalhada das funções 
+├── funcoes-basicas.md  → Conteúdo técnico com exemplos explicados 
+├── exemplos.sql        → Exemplos práticos executáveis 
+└── exercicios.md       → Exercícios para fixação 
 
-🧪 Como estudar este módulo 
+🧪 Como estudar este módulo  
 
-Sugestão de fluxo:
+Sugestão de fluxo: 
 
-📖 Leia o conceitos.md para entender o propósito das funções
+📖 Leia o conceitos.md para entender o propósito das funções 
 
-🔍 Estude o arquivo funcoes-basicas.md, analisando cada exemplo
+🔍 Estude o arquivo funcoes-basicas.md, analisando cada exemplo 
 
-▶️ Execute os comandos do exemplos.sql no MySQL
+▶️ Execute os comandos do exemplos.sql no MySQL 
 
-✍️ Resolva os desafios propostos em exercicios.md
+✍️ Resolva os desafios propostos em exercicios.md 
 
-🚀 Conexão com o próximo módulo
+🚀 Conexão com o próximo módulo 
 
-O domínio das funções básicas é essencial para avançar para:
+O domínio das funções básicas é essencial para avançar para: 
 
-GROUP BY
-HAVING
-Subqueries
-Window Functions
-Queries reais e análises avançadas
-
-📌 Resumo final:
-Funções básicas são um dos pilares do SQL prático.
-Elas tornam consultas mais inteligentes, dados mais limpos e resultados mais úteis para o negócio.
+GROUP BY 
+HAVING 
+Subqueries 
+Window Functions 
+Queries reais e análises avançadas 
+ 
+📌 Resumo final: 
+Funções básicas são um dos pilares do SQL prático. 
+Elas tornam consultas mais inteligentes, dados mais limpos e resultados mais úteis para o negócio. 
