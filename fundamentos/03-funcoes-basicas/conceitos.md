@@ -74,5 +74,5 @@ FROM clientes;
 ```
 
 ⚠️ Atenção:  
-Performance 
+Performance         
 Evite usar funções diretamente na cláusula WHERE em colunas indexadas (ex: WHERE YEAR(data) = 2024), pois isso pode deixar a consulta lenta em bases muito grandes. 
