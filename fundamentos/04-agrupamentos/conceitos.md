@@ -47,10 +47,10 @@ Com GROUP BY, elas atuam por grupo.
 
 Tabela vendas:  
 
-cliente_id	           valor           
-1   	                 100        
-1	                     200        
-2	                     50         
+cliente_id	                                      valor           
+1   	                                          100        
+1	                                              200        
+2	                                              50         
 
 Consulta:       
 ```sql
@@ -59,11 +59,11 @@ FROM vendas
 GROUP BY cliente_id;
 
 ``` 
-Resultado:      
+Resultado:        
 
-cliente_id	          SUM(valor)    
-1	                   300      
-2	                   50       
+cliente_id	                                        SUM(valor)    
+1	                                                  300      
+2	                                                  50       
 
 
 📌 Cada cliente_id virou um grupo.      
