@@ -47,10 +47,10 @@ Com GROUP BY, elas atuam por grupo.
 
 Tabela vendas:  
 
-cliente_id	    valor       
-1   	    100     
-1	        200     
-2	        50      
+cliente_id	           valor           
+1   	                 100        
+1	                     200        
+2	                     50         
 
 Consulta:       
 ```sql
@@ -59,16 +59,15 @@ FROM vendas
 GROUP BY cliente_id;
 
 ``` 
-Resultado:  
+Resultado:      
 
-cliente_id	    SUM(valor) 
-1	            300     
-2	            50      
+cliente_id	          SUM(valor)    
+1	                   300      
+2	                   50       
 
 
-📌 Cada cliente_id virou um grupo.  
-
-📌 Regra de Ouro do GROUP BY  
+📌 Cada cliente_id virou um grupo.      
+📌 Regra de Ouro do GROUP BY    
 
 Toda coluna no SELECT que não está dentro de uma função de agregação
 deve obrigatoriamente aparecer no GROUP BY. 
@@ -87,36 +86,35 @@ FROM vendas
 GROUP BY cliente_id;
 ```
 
-🚫 valor não está agregado nem no GROUP BY. 
+🚫 valor não está agregado nem no GROUP BY.  
 
-⚙️ Ordem lógica de execução (simplificada) 
 
-Ao escrever consultas com agrupamento, é importante entender a ordem lógica:    
+⚙️ Ordem lógica de execução (simplificada)   
+Ao escrever consultas com agrupamento, é importante entender a ordem lógica:      
 
-FROM – define a tabela      
-WHERE – filtra linhas       
-GROUP BY – agrupa os dados      
-Funções de agregação – calculam resultados      
-HAVING – filtra grupos      
-SELECT – exibe o resultado      
-ORDER BY – ordena o resultado final         
+FROM – define a tabela          
+WHERE – filtra linhas        
+GROUP BY – agrupa os dados          
+Funções de agregação – calculam resultados          
+HAVING – filtra grupos          
+SELECT – exibe o resultado          
+ORDER BY – ordena o resultado final             
 
-📌 Isso explica por que WHERE e HAVING têm funções diferentes.  
+📌 Isso explica por que WHERE e HAVING têm funções diferentes.      
 
-🔎 Diferença entre WHERE e HAVING   
+🔎 Diferença entre WHERE e HAVING       
 
-WHERE → filtra linhas individuais, antes do agrupamento     
+WHERE → filtra linhas individuais, antes do agrupamento.            
+HAVING → filtra grupos, depois do agrupamento.      
 
-HAVING → filtra grupos, depois do agrupamento   
+Exemplo conceitual:         
 
-Exemplo conceitual:     
+WHERE: “quais vendas considerar?”           
+HAVING: “quais grupos manter no resultado?”             
 
-WHERE: “quais vendas considerar?”   
-HAVING: “quais grupos manter no resultado?”     
+Este ponto será aprofundado em arquivo específico.      
 
-Este ponto será aprofundado em arquivo específico.  
-
-⚠️ Erros Comuns em Agrupamentos         
+⚠️ Erros Comuns em Agrupamentos          
 
 ❌ Selecionar colunas fora do GROUP BY  
 ❌ Usar HAVING no lugar de WHERE    
@@ -126,40 +124,37 @@ Este ponto será aprofundado em arquivo específico.
 
 📌 Esses erros são frequentes em ambientes reais.   
 
-🧠 Boas Práticas:   
+🧠 Boas Práticas:       
 
-Agrupe apenas quando houver objetivo claro. 
+Agrupe apenas quando houver objetivo claro.     
+Use aliases descritivos.        
+Valide os dados antes de agrupar.           
+Teste a consulta sem GROUP BY primeiro.          
 
-Use aliases descritivos.    
+Sempre pense: “o que esse grupo representa?”        
 
-Valide os dados antes de agrupar.   
+📘 Uso no Mundo Real        
 
-Teste a consulta sem GROUP BY primeiro.     
+Agrupamentos são usados diariamente em:  
 
-Sempre pense: “o que esse grupo representa?”    
+Relatórios financeiros.      
+Indicadores (KPIs).      
+Dashboards.      
+Análises de desempenho.      
+Métricas de negócio.     
 
-📘 Uso no Mundo Real    
+📌 Todo ambiente de dados depende fortemente de GROUP BY.    
 
-Agrupamentos são usados diariamente em: 
+🚀 Próximo Passo:    
 
-Relatórios financeiros.     
-Indicadores (KPIs).     
-Dashboards.     
-Análises de desempenho.     
-Métricas de negócio.    
+Após entender os conceitos:      
 
-📌 Todo ambiente de dados depende fortemente de GROUP BY.   
+➡ GROUP BY com HAVING   
+➡ GROUP BY com Funções de Agregação     
 
-🚀 Próximo Passo:   
+Esses tópicos aprofundam o uso prático do agrupamento.   
 
-Após entender os conceitos:     
+📌 Resumo    
 
-➡ GROUP BY com HAVING  
-➡ GROUP BY com Funções de Agregação    
-
-Esses tópicos aprofundam o uso prático do agrupamento.  
-
-📌 Resumo   
-
-GROUP BY transforma dados detalhados em informações consolidadas.   
-É uma das habilidades mais importantes para quem trabalha com SQL.  
+GROUP BY transforma dados detalhados em informações consolidadas.    
+É uma das habilidades mais importantes para quem trabalha com SQL.   
