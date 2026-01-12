@@ -1,164 +1,100 @@
-========================================================
-FUNÇÕES BÁSICAS EM SQL
-Numéricas | Texto | Datas | Tratamento de NULL
-========================================================
 
-Objetivo:
-Demonstrar o uso prático das funções básicas do SQL
-para manipular, transformar e tratar dados em consultas.
+========================================
+FUNÇÕES BÁSICAS – EXEMPLOS PRÁTICOS
+Banco: MySQL
+========================================
+Este arquivo contém exemplos organizados
+por tipo de função, com foco em uso real.
 
---------------------------------------------------------
-FUNÇÕES NUMÉRICAS
---------------------------------------------------------
+======================================
+1. FUNÇÕES NUMÉRICAS
+====================================== 
 
--- Exemplo 1: Arredondamento de valores
--- Pergunta: Como exibir valores monetários com 2 casas decimais?
+-- Valor absoluto
+SELECT ABS(-10) AS valor_absoluto;
 
+-- Arredondamento
+SELECT ROUND(12.3456, 2) AS arredondado;
+
+-- Arredondamento para cima
+SELECT CEILING(7.2) AS teto;
+
+-- Arredondamento para baixo
+SELECT FLOOR(7.8) AS piso;
+
+-- Resto da divisão
+SELECT MOD(10, 3) AS resto_divisao;
+
+
+ ======================================
+2. FUNÇÕES DE TEXTO
+====================================== 
+
+-- Converter para maiúsculas
+SELECT UPPER('sql mysql') AS texto_maiusculo;
+
+-- Converter para minúsculas
+SELECT LOWER('SQL MYSQL') AS texto_minusculo;
+
+-- Tamanho do texto
+SELECT LENGTH('Banco de Dados') AS tamanho_texto;
+
+-- Concatenar textos
+SELECT CONCAT('SQL', ' ', 'MySQL') AS texto_concatenado;
+
+-- Extrair parte do texto
+SELECT SUBSTRING('Aprendendo SQL', 1, 10) AS parte_texto;
+
+
+======================================
+3. FUNÇÕES DE DATA E HORA
+======================================
+
+-- Data atual
+SELECT CURRENT_DATE() AS data_atual;
+
+-- Data e hora atual
+SELECT NOW() AS data_hora_atual;
+
+-- Extrair ano, mês e dia
 SELECT
-    valor,
-    ROUND(valor, 2) AS valor_arredondado
-FROM vendas;
+  YEAR(NOW()) AS ano,
+  MONTH(NOW()) AS mes,
+  DAY(NOW()) AS dia;
 
---------------------------------------------------------
+-- Diferença entre datas
+SELECT DATEDIFF('2025-12-31', '2025-01-01') AS dias_diferenca;
 
--- Exemplo 2: Valor absoluto
--- Pergunta: Como remover sinal negativo de um valor?
 
+/* ======================================
+4. FUNÇÕES PARA TRATAMENTO DE NULL
+====================================== */
+
+-- Substituir NULL por valor padrão
+SELECT IFNULL(NULL, 'Valor padrão') AS resultado_ifnull;
+
+-- Verificação condicional com CASE
 SELECT
-    ABS(-150) AS valor_absoluto;
+  CASE
+    WHEN NULL IS NULL THEN 'É nulo'
+    ELSE 'Não é nulo'
+  END AS verificacao_null;
 
---------------------------------------------------------
 
--- Exemplo 3: Arredondamento para cima e para baixo
+/* ======================================
+5. EXEMPLOS COM TABELAS (CENÁRIO REAL)
+====================================== */
 
+-- Exemplo: tabela usuarios (hipotética)
+
+-- Substituir nome nulo por 'Não informado'
 SELECT
-    CEILING(4.3) AS arredonda_para_cima,
-    FLOOR(4.7)   AS arredonda_para_baixo;
-
-========================================================
-FUNÇÕES DE TEXTO
-========================================================
-
--- Exemplo 4: Padronização de texto
--- Pergunta: Como padronizar nomes para maiúsculas?
-
-SELECT
-    nome,
-    UPPER(nome) AS nome_maiusculo
-FROM clientes;
-
---------------------------------------------------------
-
--- Exemplo 5: Contagem de caracteres
-
-SELECT
-    nome,
-    LENGTH(nome) AS tamanho_nome
-FROM clientes;
-
---------------------------------------------------------
-
--- Exemplo 6: Extração parcial de texto
--- Pergunta: Como extrair parte de um e-mail?
-
-SELECT
-    email,
-    SUBSTRING(email, 1, 5) AS inicio_email
+  id,
+  IFNULL(nome, 'Não informado') AS nome_usuario
 FROM usuarios;
 
---------------------------------------------------------
-
--- Exemplo 7: Remoção de espaços em branco
-
+-- Calcular idade aproximada
 SELECT
-    TRIM(nome) AS nome_sem_espacos
-FROM clientes;
-
---------------------------------------------------------
-
--- Exemplo 8: Concatenação de campos
-
-SELECT
-    CONCAT(nome, ' - ', cargo) AS descricao_funcionario
-FROM funcionarios;
-
-========================================================
-FUNÇÕES DE DATA
-========================================================
-
--- Exemplo 9: Data atual do sistema
-
-SELECT
-    CURRENT_DATE AS data_atual;
-
---------------------------------------------------------
-
--- Exemplo 10: Data e hora atual
-
-SELECT
-    NOW() AS data_hora_atual;
-
---------------------------------------------------------
-
--- Exemplo 11: Extração de partes da data
-
-SELECT
-    data_nascimento,
-    YEAR(data_nascimento)  AS ano,
-    MONTH(data_nascimento) AS mes,
-    DAY(data_nascimento)   AS dia
-FROM pessoas;
-
---------------------------------------------------------
-
--- Exemplo 12: Diferença entre datas
--- Pergunta: Quantos dias se passaram desde o cadastro?
-
-SELECT
-    nome,
-    DATEDIFF(CURRENT_DATE, data_cadastro) AS dias_desde_cadastro
-FROM clientes;
-
-========================================================
-TRATAMENTO DE VALORES NULL
-========================================================
-
--- Exemplo 13: Substituição de NULL com COALESCE
--- Pergunta: Como exibir um valor padrão quando o dado é NULL?
-
-SELECT
-    nome,
-    COALESCE(email, 'não informado') AS email
-FROM clientes;
-
---------------------------------------------------------
-
--- Exemplo 14: NULLIF
--- Pergunta: Quando transformar um valor específico em NULL?
-
-SELECT
-    NULLIF(status, 'inativo') AS status_tratado
-FROM usuarios;
-
---------------------------------------------------------
-
--- Exemplo 15: Evitando erros em cálculos com NULL
-
-SELECT
-    valor,
-    COALESCE(valor, 0) AS valor_seguro
-FROM pagamentos;
-
-========================================================
-OBSERVAÇÕES IMPORTANTES
-========================================================
-
--- • Funções simples atuam linha a linha
--- • Valores NULL precisam sempre de tratamento
--- • Use aliases claros para facilitar leitura
--- • Teste funções isoladamente antes de combiná-las
-
-========================================================
-FIM DOS EXEMPLOS
-========================================================
--- Pratique aplicando essas funções em seus próprios conjuntos de dados!
+  nome,
+  YEAR(CURRENT_DATE()) - YEAR(data_nascimento) AS idade_aproximada
+FROM usuarios; 
