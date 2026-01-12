@@ -28,13 +28,13 @@ SELECT UPPER('sql');
 Resultado:
 SQL
 ```
-🧠 Tipos de funções
-As funções em SQL podem ser agrupadas em categorias:
+🧠 Tipos de funções     
+As funções em SQL podem ser agrupadas em categorias:        
 
-🔢 Funções Numéricas        
-Utilizadas para cálculos matemáticos.   
+🔢 Funções Numéricas                
+Utilizadas para cálculos matemáticos.           
 
-Exemplos:
+Exemplos:   
 
 COUNT()
 
@@ -48,8 +48,8 @@ MAX()
 
 ROUND()
 
-🔤 Funções de Texto (String)
-Utilizadas para manipular textos.
+🔤 Funções de Texto (String)        
+Utilizadas para manipular textos.       
 
 Exemplos:
 
@@ -65,8 +65,8 @@ SUBSTRING()
 
 TRIM()
 
-📅 Funções de Data e Hora
-Utilizadas para trabalhar com datas.
+📅 Funções de Data e Hora       
+Utilizadas para trabalhar com datas.        
 
 Exemplos:
 
@@ -80,8 +80,8 @@ MONTH()
 
 DATEDIFF()
 
-🚫 Funções de Tratamento de NULL        
-Utilizadas para lidar com valores nulos.        
+🚫 Funções de Tratamento de NULL             
+Utilizadas para lidar com valores nulos.             
 
 Exemplos:
 
@@ -93,101 +93,101 @@ IFNULL()
 
 COALESCE()
 
-🔢 Funções Numéricas – Conceitos        
-COUNT()     
-Conta a quantidade de registros.        
+🔢 Funções Numéricas – Conceitos                
+COUNT()             
+Conta a quantidade de registros.             
 
 ``` sql
 SELECT COUNT(*) FROM clientes;
 ```
 
-📌 Conta todas as linhas, inclusive com valores nulos.  
+📌 Conta todas as linhas, inclusive com valores nulos.          
 
 ```sql
 SELECT COUNT(email) FROM clientes;
 ```
 
-📌 Conta apenas linhas onde email não é NULL.   
+📌 Conta apenas linhas onde email não é NULL.           
 
-SUM() e AVG()   
-Somam ou calculam a média de valores numéricos.     
+SUM() e AVG()           
+Somam ou calculam a média de valores numéricos.             
 
 ```sql
 SELECT SUM(valor) FROM pedidos;
 SELECT AVG(valor) FROM pedidos;
 MIN() e MAX()
 ``` 
-Retornam o menor ou maior valor.
+Retornam o menor ou maior valor.        
 
 ```sql
 SELECT MIN(preco), MAX(preco) FROM produtos;
 ```
 
-🔤 Funções de Texto – Conceitos         
-UPPER() e LOWER()           
-Convertem textos para maiúsculas ou minúsculas.             
+🔤 Funções de Texto – Conceitos              
+UPPER() e LOWER()                   
+Convertem textos para maiúsculas ou minúsculas.                     
 
 ```sql
 SELECT UPPER(nome), LOWER(email) FROM usuarios;
 LENGTH()
 ```
-Retorna o tamanho de uma string.
+Retorna o tamanho de uma string.        
 
 ```sql
 SELECT LENGTH(nome) FROM clientes;
 CONCAT()
 ```
-Concatena textos.
+Concatena textos.   
 
 ```sql
 SELECT CONCAT(nome, ' ', sobrenome) AS nome_completo
 FROM clientes;
 ```
-📌 Muito utilizada para montar campos derivados.
+📌 Muito utilizada para montar campos derivados.    
 
-📅 Funções de Data – Conceitos.     
-NOW() e CURDATE()       
-Retornam data e hora atuais.        
+📅 Funções de Data – Conceitos.             
+NOW() e CURDATE()           
+Retornam data e hora atuais.            
 
 ```sql
 SELECT NOW();
 SELECT CURDATE();
 ```
-Extraindo partes da data.
+Extraindo partes da data.       
 
 ```sql
 SELECT YEAR(data_pedido), MONTH(data_pedido)
 FROM pedidos;
 DATEDIFF()
 ```
-Calcula a diferença entre duas datas (em dias).
+Calcula a diferença entre duas datas (em dias).     
 
 ```sql
 SELECT DATEDIFF(data_fim, data_inicio) FROM contratos;
 ```
 
-🚫 Tratamento de valores NULL       
-IS NULL e IS NOT NULL       
-Utilizados para filtrar valores nulos.      
+🚫 Tratamento de valores NULL               
+IS NULL e IS NOT NULL               
+Utilizados para filtrar valores nulos.              
 
 ```sql
 SELECT * FROM clientes WHERE email IS NULL;
 IFNULL()
 ```
-Substitui valores NULL por outro valor.
+Substitui valores NULL por outro valor.     
 
 ```sql
 SELECT IFNULL(email, 'Não informado') FROM clientes;
 COALESCE()`
 ```
-Retorna o primeiro valor não nulo da lista.
+Retorna o primeiro valor não nulo da lista.     
 
 ```sql
 SELECT COALESCE(telefone, celular, 'Sem contato')
 FROM clientes;
 ```
 
-⚠️ Pontos de Atenção:           
+⚠️ Pontos de Atenção:               
 Funções podem impactar performance em grandes volumes de dados.      
 
 Usar funções no WHERE pode impedir uso de índices.   
