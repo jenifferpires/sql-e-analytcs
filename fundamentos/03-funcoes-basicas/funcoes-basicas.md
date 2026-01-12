@@ -123,9 +123,9 @@ Retornam o menor ou maior valor.
 SELECT MIN(preco), MAX(preco) FROM produtos;
 ```
 
-🔤 Funções de Texto – Conceitos
-UPPER() e LOWER()
-Convertem textos para maiúsculas ou minúsculas. 
+🔤 Funções de Texto – Conceitos 
+UPPER() e LOWER()   
+Convertem textos para maiúsculas ou minúsculas.     
 
 ```sql
 SELECT UPPER(nome), LOWER(email) FROM usuarios;
@@ -145,9 +145,9 @@ FROM clientes;
 ```
 📌 Muito utilizada para montar campos derivados.
 
-📅 Funções de Data – Conceitos. 
-NOW() e CURDATE()
-Retornam data e hora atuais. 
+📅 Funções de Data – Conceitos.     
+NOW() e CURDATE()       
+Retornam data e hora atuais.        
 
 ```sql
 SELECT NOW();
@@ -166,9 +166,9 @@ Calcula a diferença entre duas datas (em dias).
 SELECT DATEDIFF(data_fim, data_inicio) FROM contratos;
 ```
 
-🚫 Tratamento de valores NULL
-IS NULL e IS NOT NULL 
-Utilizados para filtrar valores nulos. 
+🚫 Tratamento de valores NULL       
+IS NULL e IS NOT NULL       
+Utilizados para filtrar valores nulos.      
 
 ```sql
 SELECT * FROM clientes WHERE email IS NULL;
@@ -187,23 +187,20 @@ SELECT COALESCE(telefone, celular, 'Sem contato')
 FROM clientes;
 ```
 
-⚠️ Pontos de Atenção: 
-Funções podem impactar performance em grandes volumes de dados. 
-Usar funções no WHERE pode impedir uso de índices.
-Sempre valide se o tipo do dado é compatível com a função. 
+⚠️ Pontos de Atenção:           
+Funções podem impactar performance em grandes volumes de dados.     
+Usar funções no WHERE pode impedir uso de índices.  
+Sempre valide se o tipo do dado é compatível com a função.  
 
-📌 Conclusão: 
-As funções básicas são essenciais para: 
+📌 Conclusão:   
+As funções básicas são essenciais para:     
 
-Análise de dados. 
-
-Criação de relatórios. 
-
-Limpeza e padronização de informações. 
-
-Resolução de problemas reais em ambientes corporativos.
+Análise de dados.  
+Criação de relatórios.  
+Limpeza e padronização de informações.  
+Resolução de problemas reais em ambientes corporativos. 
 
 Dominar essas funções é um passo fundamental
-antes de avançar para JOINs, subqueries e funções analíticas. 
+antes de avançar para JOINs, subqueries e funções analíticas.  
 
 
