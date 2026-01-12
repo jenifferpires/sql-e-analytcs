@@ -16,7 +16,7 @@ armazenadas em um banco de dados.
 Ela permite selecionar dados específicos, aplicar filtros e definir
 como os resultados devem ser exibidos.
 
-## 🧩 Principais conceitos abordados:
+## 🧩 Principais conceitos abordados
 
 ### 🔹 SELECT
 Responsável por definir **quais colunas** serão retornadas na consulta.
@@ -29,7 +29,7 @@ atendem a determinadas condições.
 Define a **ordenação dos resultados**, tornando a leitura e análise
 mais organizada.
 
-## 🛠️ Relação com o uso prático:
+## 🛠️ Relação com o uso prático
 
 Consultas básicas são usadas diariamente para:
 - Analisar dados operacionais
@@ -37,13 +37,13 @@ Consultas básicas são usadas diariamente para:
 - Apoiar investigações de erros
 - Gerar relatórios simples
 
-## ⚠️ Pontos de atenção:
+## ⚠️ Pontos de atenção
 
 - Evite usar `SELECT *` em ambientes produtivos
 - Filtros mal definidos podem retornar grandes volumes de dados
 - A ausência de ordenação pode gerar resultados inconsistentes
 
-## 📚 Próximos passos:
+## 📚 Próximos passos
 
 Nos próximos arquivos deste módulo, veremos na prática como utilizar:
 - SELECT, WHERE e ORDER BY

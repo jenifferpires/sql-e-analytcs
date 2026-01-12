@@ -76,18 +76,21 @@ WHERE cidade = 'São Paulo';
 
 ➡️ Retorna apenas clientes que moram em São Paulo.  
 
-🔎 Operadores mais comuns no WHERE :  
-Operador	    Descrição  
-=	             Igual  
-<> ou !=	     Diferente  
->	             Maior que  
-<	             Menor que  
->=	             Maior ou igual  
-<=	             Menor ou igual  
-LIKE	         Busca por padrão  
-IN	             Lista de valores  
-BETWEEN	         Intervalo de valores  
-IS NULL	         Valores nulos   
+ ### 🔎 Operadores comuns no WHERE 
+
+| Operador | Descrição |
+| :--- | :--- |
+| `=` | **Igual** |
+| `<>` ou `!=` | **Diferente** |
+| `>` | **Maior que** |
+| `<` | **Menor que** |
+| `>=` | **Maior ou igual** |
+| `<=` | **Menor ou igual** |
+| `LIKE` | **Busca por padrão** (ex: `%texto%`) |
+| `IN` | **Lista de valores** |
+| `BETWEEN` | **Intervalo de valores** |
+| `IS NULL` | **Valores nulos** |
+
 
 Exemplos:   
 ```sql
