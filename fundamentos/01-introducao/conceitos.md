@@ -1,150 +1,133 @@
-🧠 Conceitos Fundamentais de SQL
-📌 O que é SQL?
+🧠 Conceitos Fundamentais de SQL 
+📌 O que é SQL? 
 
-SQL (Structured Query Language) é a linguagem padrão utilizada para consultar, manipular e analisar dados armazenados em bancos de dados relacionais.
+SQL (Structured Query Language) é a linguagem padrão utilizada para consultar, manipular e analisar dados armazenados em bancos de dados relacionais.       
 
-Com SQL é possível:
+Com SQL é possível: 
 
-Ler dados
+Ler dados.  
+Filtrar informações.    
+Organizar resultados.       
+Gerar relatórios.   
+Apoiar decisões de negócio. 
 
-Filtrar informações
+SQL não é uma linguagem de programação tradicional, mas sim uma linguagem declarativa, onde você descreve o que deseja obter, e o banco de dados decide como executar.  
 
-Organizar resultados
 
-Gerar relatórios
+🗄️ O que é um Banco de Dados?   
 
-Apoiar decisões de negócio
+Um banco de dados é um local estruturado onde os dados são armazenados de forma organizada, segura e persistente.   
 
-SQL não é uma linguagem de programação tradicional, mas sim uma linguagem declarativa, onde você descreve o que deseja obter, e o banco de dados decide como executar.
+Ele permite:    
 
-🗄️ O que é um Banco de Dados?
+Armazenar grandes volumes de dados. 
+Acessar informações rapidamente.    
+Garantir integridade e consistência.    
+Compartilhar dados entre sistemas.  
 
-Um banco de dados é um local estruturado onde os dados são armazenados de forma organizada, segura e persistente.
+📌 Exemplos de bancos de dados relacionais: 
 
-Ele permite:
+MySQL 
+PostgreSQL 
+SQL Server 
+Oracle 
 
-Armazenar grandes volumes de dados
+📊 Tabelas, Linhas e Colunas 
 
-Acessar informações rapidamente
+Em bancos de dados relacionais, os dados são organizados em tabelas. 
 
-Garantir integridade e consistência
+Estrutura básica de uma tabela: 
 
-Compartilhar dados entre sistemas
+Tabela → conjunto de dados (ex: clientes)   
 
-📌 Exemplos de bancos de dados relacionais:
+Colunas → atributos (ex: nome, email, cidade)   
 
-MySQL
+Linhas → registros individuais (ex: um cliente) 
 
-PostgreSQL
 
-SQL Server
+📌 Pense em uma tabela como uma planilha, onde: 
 
-Oracle
+cada linha é um registro    
+cada coluna é uma informação específica 
 
-📊 Tabelas, Linhas e Colunas
 
-Em bancos de dados relacionais, os dados são organizados em tabelas.
+🔍 O que é uma Query?   
 
-Estrutura básica de uma tabela:
+Uma query é uma instrução SQL utilizada para consultar ou manipular dados dentro de um banco de dados.  
 
-Tabela → conjunto de dados (ex: clientes)
+Exemplo simples de query:   
 
-Colunas → atributos (ex: nome, email, cidade)
+SELECT * FROM clientes; 
 
-Linhas → registros individuais (ex: um cliente)
 
-📌 Pense em uma tabela como uma planilha, onde:
+Essa instrução significa:   
 
-cada linha é um registro
+SELECT → selecione  
 
-cada coluna é uma informação específica
+* → todas as colunas    
 
-🔍 O que é uma Query?
+FROM clientes → da tabela clientes  
 
-Uma query é uma instrução SQL utilizada para consultar ou manipular dados dentro de um banco de dados.
+📌 Queries são usadas para fazer perguntas aos dados.   
 
-Exemplo simples de query:
 
-SELECT * FROM clientes;
+📥 O que é SELECT?  
 
+SELECT é o comando mais básico e mais utilizado em SQL. 
+Ele serve para ler dados de uma ou mais tabelas.    
 
-Essa instrução significa:
+Exemplo:    
 
-SELECT → selecione
+SELECT nome, email  
+FROM clientes;  
 
-* → todas as colunas
 
-FROM clientes → da tabela clientes
+➡️ Retorna apenas os nomes e e-mails dos clientes.  
 
-📌 Queries são usadas para fazer perguntas aos dados.
+📌 Importante:  
 
-📥 O que é SELECT?
+SQL não altera dados quando usamos apenas SELECT.       
 
-SELECT é o comando mais básico e mais utilizado em SQL.
-Ele serve para ler dados de uma ou mais tabelas.
+É seguro para leitura e análise.    
 
-Exemplo:
+🧩 Conceito de Resultado (Result Set)   
 
-SELECT nome, email
-FROM clientes;
+Toda consulta SELECT retorna um conjunto de resultados, chamado de result set.  
 
+Esse resultado pode ser:    
 
-➡️ Retorna apenas os nomes e e-mails dos clientes.
+Visualizado em ferramentas SQL  
+Usado em relatórios 
+Consumido por sistemas e APIs   
+Base para análises mais complexas.  
 
-📌 Importante:
 
-SQL não altera dados quando usamos apenas SELECT
+📌 Boas Práticas Iniciais :     
 
-É seguro para leitura e análise
+Desde o início, algumas boas práticas devem ser adotadas:   
 
-🧩 Conceito de Resultado (Result Set)
+Comece com consultas simples.   
+Evite complexidade desnecessária.   
+Leia o resultado antes de avançar.  
+Use nomes de colunas claros.    
+Entenda o dado antes de transformá-lo.  
 
-Toda consulta SELECT retorna um conjunto de resultados, chamado de result set.
+Essas práticas ajudam a evitar erros e facilitam a evolução no aprendizado. 
 
-Esse resultado pode ser:
+🔗 Conexão com os Próximos Conceitos:   
 
-Visualizado em ferramentas SQL
+Os conceitos apresentados aqui são a base para entender:    
 
-Usado em relatórios
+WHERE (filtros) 
+ORDER BY (ordenação)    
+Funções SQL 
+Agrupamentos (GROUP BY) 
+JOINs e Subqueries  
 
-Consumido por sistemas e APIs
+Sem esse entendimento inicial, os módulos seguintes se tornam mais difíceis.    
 
-Base para análises mais complexas
+📘 Resumo:  
 
-📌 Boas Práticas Iniciais :
-
-Desde o início, algumas boas práticas devem ser adotadas:
-
-Comece com consultas simples
-
-Evite complexidade desnecessária
-
-Leia o resultado antes de avançar
-
-Use nomes de colunas claros
-
-Entenda o dado antes de transformá-lo
-
-Essas práticas ajudam a evitar erros e facilitam a evolução no aprendizado.
-
-🔗 Conexão com os Próximos Conceitos: 
-
-Os conceitos apresentados aqui são a base para entender:
-
-WHERE (filtros)
-
-ORDER BY (ordenação)
-
-Funções SQL
-
-Agrupamentos (GROUP BY)
-
-JOINs e Subqueries
-
-Sem esse entendimento inicial, os módulos seguintes se tornam mais difíceis.
-
-📘 Resumo:
-
-SQL é a linguagem que permite transformar dados em informação.
-Entender seus conceitos fundamentais é o primeiro passo para análises eficientes e decisões melhores.
+SQL é a linguagem que permite transformar dados em informação.  
+Entender seus conceitos fundamentais é o primeiro passo para análises eficientes e decisões melhores.   
 

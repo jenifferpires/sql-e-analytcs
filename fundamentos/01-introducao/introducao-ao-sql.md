@@ -1,170 +1,147 @@
-📖 Introdução ao SQL
-🎯 Propósito deste conteúdo:
+📖 Introdução ao SQL.      
+🎯 Propósito deste conteúdo:    
 
-Este material tem como objetivo apresentar o SQL de forma conceitual e contextual, explicando por que ele existe, onde é utilizado e qual o seu papel no dia a dia profissional.
+Este material tem como objetivo apresentar o SQL de forma conceitual e contextual, explicando por que ele existe, onde é utilizado e qual o seu papel no dia a dia profissional.    
 
-Aqui o foco não é decorar comandos, mas entender o contexto antes de avançar para consultas mais complexas.
+Aqui o foco não é decorar comandos, mas entender o contexto antes de avançar para consultas mais complexas. 
 
-🌍 Onde o SQL é utilizado?
+🌍 Onde o SQL é utilizado?  
 
-O SQL está presente em praticamente todos os sistemas que lidam com dados estruturados.
+O SQL está presente em praticamente todos os sistemas que lidam com dados estruturados. 
 
-Alguns exemplos de uso no mundo real:
+Alguns exemplos de uso no mundo real:   
 
-Sistemas financeiros
+Sistemas financeiros.   
+E-commerces.    
+ERPs e CRMs.    
+Plataformas SaaS.   
+Sistemas de monitoramento.  
+Dashboards e relatórios.    
+Análise de dados e BI.  
 
-E-commerces
+Sempre que uma aplicação precisa armazenar, consultar ou analisar dados, o SQL está envolvido direta ou indiretamente.  
 
-ERPs e CRMs
-
-Plataformas SaaS
-
-Sistemas de monitoramento
-
-Dashboards e relatórios
-
-Análise de dados e BI
-
-Sempre que uma aplicação precisa armazenar, consultar ou analisar dados, o SQL está envolvido direta ou indiretamente.
-
-🧠 SQL no dia a dia profissional
+🧠 SQL no dia a dia profissional.
 
 No ambiente de trabalho, o SQL é usado para:
 
-Investigar problemas em produção
-
-Validar dados
-
-Criar relatórios operacionais
-
-Analisar comportamento de usuários
-
-Apoiar decisões estratégicas
-
-Integrar sistemas
-
-📌 Por isso, SQL é uma das habilidades mais valorizadas em áreas como:
-
-Tecnologia
-
-Dados
-
-Produto
-
-Operações
-
-Suporte técnico
-
-⚙️ Como o SQL funciona?
-
-O SQL segue um modelo declarativo.
-
-Isso significa que você informa o que deseja, e o banco de dados decide como executar.
-
-Exemplo:
-
-SELECT nome, email
-FROM clientes
-WHERE cidade = 'São Paulo';
+Investigar problemas em produção.   
+Validar dados.
+Criar relatórios operacionais.
+Analisar comportamento de usuários. 
+Apoiar decisões estratégicas.   
+Integrar sistemas.  
 
 
-Você descreve:
+📌 Por isso, SQL é uma das habilidades mais valorizadas em áreas como:  
 
-quais dados quer (nome, email)
+Tecnologia. 
+Dados.  
+Produto.    
+Operações.  
+Suporte técnico.    
 
-de onde eles vêm (clientes)
 
-quais condições devem ser aplicadas (cidade = 'São Paulo')
+⚙️ Como o SQL funciona? 
 
-O banco de dados cuida do resto.
+O SQL segue um modelo declarativo.  
+Isso significa que você informa o que deseja, e o banco de dados decide como executar.  
 
-🧩 SQL não é programação tradicional
+Exemplo:    
+
+SELECT nome, email  
+FROM clientes   
+WHERE cidade = 'São Paulo'; 
+
+
+Você descreve:  
+
+Quais dados quer (nome, email).
+De onde eles vêm (clientes).
+Quais condições devem ser aplicadas (cidade = 'São Paulo').
+
+O banco de dados cuida do resto. 
+
+🧩 SQL não é programação tradicional. 
 
 Diferente de linguagens como Java, Python ou JavaScript:
 
-SQL não trabalha com loops explícitos
+SQL não trabalha com loops explícitos.  
+SQL não executa linha por linha.    
+SQL opera sobre conjuntos de dados. 
 
-SQL não executa linha por linha
+Essa característica torna o SQL extremamente poderoso para análise e relatórios.    
 
-SQL opera sobre conjuntos de dados
 
-Essa característica torna o SQL extremamente poderoso para análise e relatórios.
+🗄️ SQL e Bancos de Dados Relacionais.       
 
-🗄️ SQL e Bancos de Dados Relacionais
+SQL é utilizado principalmente em bancos de dados relacionais, que organizam dados em tabelas relacionadas entre si.    
 
-SQL é utilizado principalmente em bancos de dados relacionais, que organizam dados em tabelas relacionadas entre si.
+Características principais: 
 
-Características principais:
+Dados estruturados. 
+Relacionamentos entre tabelas.  
+Integridade referencial.    
+Consistência dos dados. 
 
-Dados estruturados
+Exemplos comuns:    
 
-Relacionamentos entre tabelas
+MySQL   
 
-Integridade referencial
+PostgreSQL  
 
-Consistência dos dados
+SQL Server  
 
-Exemplos comuns:
+Oracle  
 
-MySQL
 
-PostgreSQL
+📈 Por que aprender SQL?    
 
-SQL Server
+Aprender SQL permite:   
 
-Oracle
+Ler dados sem depender de terceiros.
 
-📈 Por que aprender SQL?
+Investigar problemas de forma autônoma.
 
-Aprender SQL permite:
+Validar informações.
 
-Ler dados sem depender de terceiros
+Criar análises confiáveis.
 
-Investigar problemas de forma autônoma
+Evoluir para níveis avançados (BI, Analytics, Engenharia de Dados).
 
-Validar informações
+Mesmo profissionais que não atuam diretamente com dados se beneficiam muito do conhecimento em SQL. 
 
-Criar análises confiáveis
+📌 Boas práticas desde o início.    
 
-Evoluir para níveis avançados (BI, Analytics, Engenharia de Dados)
+Alguns hábitos importantes ao aprender SQL: 
 
-Mesmo profissionais que não atuam diretamente com dados se beneficiam muito do conhecimento em SQL.
+Entender o dado antes de escrever a query.  
+Começar com consultas simples.  
+Validar resultados passo a passo.   
+Evitar assumir comportamentos do dado.  
+Ler consultas como perguntas.   
 
-📌 Boas práticas desde o início
+Essas práticas reduzem erros e facilitam a evolução.    
 
-Alguns hábitos importantes ao aprender SQL:
+🔗 Conexão com os próximos módulos .     
 
-Entender o dado antes de escrever a query
+Este conteúdo prepara você para avançar com segurança para: 
 
-Começar com consultas simples
+Consultas Básicas (SELECT, WHERE, ORDER BY) 
 
-Validar resultados passo a passo
+Funções SQL 
 
-Evitar assumir comportamentos do dado
+Agrupamentos    
 
-Ler consultas como perguntas
+Subqueries  
 
-Essas práticas reduzem erros e facilitam a evolução.
+JOINs   
 
-🔗 Conexão com os próximos módulos
+Análises mais avançadas 
 
-Este conteúdo prepara você para avançar com segurança para:
+Uma boa base conceitual torna o aprendizado técnico muito mais fluido.  
 
-Consultas Básicas (SELECT, WHERE, ORDER BY)
+📘 Resumo   
 
-Funções SQL
-
-Agrupamentos
-
-Subqueries
-
-JOINs
-
-Análises mais avançadas
-
-Uma boa base conceitual torna o aprendizado técnico muito mais fluido.
-
-📘 Resumo
-
-SQL é a ponte entre dados e decisões.
-Entender seu propósito e funcionamento é essencial antes de avançar para consultas complexas.
+SQL é a ponte entre dados e decisões.   
+Entender seu propósito e funcionamento é essencial antes de avançar para consultas complexas.   
