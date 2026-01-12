@@ -1,14 +1,15 @@
-
-========================================
+/*========================================
 FUNÇÕES BÁSICAS – EXEMPLOS PRÁTICOS
 Banco: MySQL
-========================================
+========================================*/ 
+
 Este arquivo contém exemplos organizados
 por tipo de função, com foco em uso real.
 
-======================================
+
+/*======================================
 1. FUNÇÕES NUMÉRICAS
-====================================== 
+======================================*/
 
 -- Valor absoluto
 SELECT ABS(-10) AS valor_absoluto;
@@ -26,9 +27,9 @@ SELECT FLOOR(7.8) AS piso;
 SELECT MOD(10, 3) AS resto_divisao;
 
 
- ======================================
+/*======================================
 2. FUNÇÕES DE TEXTO
-====================================== 
+========================================*/
 
 -- Converter para maiúsculas
 SELECT UPPER('sql mysql') AS texto_maiusculo;
@@ -46,9 +47,9 @@ SELECT CONCAT('SQL', ' ', 'MySQL') AS texto_concatenado;
 SELECT SUBSTRING('Aprendendo SQL', 1, 10) AS parte_texto;
 
 
-======================================
+/*======================================
 3. FUNÇÕES DE DATA E HORA
-======================================
+========================================*/
 
 -- Data atual
 SELECT CURRENT_DATE() AS data_atual;
