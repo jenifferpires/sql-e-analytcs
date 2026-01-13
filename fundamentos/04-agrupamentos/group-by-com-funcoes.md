@@ -1,31 +1,31 @@
-📊 GROUP BY com Funções de Agregação. 
-🎯 Objetivo: 
+📊 GROUP BY com Funções de Agregação.  
+🎯 Objetivo:  
 
-Este arquivo aprofunda o uso do GROUP BY combinado com funções de agregação, permitindo analisar dados de forma consolidada e responder perguntas comuns em cenários reais de negócio. 
+Este arquivo aprofunda o uso do GROUP BY combinado com funções de agregação, permitindo analisar dados de forma consolidada e responder perguntas comuns em cenários reais de negócio.  
 
-Ao final deste conteúdo, você será capaz de: 
+Ao final deste conteúdo, você será capaz de:  
 
-Agrupar dados corretamente.
-Aplicar funções de agregação.
-Combinar GROUP BY com WHERE e HAVING.
-Interpretar resultados agregados.
-Evitar erros comuns em análises.
+Agrupar dados corretamente.  
+Aplicar funções de agregação.  
+Combinar GROUP BY com WHERE e HAVING.  
+Interpretar resultados agregados.  
+Evitar erros comuns em análises.  
+---
+🧠 O que são Funções de Agregação?   
 
-🧠 O que são Funções de Agregação? 
+Funções de agregação processam múltiplas linhas e retornam um único valor por grupo.   
 
-Funções de agregação processam múltiplas linhas e retornam um único valor por grupo. 
+Principais funções:  
+ 
+SUM() → soma valores  
+COUNT() → quantidade de registros  
+AVG() → média  
+MIN() → menor valor  
+MAX() → maior valor  
 
-Principais funções: 
+📌 Essas funções são a base de relatórios, métricas e dashboards.  
 
-SUM() → soma valores 
-COUNT() → quantidade de registros 
-AVG() → média 
-MIN() → menor valor 
-MAX() → maior valor 
-
-📌 Essas funções são a base de relatórios, métricas e dashboards. 
-
-🧩 Sintaxe Básica: 
+🧩 Sintaxe Básica:  
 
 ```sql
 SELECT
@@ -35,16 +35,16 @@ FROM tabela
 GROUP BY coluna_agrupamento;
 ```
  
-📌 Regra de ouro (reforço): 
+📌 Regra de ouro (reforço):  
 
 Toda coluna no SELECT que não está dentro de uma função de agregação
-deve aparecer no GROUP BY. 
+deve aparecer no GROUP BY.  
 
-📊 Exemplos Práticos: 
-1️⃣ Total de vendas por cliente.
+📊 Exemplos Práticos:  
+1️⃣ Total de vendas por cliente. 
 
-Pergunta: 
-Quanto cada cliente já comprou?    
+Pergunta:  
+Quanto cada cliente já comprou?     
 
 ```sql  
 SELECT
@@ -66,8 +66,7 @@ SELECT
 FROM pedidos
 GROUP BY status;
 ```
-
-
+ 
 📌 Muito usado em dashboards operacionais. 
 
 3️⃣ Média salarial por departamento. 
@@ -91,13 +90,12 @@ FROM produtos
 GROUP BY categoria;
 ```
 
-🔗 GROUP BY com WHERE. 
+🔗 GROUP BY com WHERE.  
 
-Use WHERE para filtrar dados antes do agrupamento. 
+Use WHERE para filtrar dados antes do agrupamento.  
 
-Exemplo: 
-
-Total de vendas por categoria em 2024. 
+Exemplo:  
+Total de vendas por categoria em 2024.  
 
 ```sql
 SELECT
@@ -123,9 +121,9 @@ FROM vendas
 GROUP BY cliente_id
 HAVING SUM(valor) > 1000;
 ```
-
-⚠️ Erros Comuns:
-❌ Coluna fora do GROUP BY  
+--- 
+⚠️ Erros Comuns:  
+❌ Coluna fora do GROUP BY    
 
 ```sql
 SELECT cliente_id, valor  
@@ -143,42 +141,36 @@ SELECT
 FROM vendas
 GROUP BY cliente_id;
 ```
+---
 
-🧠 Boas Práticas: 
+🧠 Boas Práticas:   
 
-Use aliases claros para colunas agregadas. 
+Use aliases claros para colunas agregadas.  
+Evite SELECT * com GROUP BY. 
+Filtre dados cedo com WHERE.  
+Use HAVING apenas quando necessário.  
 
-Evite SELECT * com GROUP BY.
+Sempre valide o resultado do agrupamento. 
 
-Filtre dados cedo com WHERE. 
-
-Use HAVING apenas quando necessário. 
-
-Sempre valide o resultado do agrupamento.
-
-📘 Uso no Mundo Real: 
+📘 Uso no Mundo Real:  
 
 Funções de agregação com GROUP BY são usadas em: 
 
-Relatórios financeiros.
+Relatórios financeiros. 
+KPIs. 
+Dashboards. 
+Análises de performance. 
+Decisões estratégicas. 
 
-KPIs.
+📌 Este é um dos recursos mais usados do SQL em ambientes profissionais.  
 
-Dashboards.
+🚀 Próximo Passo:  
 
-Análises de performance.
+➡ Exercícios práticos de Agrupamentos.   
+➡ GROUP BY com múltiplas colunas.   
+➡ GROUP BY + JOIN (ponte para Intermediário).   
 
-Decisões estratégicas.
-
-📌 Este é um dos recursos mais usados do SQL em ambientes profissionais. 
-
-🚀 Próximo Passo: 
-
-➡ Exercícios práticos de Agrupamentos. 
-➡ GROUP BY com múltiplas colunas. 
-➡ GROUP BY + JOIN (ponte para Intermediário). 
-
-📌 Resumo 
+📌 Resumo:  
 
 GROUP BY com funções de agregação transforma dados brutos
-em informações consolidadas e acionáveis. 
+em informações consolidadas e acionáveis.   

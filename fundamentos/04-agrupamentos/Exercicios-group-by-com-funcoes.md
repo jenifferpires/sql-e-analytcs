@@ -122,43 +122,40 @@ Explique com suas próprias palavras:
 
 ## ✅ Checklist de Aprendizado
 
-Ao finalizar este módulo, você deve ser capaz de:
+Ao finalizar este módulo, você deve ser capaz de: 
 
- Explicar com clareza o que é GROUP BY e para que ele serve.
- Utilizar corretamente funções de agregação:
+ Explicar com clareza o que é GROUP BY e para que ele serve.  
+ Utilizar corretamente funções de agregação:  
 
-SUM
-COUNT
-AVG
-MIN
-MAX
+SUM  
+COUNT  
+AVG  
+MIN  
+MAX  
 
- Identificar quando usar WHERE (filtro antes do agrupamento)
- Identificar quando usar HAVING (filtro após o agrupamento)
- Explicar a diferença prática entre WHERE e HAVING
- Evitar erros comuns de agrupamento (colunas fora do GROUP BY)
+ Identificar quando usar WHERE (filtro antes do agrupamento)  
+ Identificar quando usar HAVING (filtro após o agrupamento)  
+ Explicar a diferença prática entre WHERE e HAVING  
+ Evitar erros comuns de agrupamento (colunas fora do GROUP BY)  
 
- Criar consultas agregadas para: 
+ Criar consultas agregadas para:   
 
-Relatórios gerenciais 
-KPIs 
-Dashboards operacionais 
-Ler e interpretar corretamente resultados agregados 
-Aplicar GROUP BY em cenários reais de negócio 
+Relatórios gerenciais.  
+KPIs.  
+Dashboards operacionais.  
+Ler e interpretar corretamente resultados agregados.  
+Aplicar GROUP BY em cenários reais de negócio.  
 
-🧠 Autoavaliação (reflexão importante) 
+🧠 Autoavaliação (reflexão importante): 
 
-Explique com suas próprias palavras: 
+Explique com suas próprias palavras:   
 
-Quando usar WHERE 
+Quando usar WHERE?  
+Quando usar HAVING?  
+O que acontece se usar WHERE no lugar de HAVING?  
+Por que HAVING depende de funções de agregação?  
 
-Quando usar HAVING 
-
-O que acontece se usar WHERE no lugar de HAVING 
-
-Por que HAVING depende de funções de agregação
-
-Se você consegue responder sem consultar o material, o aprendizado está consolidado ✅
+Se você consegue responder sem consultar o material, o aprendizado está consolidado. ✅ 
 
 📌 **Resumo**
 

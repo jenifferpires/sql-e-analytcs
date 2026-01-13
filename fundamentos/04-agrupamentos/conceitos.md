@@ -1,4 +1,4 @@
-🧠 Conceitos – Agrupamentos em SQL (GROUP BY)        
+🧠 Conceitos – Agrupamentos em SQL (GROUP BY).          
 🎯 Objetivo:     
 
 Este arquivo apresenta os conceitos fundamentais de agrupamento em SQL, explicando como e por que usar o GROUP BY para transformar dados detalhados em informações consolidadas.     
@@ -10,7 +10,7 @@ Saber quando utilizar GROUP BY.
 Interpretar corretamente resultados agregados.  
 Evitar erros comuns em consultas com agrupamento.     
 
-
+---
 📌 O GROUP BY é uma das bases para relatórios, métricas e dashboards.    
 
 🧠 O que é Agrupamento de Dados?     
@@ -40,6 +40,7 @@ MAX() → maior valor
 Sem GROUP BY, essas funções atuam sobre toda a tabela.  
 Com GROUP BY, elas atuam por grupo. 
 
+--- 
 🧩 Exemplo simples (conceitual) 
 
 Tabela vendas:  
@@ -84,7 +85,7 @@ GROUP BY cliente_id;
 ```
 
 🚫 valor não está agregado nem no GROUP BY.  
-
+--- 
 
 ⚙️ Ordem lógica de execução (simplificada)   
 Ao escrever consultas com agrupamento, é importante entender a ordem lógica:      
@@ -119,16 +120,17 @@ Este ponto será aprofundado em arquivo específico.
 ❌ Não usar alias em colunas agregadas  
 ❌ Interpretar resultados sem validar a base    
 
-📌 Esses erros são frequentes em ambientes reais.   
-
-🧠 Boas Práticas:       
+📌 Esses erros são frequentes em ambientes reais.    
+--- 
+🧠 Boas Práticas:        
 
 Agrupe apenas quando houver objetivo claro.     
 Use aliases descritivos.        
 Valide os dados antes de agrupar.           
 Teste a consulta sem GROUP BY primeiro.          
 
-Sempre pense: “o que esse grupo representa?”        
+Sempre pense: “o que esse grupo representa?”     
+---   
 
 📘 Uso no Mundo Real        
 
@@ -150,7 +152,7 @@ Após entender os conceitos:
 ➡ GROUP BY com Funções de Agregação     
 
 Esses tópicos aprofundam o uso prático do agrupamento.   
-
+---
 📌 Resumo    
 
 GROUP BY transforma dados detalhados em informações consolidadas.    
