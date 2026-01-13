@@ -1,107 +1,204 @@
-# JOINs – Relacionando Tabelas no SQL.
+# 01 – JOINs Básicos
 
-## 📌 Objetivo do Módulo: 
+## 📌 Objetivo do Módulo
 
-Este módulo introduz o uso de **JOINs**, um dos conceitos mais importantes do SQL intermediário.
+Este módulo introduz o conceito de **JOINs em SQL**, fundamentais para trabalhar com **dados relacionais** distribuídos em múltiplas tabelas.
 
-Ao final deste conteúdo, você será capaz de:
+Ao final deste módulo, você será capaz de:
 
-- Relacionar dados entre múltiplas tabelas
-- Entender quando usar cada tipo de JOIN
-- Evitar erros comuns em relacionamentos
-- Escrever consultas mais realistas e profissionais
-
----
-
-## 🧠 Por que JOINs são tão importantes?
-
-Em bancos de dados reais, as informações **não ficam em uma única tabela**.
-
-Exemplo:
-- Clientes em uma tabela
-- Pedidos em outra
-- Produtos em outra
-
-JOINs permitem **conectar essas informações** para responder perguntas como:
-- Quais pedidos cada cliente fez?
-- Qual produto foi mais vendido?
-- Qual o faturamento por cliente?
+- Entender por que JOINs existem
+- Relacionar tabelas corretamente
+- Escolher o tipo de JOIN adequado para cada cenário
+- Evitar erros comuns de relacionamento
+- Criar consultas mais realistas e próximas do mercado
 
 ---
 
-## 🗂 Estrutura deste Módulo:
+## 🧠 Por que JOINs são importantes?
 
-01-joins/   
-├── README.md     
-├── conceitos.md   
-├── exemplos.sql   
-├── exercicios.md   
-├── joins-basicos.md   
+Em bancos de dados relacionais:
 
+- Dados **não ficam todos em uma única tabela**
+- Informações são separadas para evitar duplicidade
+- JOINs permitem **reconstruir a visão completa dos dados**
 
-### 📘 O que estudar em cada arquivo:
-
-- **`conceitos.md`**
-  - O que são JOINs
-  - Tipos de JOIN
-  - Funcionamento mental dos relacionamentos
-  - Erros comuns
-
-- **`joins-basicos.md`**
-  - INNER JOIN
-  - LEFT JOIN
-  - RIGHT JOIN
-  - Diferenças práticas entre eles
-
-- **`exemplos.sql`**
-  - Consultas reais usando JOINs
-  - Casos comuns de negócio
-  - Boas práticas de escrita
-
-- **`exercicios.md`**
-  - Exercícios progressivos
-  - Cenários reais
-  - Fixação prática do conteúdo
+📌 **Sem JOINs, não existe análise real em SQL.**
 
 ---
 
-## 🔗 Tipos de JOIN que você irá aprender
+## 🔗 O que é um JOIN?
 
-- `INNER JOIN`
-- `LEFT JOIN`
-- `RIGHT JOIN`
-- Comparações entre JOINs
-- Como escolher o JOIN correto
+Um `JOIN` é uma operação que **combina linhas de duas ou mais tabelas** com base em uma **condição de relacionamento**.
 
-> JOINs são a base para Subqueries e CTEs — dominar esse módulo facilita todo o SQL avançado.
+Exemplo conceitual:
 
----
-
-## 🚀 Ordem Recomendada de Estudo
-
-1️⃣ conceitos.md   
-2️⃣ joins-basicos.md   
-3️⃣ exemplos.sql   
-4️⃣ exercicios.md   
+- Tabela `clientes`
+- Tabela `pedidos`
+- Relacionamento: `clientes.id = pedidos.cliente_id`
 
 ---
 
-## 🔜 Próximos Passos
+## 🧩 Sintaxe Geral
 
-Após dominar JOINs, você avançará para:
+```sql
+SELECT colunas
+FROM tabela_a
+JOIN tabela_b
+    ON tabela_a.coluna = tabela_b.coluna;
+```
 
-- **Subqueries**
-- **CTEs (Common Table Expressions)**
+📌 Regra fundamental:
 
-Esses conceitos expandem ainda mais sua capacidade analítica com SQL.
+Todo JOIN precisa de uma condição ON bem definida.
+
+🔹 Tipos de JOIN abordados neste módulo
+✅ INNER JOIN
+
+Retorna apenas os registros que existem nas duas tabelas.  
+
+```sql
+SELECT c.nome, p.id_pedido
+FROM clientes c
+INNER JOIN pedidos p
+    ON c.id = p.cliente_id; 
+```     
+
+    📌 Uso mais comum no dia a dia.
+
+✅ LEFT JOIN
+
+Retorna todos os registros da tabela da esquerda
+e os correspondentes da direita (ou NULL). 
+
+```sql
+SELECT c.nome, p.id_pedido
+FROM clientes c
+LEFT JOIN pedidos p
+    ON c.id = p.cliente_id;
+``` 
+📌 Ideal para relatórios completos.
+
+✅ RIGHT JOIN
+
+Retorna todos os registros da tabela da direita. 
+```sql 
+SELECT c.nome, p.id_pedido
+FROM clientes c
+RIGHT JOIN pedidos p
+    ON c.id = p.cliente_id;
+```
+
+📌 Menos utilizado — normalmente substituído por LEFT JOIN.
+---
+
+🔗 JOIN + WHERE
+
+O WHERE filtra antes do resultado final. 
+
+```sql
+SELECT c.nome, p.data_pedido
+FROM clientes c
+INNER JOIN pedidos p
+    ON c.id = p.cliente_id
+WHERE p.data_pedido >= '2024-01-01';
+```
+--- 
+🔗 JOIN + GROUP BY 
+
+JOINs são frequentemente combinados com agregações. 
+
+```sql 
+SELECT c.nome, SUM(p.valor) AS total_gasto 
+FROM clientes c
+INNER JOIN pedidos p
+    ON c.id = p.cliente_id
+GROUP BY c.nome;
+```
+
+📌 Extremamente comum em análises e dashboards.
 
 ---
 
-📌 **Resumo:**
+🔗 JOIN com múltiplas tabelas
 
-> JOINs permitem transformar tabelas isoladas em informações conectadas.  
-> É um divisor de águas entre SQL básico e SQL profissional.
+É possível encadear vários JOINs na mesma consulta.
+```sql
+SELECT
+    p.id_pedido,
+    pr.nome_produto,
+    i.quantidade
+FROM pedidos p
+INNER JOIN itens_pedido i
+    ON p.id_pedido = i.pedido_id
+INNER JOIN produtos pr
+    ON i.produto_id = pr.id_produto;
+``` 
 
 
+⚠️ Erros Comuns: 
+❌ Esquecer a condição ON 
+
+-- Consulta inválida: 
+```sql 
+SELECT *
+FROM clientes
+JOIN pedidos;
+```
+
+🚫 Gera produto cartesiano (resultado incorreto).v 
+
+✔️ Correto: 
+```sql 
+SELECT *
+FROM clientes
+INNER JOIN pedidos
+    ON clientes.id = pedidos.cliente_id;
+```
 
 
+🧠 Boas Práticas: 
+
+Use aliases claros (c, p, pr) 
+
+Sempre valide o relacionamento (ON) 
+
+Evite SELECT * em queries reais 
+
+Teste JOINs simples antes de consultas complexas 
+
+Entenda o negócio, não só a sintaxe. 
+
+📂 Arquivos deste módulo
+01-joins/  
+├── README.md  
+├── joins-basicos.md  
+├── exemplos.sql  
+└── exercicios.md  
+
+✅ Checklist de Aprendizado: 
+
+Ao finalizar este módulo, você deve ser capaz de:
+
+ Explicar o que é um JOIN
+
+ Diferenciar INNER, LEFT e RIGHT JOIN
+
+ Criar JOINs com mais de duas tabelas
+
+ Combinar JOIN com WHERE e GROUP BY
+
+ Identificar e corrigir erros de relacionamento
+
+🚀 Próximos Passos: 
+
+Após dominar JOINs básicos, avançaremos para:
+
+➡ Subqueries 
+➡ JOINs avançados 
+➡ Análises mais complexas 
+ 
+📌 Resumo final: 
+
+JOINs conectam dados. 
+Sem JOINs, SQL não resolve problemas reais. 
+Dominar JOINs é um divisor de águas no aprendizado de SQL. 
