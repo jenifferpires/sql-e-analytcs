@@ -1,20 +1,31 @@
-/*
 ========================================================
-GROUP BY com Funções de Agregação
+AGRUPAMENTOS COM FUNÇÕES DE AGREGAÇÃO
 SUM | COUNT | AVG | MIN | MAX
 ========================================================
 
 Objetivo:
-Demonstrar o uso prático de GROUP BY combinado
+Demonstrar o uso prático do GROUP BY combinado
 com funções de agregação em cenários reais.
-*/
+
+========================================================
+REGRAS IMPORTANTES
+========================================================
+- Toda coluna no SELECT que NÃO estiver em uma
+  função de agregação deve estar no GROUP BY
+- WHERE filtra ANTES do agrupamento
+- HAVING filtra DEPOIS do agrupamento
+========================================================
 
 
 
-/*-- -----------------------------------------------------
--- Exemplo 1: Total de vendas por cliente
--- Pergunta: Quanto cada cliente já comprou?
--- -----------------------------------------------------*/
+--------------------------------------------------------
+SEÇÃO 1 - SUM (SOMA)
+--------------------------------------------------------
+
+Exemplo 1: Total de vendas por cliente
+Pergunta: Quanto cada cliente já comprou?
+
+--------------------------------------------------------
 
 SELECT
     cliente_id,
@@ -24,10 +35,26 @@ GROUP BY cliente_id;
 
 
 
-/*-- -----------------------------------------------------
--- Exemplo 2: Quantidade de pedidos por status
--- Uso comum em dashboards operacionais
--- -----------------------------------------------------*/
+Exemplo 2: Total de vendas por categoria
+
+--------------------------------------------------------
+
+SELECT
+    categoria,
+    SUM(valor) AS total_vendas
+FROM vendas
+GROUP BY categoria;
+
+
+
+--------------------------------------------------------
+SEÇÃO 2 - COUNT (CONTAGEM)
+--------------------------------------------------------
+
+Exemplo 3: Quantidade de pedidos por status
+Uso comum em dashboards operacionais
+
+--------------------------------------------------------
 
 SELECT
     status,
@@ -37,9 +64,25 @@ GROUP BY status;
 
 
 
-/*-- -----------------------------------------------------
--- Exemplo 3: Média salarial por departamento
--- -----------------------------------------------------*/
+Exemplo 4: Quantidade de clientes por cidade
+
+--------------------------------------------------------
+
+SELECT
+    cidade,
+    COUNT(*) AS total_clientes
+FROM clientes
+GROUP BY cidade;
+
+
+
+--------------------------------------------------------
+SEÇÃO 3 - AVG (MÉDIA)
+--------------------------------------------------------
+
+Exemplo 5: Média salarial por departamento
+
+--------------------------------------------------------
 
 SELECT
     departamento,
@@ -49,9 +92,25 @@ GROUP BY departamento;
 
 
 
-/*-- -----------------------------------------------------
--- Exemplo 4: Menor e maior preço por categoria
--- -----------------------------------------------------*/
+Exemplo 6: Média de valor de pedidos por cliente
+
+--------------------------------------------------------
+
+SELECT
+    cliente_id,
+    AVG(valor) AS media_pedidos
+FROM vendas
+GROUP BY cliente_id;
+
+
+
+--------------------------------------------------------
+SEÇÃO 4 - MIN e MAX
+--------------------------------------------------------
+
+Exemplo 7: Menor e maior preço por categoria
+
+--------------------------------------------------------
 
 SELECT
     categoria,
@@ -62,10 +121,27 @@ GROUP BY categoria;
 
 
 
-/*-- -----------------------------------------------------
--- Exemplo 5: GROUP BY com filtro usando WHERE
--- O filtro ocorre ANTES do agrupamento
--- ------------------------------------------------------*/
+Exemplo 8: Data do primeiro e último pedido por cliente
+
+--------------------------------------------------------
+
+SELECT
+    cliente_id,
+    MIN(data_pedido) AS primeiro_pedido,
+    MAX(data_pedido) AS ultimo_pedido
+FROM pedidos
+GROUP BY cliente_id;
+
+
+
+--------------------------------------------------------
+SEÇÃO 5 - GROUP BY + WHERE
+--------------------------------------------------------
+
+Exemplo 9: Total de vendas por categoria em 2024
+Filtro aplicado ANTES do agrupamento
+
+--------------------------------------------------------
 
 SELECT
     categoria,
@@ -76,10 +152,14 @@ GROUP BY categoria;
 
 
 
-/*-- -----------------------------------------------------
--- Exemplo 6: GROUP BY com filtro usando HAVING
--- O filtro ocorre DEPOIS do agrupamento
--- ------------------------------------------------------*/
+--------------------------------------------------------
+SEÇÃO 6 - GROUP BY + HAVING
+--------------------------------------------------------
+
+Exemplo 10: Clientes com total de compras acima de 1000
+Filtro aplicado DEPOIS do agrupamento
+
+--------------------------------------------------------
 
 SELECT
     cliente_id,
@@ -90,10 +170,26 @@ HAVING SUM(valor) > 1000;
 
 
 
-/*-- -----------------------------------------------------
--- Exemplo 7: Erro comum (exemplo inválido)
--- Coluna não agregada fora do GROUP BY
--- ------------------------------------------------------*/
+Exemplo 11: Departamentos com média salarial acima de 5000
+
+--------------------------------------------------------
+
+SELECT
+    departamento,
+    AVG(salario) AS media_salarial
+FROM funcionarios
+GROUP BY departamento
+HAVING AVG(salario) > 5000;
+
+
+
+--------------------------------------------------------
+SEÇÃO 7 - ERROS COMUNS
+--------------------------------------------------------
+
+Exemplo 12: ERRO - Coluna fora do GROUP BY
+
+--------------------------------------------------------
 
 -- ❌ Consulta inválida:
 -- SELECT cliente_id, valor
@@ -102,12 +198,18 @@ HAVING SUM(valor) > 1000;
 
 
 
-/*-- -----------------------------------------------------
--- Exemplo 8: Correção do erro
--- ------------------------------------------------------*/
+Exemplo 13: Correção do erro
+
+--------------------------------------------------------
 
 SELECT
     cliente_id,
-    SUM(valor) AS valor_total
+    SUM(valor) AS total_vendas
 FROM vendas
 GROUP BY cliente_id;
+
+
+
+========================================================
+FIM DOS EXEMPLOS
+========================================================

@@ -1,174 +1,168 @@
-# Exercícios Práticos – GROUP BY com Funções
+# Exercícios – GROUP BY com Funções de Agregação.
 
-## 🎯 Objetivo
+## 🎯 Objetivo:
 
-Consolidar o entendimento de **GROUP BY** combinado com **funções de agregação** (`SUM`, `COUNT`, `AVG`, `MIN`, `MAX`) por meio de exercícios progressivos e cenários próximos da realidade de trabalho.
-
-Os exercícios estão organizados do **básico ao avançado**, incentivando raciocínio analítico e leitura correta dos dados.
+Praticar o uso de `GROUP BY` combinado com funções de agregação (`SUM`, `COUNT`, `AVG`, `MIN`, `MAX`) em cenários progressivos, do básico ao desafiador, simulando situações reais de negócio.
 
 ---
 
-## 📘 Contexto Base:
+## 📘 Instruções Gerais:
 
-Considere as tabelas fictícias abaixo (estrutura simplificada):
+* Leia o enunciado com atenção. 
+* Escreva a consulta SQL completa. 
+* Evite `SELECT *`. 
+* Use **aliases claros**. 
+* Valide se todas as colunas não agregadas estão no `GROUP BY`. 
 
-### 🧾 vendas
+--- 
 
-* `id`
-* `cliente_id`
-* `categoria`
-* `valor`
-* `data_venda`
+## 🟢 Nível 1 — Básico  
 
-### 👤 clientes
+### 1️⃣ Total de vendas por cliente   
 
-* `cliente_id`
-* `nome`
-* `cidade`
+Tabela: `vendas (cliente_id, valor)`    
 
-### 🏢 funcionarios
+> Liste o total vendido por cada cliente.       
 
-* `id`
-* `nome`
-* `departamento`
-* `salario`
+--- 
 
----
+### 2️⃣ Quantidade de pedidos por status      
 
-## 🟢 Nível Básico
+Tabela: `pedidos (id, status)`      
 
-### 1️⃣ Total de vendas por cliente
+> Conte quantos pedidos existem em cada status.     
 
-Liste o **total vendido** por cada `cliente_id`.
+--- 
 
-➡️ Dica: use `SUM(valor)`.
+### 3️⃣ Média salarial por departamento   
 
----
+Tabela: `funcionarios (id, departamento, salario)`  
 
-### 2️⃣ Quantidade de vendas por categoria
+> Calcule a média salarial de cada departamento.    
 
-Mostre quantas vendas existem em cada `categoria`.
+--- 
 
-➡️ Dica: `COUNT(*)`.
+## 🟡 Nível 2 — Intermediário   
 
----
+### 4️⃣ Menor e maior preço por categoria 
 
-### 3️⃣ Maior valor de venda por categoria
+Tabela: `produtos (id, categoria, preco)`   
 
-Exiba a categoria e o **maior valor de venda** registrado.
+> Mostre o menor e o maior preço de cada categoria. 
 
-➡️ Dica: `MAX(valor)`.
+--- 
 
----
+### 5️⃣ Total de vendas por categoria em 2024 
 
-## 🟡 Nível Intermediário
+Tabela: `vendas (categoria, valor, data)`   
 
-### 4️⃣ Média de vendas por cliente
+> Calcule o total de vendas por categoria apenas para vendas realizadas em 2024.    
 
-Calcule o **valor médio** das vendas de cada cliente.
+💡 Dica: use `WHERE`.   
 
-➡️ Dica: `AVG(valor)`.
+--- 
 
----
+### 6️⃣ Quantidade de clientes por cidade 
 
-### 5️⃣ Total de vendas por categoria em 2024
+Tabela: `clientes (id, cidade)` 
 
-Considere apenas vendas realizadas no ano de 2024.
+> Conte quantos clientes existem em cada cidade.    
 
-➡️ Dica: use `WHERE` antes do `GROUP BY`.
+--- 
 
----
+## 🟠 Nível 3 — GROUP BY + HAVING   
 
-### 6️⃣ Departamentos com média salarial acima de 5.000
+### 7️⃣ Clientes com total de compras acima de 1000   
 
-Liste os departamentos cuja **média salarial** seja maior que 5.000.
+Tabela: `vendas (cliente_id, valor)`    
 
-➡️ Dica: use `HAVING`.
+> Liste apenas os clientes cujo total comprado seja maior que 1000. 
 
----
+💡 Dica: use `HAVING`.  
 
-## 🔴 Nível Avançado
+--- 
 
-### 7️⃣ Clientes com mais de 10 vendas
+### 8️⃣ Departamentos com média salarial maior que 5000   
 
-Liste os clientes que realizaram **mais de 10 vendas**.
+Tabela: `funcionarios (departamento, salario)`  
 
-➡️ Dica: `COUNT(*)` + `HAVING`.
+> Retorne apenas os departamentos com média salarial acima de 5000. 
 
----
+--- 
 
-### 8️⃣ Categorias com faturamento acima de 50.000
+## 🔴 Nível 4 — Desafio
 
-Exiba as categorias cujo **total faturado** ultrapassa 50.000.
+### 9️⃣ Clientes com mais de 5 pedidos
 
-➡️ Dica: `SUM(valor)`.
+Tabela: `pedidos (id, cliente_id)`
+
+> Liste os clientes que realizaram mais de 5 pedidos.
 
 ---
 
-### 9️⃣ Menor e maior salário por departamento
+### 🔟 Categorias com faturamento médio acima de 300
 
-Mostre, para cada departamento:
+Tabela: `vendas (categoria, valor)`
 
-* Menor salário
-* Maior salário
-
-➡️ Dica: `MIN` e `MAX` na mesma query.
+> Retorne as categorias cujo valor médio de venda seja maior que 300.
 
 ---
 
-## 🧠 Desafios de Raciocínio
+## 🧠 Desafio Extra (Reflexão)
 
-### 🔍 10️⃣ Qual dessas queries está correta?
+### ❓ Quando usar WHERE e quando usar HAVING?
 
-```sql
-SELECT cliente_id, valor
-FROM vendas
-GROUP BY cliente_id;
-```
+Explique com suas próprias palavras:    
 
-* Por que essa query está incorreta?
-* Como ela deveria ser escrita corretamente?
+* Quando usar `WHERE`   
+* Quando usar `HAVING`  
+* O que acontece se usar `WHERE` no lugar de `HAVING`   
 
----
+--- 
 
-### 🔍 11️⃣ WHERE ou HAVING?
-
-Explique:
-
-* Quando usar `WHERE`
-* Quando usar `HAVING`
-
-Dê um exemplo prático de cada.
-
----
-
-## 🧩 Desafio Final – Cenário Real
-
-Você precisa gerar um relatório mensal com:
-
-* Categoria
-* Quantidade de vendas
-* Total faturado
-* Valor médio por venda
-
-Somente categorias com **mais de 20 vendas** devem aparecer.
-
-➡️ Pense na ordem correta:
-
-1. Filtro por data (`WHERE`)
-2. Agrupamento (`GROUP BY`)
-3. Filtro por agregação (`HAVING`)
-
----
-
-## 📌 Checklist de Aprendizado
+## ✅ Checklist de Aprendizado
 
 Ao finalizar este módulo, você deve ser capaz de:
 
-* [ ] Usar `GROUP BY` corretamente
-* [ ] Aplicar funções de agregação
-* [ ] Diferenciar `WHERE` e `HAVING`
-* [ ] Resolver cenários reais com dados agregados
+ Explicar com clareza o que é GROUP BY e para que ele serve.
+ Utilizar corretamente funções de agregação:
 
----
+SUM
+COUNT
+AVG
+MIN
+MAX
 
+ Identificar quando usar WHERE (filtro antes do agrupamento)
+ Identificar quando usar HAVING (filtro após o agrupamento)
+ Explicar a diferença prática entre WHERE e HAVING
+ Evitar erros comuns de agrupamento (colunas fora do GROUP BY)
+
+ Criar consultas agregadas para: 
+
+Relatórios gerenciais 
+KPIs 
+Dashboards operacionais 
+Ler e interpretar corretamente resultados agregados 
+Aplicar GROUP BY em cenários reais de negócio 
+
+🧠 Autoavaliação (reflexão importante) 
+
+Explique com suas próprias palavras: 
+
+Quando usar WHERE 
+
+Quando usar HAVING 
+
+O que acontece se usar WHERE no lugar de HAVING 
+
+Por que HAVING depende de funções de agregação
+
+Se você consegue responder sem consultar o material, o aprendizado está consolidado ✅
+
+📌 **Resumo**
+
+Dominar agrupamentos com funções é essencial para relatórios, KPIs e análises reais.
+Este é um dos pilares do SQL analítico e aparece diariamente em ambientes corporativos.
+
+--- 

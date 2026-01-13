@@ -1,67 +1,71 @@
-🔗 GROUP BY com HAVING
-🎯 Objetivo
+🔗 GROUP BY com HAVING 
+🎯 Objetivo: 
 
-Este arquivo explica o uso da cláusula HAVING, que permite filtrar resultados após o agrupamento dos dados.
+Este arquivo explica o uso da cláusula HAVING, que permite filtrar resultados após o agrupamento dos dados. 
 
-Ao final deste conteúdo, você será capaz de:
+Ao final deste conteúdo, você será capaz de: 
 
-Entender a diferença entre WHERE e HAVING
+Entender a diferença entre WHERE e HAVING.
+Saber quando usar cada um.
+Aplicar filtros corretamente em consultas agrupadas.
+Evitar erros comuns em relatórios e métricas.
 
-Saber quando usar cada um
+📌 HAVING é indispensável em análises baseadas em agregações. 
 
-Aplicar filtros corretamente em consultas agrupadas
+🧠 O que é HAVING? 
 
-Evitar erros comuns em relatórios e métricas
+HAVING é uma cláusula utilizada para filtrar grupos de dados, ou seja, ela atua depois do GROUP BY. 
 
-📌 HAVING é indispensável em análises baseadas em agregações.
+Enquanto o WHERE filtra linhas individuais, o HAVING filtra resultados agregados. 
 
-🧠 O que é HAVING?
+🔄 WHERE x HAVING (diferença essencial) 
+| Cláusula | Quando atua          | O que filtra |
+| -------- | -------------------- | ------------ |
+| `WHERE`  | Antes do `GROUP BY`  | Linhas       |
+| `HAVING` | Depois do `GROUP BY` | Grupos       |
 
-HAVING é uma cláusula utilizada para filtrar grupos de dados, ou seja, ela atua depois do GROUP BY.
 
-Enquanto o WHERE filtra linhas individuais, o HAVING filtra resultados agregados.
+📌 Essa é uma das distinções mais importantes em SQL. 
 
-🔄 WHERE x HAVING (diferença essencial)
-Cláusula	Quando atua	O que filtra
-WHERE	Antes do GROUP BY	Linhas
-HAVING	Depois do GROUP BY	Grupos
+🧩 Exemplo conceitual 
 
-📌 Essa é uma das distinções mais importantes em SQL.
-
-🧩 Exemplo conceitual
-
-Pergunta:
+Pergunta: 
 
 Quais clientes possuem total de compras maior que 1000?
 
 ❌ Tentativa incorreta (uso de WHERE)
+```sql
 SELECT cliente_id, SUM(valor)
 FROM vendas
 WHERE SUM(valor) > 1000
 GROUP BY cliente_id;
+```
 
 
-🚫 Erro: funções de agregação não podem ser usadas no WHERE.
+🚫 Erro: funções de agregação não podem ser usadas no WHERE. 
 
-✔️ Forma correta (uso de HAVING)
+✔️ Forma correta (uso de HAVING) 
+```sql
 SELECT
     cliente_id,
     SUM(valor) AS total_vendas
 FROM vendas
 GROUP BY cliente_id
 HAVING SUM(valor) > 1000;
+```
 
 
-📌 Primeiro o SQL agrupa, depois aplica o filtro.
+📌 Primeiro o SQL agrupa, depois aplica o filtro. 
 
-🔗 Usando WHERE e HAVING juntos
+🔗 Usando WHERE e HAVING juntos 
 
-É comum (e recomendado) combinar as duas cláusulas.
+É comum (e recomendado) combinar as duas cláusulas. 
 
-Exemplo:
+Exemplo: 
 
-Total de vendas por cliente apenas em 2024, considerando somente clientes com faturamento acima de 1000.
+Total de vendas por cliente apenas em 2024, considerando somente clientes com faturamento acima de 1000. 
 
+```sql
 SELECT
     cliente_id,
     SUM(valor) AS total_vendas
@@ -70,77 +74,64 @@ WHERE data >= '2024-01-01'
 GROUP BY cliente_id
 HAVING SUM(valor) > 1000;
 
+```
 
-✔ WHERE → filtra as vendas
-✔ GROUP BY → agrupa por cliente
-✔ HAVING → filtra os grupos
+✔ WHERE → filtra as vendas 
+✔ GROUP BY → agrupa por cliente 
+✔ HAVING → filtra os grupos 
 
-⚙️ Ordem lógica de execução (reforço)
+⚙️ Ordem lógica de execução (reforço) 
 
-FROM
+FROM 
+WHERE 
+GROUP BY 
+Funções de agregação 
+HAVING 
+SELECT 
+ORDER BY 
 
-WHERE
+📌 Entender essa ordem evita muitos erros. 
 
-GROUP BY
+⚠️ Erros Comuns com HAVING 
 
-Funções de agregação
+❌ Usar HAVING no lugar de WHERE sem necessidade. 
+❌ Tentar usar funções de agregação no WHERE. 
+❌ Não usar alias claros. 
+❌ Filtrar grupos sem sentido de negócio. 
 
-HAVING
+🧠 Boas Práticas: 
 
-SELECT
+Use WHERE sempre que possível para reduzir dados antes do agrupamento.
 
-ORDER BY
+Use HAVING apenas para filtros sobre agregações. 
 
-📌 Entender essa ordem evita muitos erros.
+Dê nomes claros às colunas agregadas. 
 
-⚠️ Erros Comuns com HAVING
+Teste a query sem HAVING antes de aplicá-lo. 
 
-❌ Usar HAVING no lugar de WHERE sem necessidade
-❌ Tentar usar funções de agregação no WHERE
-❌ Não usar alias claros
-❌ Filtrar grupos sem sentido de negócio
+📘 Uso no Mundo Real 
 
-🧠 Boas Práticas
+HAVING é usado em: 
 
-Use WHERE sempre que possível para reduzir dados antes do agrupamento
+Relatórios financeiros.
+Identificação de clientes relevantes. 
+Análises de performance. 
+Métricas e KPIs. 
+Dashboards com filtros por valor agregado. 
 
-Use HAVING apenas para filtros sobre agregações
+🚀 Próximo Passo 
 
-Dê nomes claros às colunas agregadas
+➡ GROUP BY com Funções de Agregação. 
 
-Teste a query sem HAVING antes de aplicá-lo
+SUM 
+COUNT 
+AVG 
+MIN 
+MAX 
 
-📘 Uso no Mundo Real
+Esse conteúdo aprofunda a análise consolidada. 
 
-HAVING é usado em:
+📌 Resumo: 
 
-Relatórios financeiros
-
-Identificação de clientes relevantes
-
-Análises de performance
-
-Métricas e KPIs
-
-Dashboards com filtros por valor agregado
-
-🚀 Próximo Passo
-
-➡ GROUP BY com Funções de Agregação
-
-SUM
-
-COUNT
-
-AVG
-
-MIN
-
-MAX
-
-Esse conteúdo aprofunda a análise consolidada.
-
-📌 Resumo
-
-HAVING permite filtrar resultados agregados.
-É a peça que transforma agrupamentos em análises úteis.
+HAVING permite filtrar resultados agregados. 
+É a peça que transforma agrupamentos em análises úteis. 

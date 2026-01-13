@@ -82,9 +82,9 @@ SELECT
   END AS verificacao_null;
 
 
-/* ======================================
+/*======================================
 5. EXEMPLOS COM TABELAS (CENÁRIO REAL)
-====================================== */
+======================================*/
 
 -- Exemplo: tabela usuarios (hipotética)
 

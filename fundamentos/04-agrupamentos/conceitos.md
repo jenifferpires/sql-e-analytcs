@@ -1,32 +1,29 @@
-🧠 Conceitos – Agrupamentos em SQL (GROUP BY)       
-🎯 Objetivo:    
+🧠 Conceitos – Agrupamentos em SQL (GROUP BY)        
+🎯 Objetivo:     
 
-Este arquivo apresenta os conceitos fundamentais de agrupamento em SQL, explicando como e por que usar o GROUP BY para transformar dados detalhados em informações consolidadas.    
+Este arquivo apresenta os conceitos fundamentais de agrupamento em SQL, explicando como e por que usar o GROUP BY para transformar dados detalhados em informações consolidadas.     
 
-Ao final deste conteúdo, você será capaz de:    
+Ao final deste conteúdo, você será capaz de:     
 
-Entender o que é agrupamento de dados.    
-
-Saber quando utilizar GROUP BY.  
-
-Interpretar corretamente resultados agregados. 
-
-Evitar erros comuns em consultas com agrupamento.    
+Entender o que é agrupamento de dados.     
+Saber quando utilizar GROUP BY.   
+Interpretar corretamente resultados agregados.  
+Evitar erros comuns em consultas com agrupamento.     
 
 
-📌 O GROUP BY é uma das bases para relatórios, métricas e dashboards.   
+📌 O GROUP BY é uma das bases para relatórios, métricas e dashboards.    
 
-🧠 O que é Agrupamento de Dados?    
+🧠 O que é Agrupamento de Dados?     
 
-Agrupar dados significa resumir várias linhas em uma única linha, com base em um critério comum.    
+Agrupar dados significa resumir várias linhas em uma única linha, com base em um critério comum.     
 
-Exemplo conceitual: 
+Exemplo conceitual:  
 
-Dados detalhados → cada venda individual.   
-Dados agrupados → total de vendas por cliente.  
+Dados detalhados → cada venda individual.    
+Dados agrupados → total de vendas por cliente.   
 
-📌 Sem agrupamento, o SQL trabalha linha a linha.   
-📌 Com agrupamento, o SQL passa a trabalhar por conjunto de dados.  
+📌 Sem agrupamento, o SQL trabalha linha a linha.    
+📌 Com agrupamento, o SQL passa a trabalhar por conjunto de dados.   
 
 🔗 O papel do GROUP BY  
 
