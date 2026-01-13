@@ -36,20 +36,19 @@ JOIN tabela_b
   ON tabela_a.coluna = tabela_b.coluna;
 ```
 
-📌 A cláusula ON define como as tabelas se relacionam.
+📌 A cláusula ON define como as tabelas se relacionam. 
 
-🔗 INNER JOIN
-📌 O que faz?
+🔗 INNER JOIN  
+📌 O que faz? 
 
 Retorna apenas os registros que existem nas duas tabelas.
 
 👉 É o JOIN mais utilizado.
 
-🧠 Pensamento mental:
+🧠 Pensamento mental:  
+“Traga apenas o que está relacionado em ambas as tabelas.” 
 
-“Traga apenas o que está relacionado em ambas as tabelas.”
-
-📄 Exemplo:
+📄 Exemplo: 
 ```sql
 SELECT
     clientes.nome,
@@ -61,16 +60,15 @@ INNER JOIN pedidos
 
     ✔️ Retorna apenas clientes que possuem pedidos.
 
-🔗 LEFT JOIN
-📌 O que faz?
+🔗 LEFT JOIN  
+📌 O que faz?  
 
-Retorna todos os registros da tabela da esquerda, mesmo que não exista correspondência na tabela da direita.
+Retorna todos os registros da tabela da esquerda, mesmo que não exista correspondência na tabela da direita. 
 
-🧠 Pensamento mental:
+🧠 Pensamento mental:  
+“Traga tudo da tabela principal, mesmo sem relacionamento.”  
 
-“Traga tudo da tabela principal, mesmo sem relacionamento.”
-
-📄 Exemplo: 
+📄 Exemplo:  
 
 ```sql
 SELECT
@@ -81,10 +79,10 @@ LEFT JOIN pedidos
     ON clientes.id = pedidos.cliente_id;
 ```
 
-✔️ Clientes sem pedidos aparecem com valores NULL nos campos de pedidos.
+✔️ Clientes sem pedidos aparecem com valores NULL nos campos de pedidos. 
 
-🔗 RIGHT JOIN
-📌 O que faz?
+🔗 RIGHT JOIN  
+📌 O que faz?  
 
 Retorna todos os registros da tabela da direita, mesmo sem correspondência na tabela da esquerda.
 
@@ -99,15 +97,16 @@ RIGHT JOIN pedidos
 ```
 📌 Menos utilizado — geralmente pode ser reescrito como um LEFT JOIN.
 
-🔄 Comparação Rápida: 
-JOIN	Retorna
-INNER JOIN	Apenas registros relacionados
-LEFT JOIN	Tudo da esquerda + relacionados
-RIGHT JOIN	Tudo da direita + relacionados
+🔄 Comparação Rápida:   
+| JOIN       | Retorna                         |
+| ---------- | ------------------------------- |
+| INNER JOIN | Apenas registros relacionados   |
+| LEFT JOIN  | Tudo da esquerda + relacionados |
+| RIGHT JOIN | Tudo da direita + relacionados  |
 
 
-⚠️ Erros Comuns com JOINs 
-❌ Esquecer a condição ON 
+⚠️ Erros Comuns com JOINs   
+❌ Esquecer a condição ON   
 ```sql
 SELECT *
 FROM clientes
@@ -116,7 +115,7 @@ JOIN pedidos;
 
 🚫 Gera produto cartesiano (resultado incorreto).
 
-❌ Usar JOIN errado para o objetivo 
+❌ Usar JOIN errado para o objetivo.  
 
 Exemplo: 
 
@@ -126,26 +125,26 @@ Correto: LEFT JOIN ✅
 
 🧠 Boas Práticas: 
 
-Sempre deixe claro qual tabela é a principal. 
-Use aliases curtos e claros.
-Prefira LEFT JOIN quando quiser garantir registros.
-Evite SELECT * em JOINs.
-Valide o resultado com LIMIT. 
+Sempre deixe claro qual tabela é a principal.   
+Use aliases curtos e claros.  
+Prefira LEFT JOIN quando quiser garantir registros.  
+Evite SELECT * em JOINs.  
+Valide o resultado com LIMIT.   
 
-🔗 JOINs e Próximos Conceitos
+🔗 JOINs e Próximos Conceitos  
 
 JOINs são a base para:
 
-Subqueries 
-CTEs 
-Funções de agregação com múltiplas tabelas 
+Subqueries   
+CTEs   
+Funções de agregação com múltiplas tabelas   
 
-Se JOIN não estiver claro, os próximos módulos ficam difíceis. 
+Se JOIN não estiver claro, os próximos módulos ficam difíceis.   
 
 📘 Resumo 
 
-JOINs conectam dados espalhados em múltiplas tabelas.
-Dominar JOINs é o que separa SQL básico de SQL analítico profissional. 
+JOINs conectam dados espalhados em múltiplas tabelas.  
+Dominar JOINs é o que separa SQL básico de SQL analítico profissional.   
 
 
 
