@@ -31,12 +31,12 @@ JOINs permitem **conectar essas informações** para responder perguntas como:
 
 ## 🗂 Estrutura deste Módulo:
 
-01-joins/ 
-├── README.md 
-├── conceitos.md 
-├── exemplos.sql 
-├── exercicios.md 
-├── joins-basicos.md 
+01-joins/   
+├── README.md     
+├── conceitos.md   
+├── exemplos.sql   
+├── exercicios.md   
+├── joins-basicos.md   
 
 
 ### 📘 O que estudar em cada arquivo:
@@ -79,10 +79,10 @@ JOINs permitem **conectar essas informações** para responder perguntas como:
 
 ## 🚀 Ordem Recomendada de Estudo
 
-1️⃣ conceitos.md  
-2️⃣ joins-basicos.md  
-3️⃣ exemplos.sql  
-4️⃣ exercicios.md  
+1️⃣ conceitos.md   
+2️⃣ joins-basicos.md   
+3️⃣ exemplos.sql   
+4️⃣ exercicios.md   
 
 ---
 
