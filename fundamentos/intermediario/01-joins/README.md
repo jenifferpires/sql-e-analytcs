@@ -47,14 +47,14 @@ JOIN tabela_b
     ON tabela_a.coluna = tabela_b.coluna;
 ```
 
-📌 Regra fundamental:
+📌 Regra fundamental:  
 
-Todo JOIN precisa de uma condição ON bem definida.
+Todo JOIN precisa de uma condição ON bem definida.  
 
-🔹 Tipos de JOIN abordados neste módulo
-✅ INNER JOIN
+🔹 Tipos de JOIN abordados neste módulo  
+✅ INNER JOIN  
 
-Retorna apenas os registros que existem nas duas tabelas.  
+Retorna apenas os registros que existem nas duas tabelas.    
 
 ```sql
 SELECT c.nome, p.id_pedido
@@ -135,26 +135,27 @@ INNER JOIN produtos pr
 ``` 
 
 
-⚠️ Erros Comuns: 
-❌ Esquecer a condição ON 
+⚠️ Erros Comuns:   
+❌ Esquecer a condição ON    
 
--- Consulta inválida: 
+-- Consulta inválida:   
+
 ```sql 
 SELECT *
 FROM clientes
 JOIN pedidos;
 ```
 
-🚫 Gera produto cartesiano (resultado incorreto).v 
+🚫 Gera produto cartesiano (resultado incorreto).   
 
-✔️ Correto: 
+✔️ Correto:   
 ```sql 
 SELECT *
 FROM clientes
 INNER JOIN pedidos
     ON clientes.id = pedidos.cliente_id;
 ```
-
+--- 
 
 🧠 Boas Práticas: 
 
@@ -167,38 +168,38 @@ Evite SELECT * em queries reais
 Teste JOINs simples antes de consultas complexas 
 
 Entenda o negócio, não só a sintaxe. 
+---   
+📂 Arquivos deste módulo   
+01-joins/    
+├── README.md    
+├── joins-basicos.md    
+├── exemplos.sql    
+└── exercicios.md    
 
-📂 Arquivos deste módulo
-01-joins/  
-├── README.md  
-├── joins-basicos.md  
-├── exemplos.sql  
-└── exercicios.md  
+✅ Checklist de Aprendizado:   
 
-✅ Checklist de Aprendizado: 
+Ao finalizar este módulo, você deve ser capaz de:  
 
-Ao finalizar este módulo, você deve ser capaz de:
+ Explicar o que é um JOIN  
 
- Explicar o que é um JOIN
+ Diferenciar INNER, LEFT e RIGHT JOIN  
 
- Diferenciar INNER, LEFT e RIGHT JOIN
+ Criar JOINs com mais de duas tabelas  
 
- Criar JOINs com mais de duas tabelas
+ Combinar JOIN com WHERE e GROUP BY  
 
- Combinar JOIN com WHERE e GROUP BY
+ Identificar e corrigir erros de relacionamento  
 
- Identificar e corrigir erros de relacionamento
+🚀 Próximos Passos:   
 
-🚀 Próximos Passos: 
-
-Após dominar JOINs básicos, avançaremos para:
-
-➡ Subqueries 
-➡ JOINs avançados 
-➡ Análises mais complexas 
+Após dominar JOINs básicos, avançaremos para:  
+  
+➡ Subqueries   
+➡ JOINs avançados   
+➡ Análises mais complexas   
  
-📌 Resumo final: 
+📌 Resumo final:   
 
-JOINs conectam dados. 
-Sem JOINs, SQL não resolve problemas reais. 
-Dominar JOINs é um divisor de águas no aprendizado de SQL. 
+JOINs conectam dados.   
+Sem JOINs, SQL não resolve problemas reais.   
+Dominar JOINs é um divisor de águas no aprendizado de SQL.   
