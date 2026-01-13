@@ -56,16 +56,16 @@ SELECT
 FROM clientes
 INNER JOIN pedidos
     ON clientes.id = pedidos.cliente_id;
-``` 
+```   
 
-    ✔️ Retorna apenas clientes que possuem pedidos.
+    ✔️ Retorna apenas clientes que possuem pedidos.  
 
-🔗 LEFT JOIN  
-📌 O que faz?  
+🔗 LEFT JOIN    
+📌 O que faz?    
 
 Retorna todos os registros da tabela da esquerda, mesmo que não exista correspondência na tabela da direita. 
 
-🧠 Pensamento mental:  
+🧠 Pensamento mental:    
 “Traga tudo da tabela principal, mesmo sem relacionamento.”  
 
 📄 Exemplo:  
@@ -126,20 +126,25 @@ Correto: LEFT JOIN ✅
 🧠 Boas Práticas: 
 
 Sempre deixe claro qual tabela é a principal.   
-Use aliases curtos e claros.  
-Prefira LEFT JOIN quando quiser garantir registros.  
-Evite SELECT * em JOINs.  
-Valide o resultado com LIMIT.   
 
-🔗 JOINs e Próximos Conceitos  
+Use aliases curtos e claros.    
 
-JOINs são a base para:
+Prefira LEFT JOIN quando quiser garantir registros.   
 
-Subqueries   
-CTEs   
-Funções de agregação com múltiplas tabelas   
+Evite SELECT * em JOINs.    
 
-Se JOIN não estiver claro, os próximos módulos ficam difíceis.   
+Valide o resultado com LIMIT.     
+
+
+🔗 JOINs e Próximos Conceitos    
+
+JOINs são a base para:  
+
+Subqueries     
+CTEs     
+Funções de agregação com múltiplas tabelas     
+
+Se JOIN não estiver claro, os próximos módulos ficam difíceis.     
 
 📘 Resumo 
 
