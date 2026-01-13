@@ -168,6 +168,8 @@ Evite SELECT * em queries reais
 Teste JOINs simples antes de consultas complexas 
 
 Entenda o negócio, não só a sintaxe. 
+
+
 ---   
 📂 Arquivos deste módulo   
 01-joins/    
@@ -176,19 +178,21 @@ Entenda o negócio, não só a sintaxe.
 ├── exemplos.sql    
 └── exercicios.md    
 
-✅ Checklist de Aprendizado:   
+--- 
 
-Ao finalizar este módulo, você deve ser capaz de:  
+✅ Checklist de Aprendizado:     
 
- Explicar o que é um JOIN  
+Ao finalizar este módulo, você deve ser capaz de:    
 
- Diferenciar INNER, LEFT e RIGHT JOIN  
+ Explicar o que é um JOIN    
 
- Criar JOINs com mais de duas tabelas  
+ Diferenciar INNER, LEFT e RIGHT JOIN    
 
- Combinar JOIN com WHERE e GROUP BY  
+ Criar JOINs com mais de duas tabelas    
 
- Identificar e corrigir erros de relacionamento  
+ Combinar JOIN com WHERE e GROUP BY    
+
+ Identificar e corrigir erros de relacionamento    
 
 🚀 Próximos Passos:   
 
