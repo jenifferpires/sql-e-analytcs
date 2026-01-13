@@ -5,11 +5,12 @@ Este arquivo aprofunda o uso do GROUP BY combinado com funções de agregação,
 
 Ao final deste conteúdo, você será capaz de:  
 
-Agrupar dados corretamente.  
-Aplicar funções de agregação.  
-Combinar GROUP BY com WHERE e HAVING.  
-Interpretar resultados agregados.  
-Evitar erros comuns em análises.  
+Agrupar dados corretamente. 
+Aplicar funções de agregação. 
+Combinar GROUP BY com WHERE e HAVING. 
+Interpretar resultados agregados. 
+Evitar erros comuns em análises. 
+
 ---
 🧠 O que são Funções de Agregação?   
 
@@ -40,11 +41,12 @@ GROUP BY coluna_agrupamento;
 Toda coluna no SELECT que não está dentro de uma função de agregação
 deve aparecer no GROUP BY.  
 
-📊 Exemplos Práticos:  
-1️⃣ Total de vendas por cliente. 
+📊 Exemplos Práticos:   
 
-Pergunta:  
-Quanto cada cliente já comprou?     
+1️⃣ Total de vendas por cliente.  
+
+Pergunta:   
+Quanto cada cliente já comprou?      
 
 ```sql  
 SELECT
@@ -54,10 +56,10 @@ FROM vendas
 GROUP BY cliente_id;
 ```
 
-2️⃣ Quantidade de pedidos por status. 
+2️⃣ Quantidade de pedidos por status.  
 
-Pergunta: 
-Quantos pedidos existem em cada status? 
+Pergunta:  
+Quantos pedidos existem em cada status?  
 
 ```sql 
 SELECT
@@ -106,13 +108,12 @@ WHERE data >= '2024-01-01'
 GROUP BY categoria;
 ```
 
-🔗 GROUP BY com HAVING. 
+🔗 GROUP BY com HAVING.  
 
-Use HAVING para filtrar os grupos após o agrupamento. 
+Use HAVING para filtrar os grupos após o agrupamento.  
 
-Exemplo:
-
-Clientes com faturamento total acima de 1000.
+Exemplo: 
+Clientes com faturamento total acima de 1000. 
 ```sql 
 SELECT
     cliente_id,
@@ -122,8 +123,9 @@ GROUP BY cliente_id
 HAVING SUM(valor) > 1000;
 ```
 --- 
-⚠️ Erros Comuns:  
-❌ Coluna fora do GROUP BY    
+
+⚠️ Erros Comuns:   
+❌ Coluna fora do GROUP BY     
 
 ```sql
 SELECT cliente_id, valor  
@@ -131,7 +133,7 @@ FROM vendas
 GROUP BY cliente_id;  
 ```
 
-🚫 valor não está agregado nem no GROUP BY. 
+🚫 valor não está agregado nem no GROUP BY.  
 
 ✔️ Correto: 
 ```sql 
@@ -143,34 +145,34 @@ GROUP BY cliente_id;
 ```
 ---
 
-🧠 Boas Práticas:   
+🧠 Boas Práticas:     
 
-Use aliases claros para colunas agregadas.  
-Evite SELECT * com GROUP BY. 
-Filtre dados cedo com WHERE.  
-Use HAVING apenas quando necessário.  
+Use aliases claros para colunas agregadas.   
+Evite SELECT * com GROUP BY.  
+Filtre dados cedo com WHERE.   
+Use HAVING apenas quando necessário.   
 
-Sempre valide o resultado do agrupamento. 
+Sempre valide o resultado do agrupamento.  
 
-📘 Uso no Mundo Real:  
+📘 Uso no Mundo Real:   
 
-Funções de agregação com GROUP BY são usadas em: 
+Funções de agregação com GROUP BY são usadas em:  
 
-Relatórios financeiros. 
-KPIs. 
-Dashboards. 
-Análises de performance. 
-Decisões estratégicas. 
+Relatórios financeiros.  
+KPIs.  
+Dashboards.  
+Análises de performance.  
+Decisões estratégicas.  
 
-📌 Este é um dos recursos mais usados do SQL em ambientes profissionais.  
+📌 Este é um dos recursos mais usados do SQL em ambientes profissionais.   
 
-🚀 Próximo Passo:  
+🚀 Próximo Passo:   
 
-➡ Exercícios práticos de Agrupamentos.   
-➡ GROUP BY com múltiplas colunas.   
-➡ GROUP BY + JOIN (ponte para Intermediário).   
+➡ Exercícios práticos de Agrupamentos.    
+➡ GROUP BY com múltiplas colunas.    
+➡ GROUP BY + JOIN (ponte para Intermediário).    
 
-📌 Resumo:  
+📌 Resumo:   
 
 GROUP BY com funções de agregação transforma dados brutos
-em informações consolidadas e acionáveis.   
+em informações consolidadas e acionáveis.    

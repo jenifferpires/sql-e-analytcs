@@ -1,5 +1,5 @@
-🔗 GROUP BY com HAVING. 
-🎯 Objetivo:  
+🔗 GROUP BY com HAVING.  
+🎯 Objetivo:    
 
 Este arquivo explica o uso da cláusula HAVING, que permite filtrar resultados após o agrupamento dos dados.  
  
@@ -29,9 +29,8 @@ Enquanto o WHERE filtra linhas individuais, o HAVING filtra resultados agregados
 
 🧩 Exemplo conceitual 
 
-Pergunta: 
-
-Quais clientes possuem total de compras maior que 1000?
+Pergunta:  
+Quais clientes possuem total de compras maior que 1000? 
 
 ❌ Tentativa incorreta (uso de WHERE)
 ```sql
