@@ -1,4 +1,4 @@
-# Fundamentos de SQL
+# 🗂️ Fundamentos de SQL.  
 
 Este diretório reúne os **conceitos fundamentais de SQL**, organizados de forma progressiva,
 com foco em **entendimento conceitual**, **uso prático** e **aplicação em cenários reais de trabalho**.
@@ -22,33 +22,33 @@ são amplamente aplicáveis a outros SGBDs relacionais.
 
 ## 🧱 Estrutura dos Fundamentos
 
-### 🔹 01 – Introdução
+### 🔹 01 – Introdução:  
 Conceitos iniciais sobre SQL, bancos de dados relacionais e como pensar em dados.
 
-- O que é SQL
-- O que é um banco de dados relacional
-- Tabelas, colunas e registros
-- Primeiros contatos com queries
+- O que é SQL?  
+- O que é um banco de dados relacional?  
+- Tabelas, colunas e registros. 
+- Primeiros contatos com queries. 
 
 📂 `01-introducao/`
 
 ---
 
-### 🔹 02 – Consultas Básicas
+### 🔹 02 – Consultas Básicas:  
 Base de qualquer uso real de SQL: **consultar dados corretamente**.
 
-- SELECT
-- WHERE
-- ORDER BY
-- LIMIT
-- DISTINCT
-- ALIASES
+- `SELECT`
+- `WHERE`
+- `ORDER BY`
+- `LIMIT`
+- `DISTINCT`
+- `ALIASES`
 
 📂 `02-consultas-basicas/`
 
 ---
 
-### 🔹 03 – Funções Básicas
+### 🔹 03 – Funções Básicas:  
 Manipulação e transformação de dados diretamente nas queries.
 
 - Funções de texto
@@ -63,18 +63,18 @@ Manipulação e transformação de dados diretamente nas queries.
 ### 🔹 04 – Agrupamentos
 Análise de dados usando agregações.
 
-- GROUP BY
-- HAVING
+- `GROUP BY`
+- `HAVING`
 - Contagens, somas e médias por grupo
 
 📂 `04-agrupamentos/`
 
 ---
 
-### 🔹 Intermediário
+### 🔹 Intermediário: 
 Recursos essenciais para consultas mais complexas.
 
-- Joins
+- `Joins`
 - Subqueries
 - CTEs (Common Table Expressions)
 
@@ -82,7 +82,7 @@ Recursos essenciais para consultas mais complexas.
 
 ---
 
-### 🔹 Avançado
+### 🔹 Avançado:  
 Tópicos aplicados a cenários reais e otimização.
 
 - Performance
@@ -93,7 +93,7 @@ Tópicos aplicados a cenários reais e otimização.
 
 ---
 
-## 📌 Como usar este material
+## 📌 Como usar este material? 
 
 - Leia primeiro os arquivos **README.md** de cada módulo
 - Em seguida:
@@ -106,7 +106,7 @@ Este fluxo garante **entendimento + prática**, não apenas memorização.
 
 ---
 
-## 🧠 Público-alvo
+## 🧠 Público-alvo:  
 
 - Pessoas iniciando em SQL
 - Profissionais que desejam reforçar fundamentos
