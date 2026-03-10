@@ -1,20 +1,26 @@
-# SQL & Analytics: Case de Normalização de Dados Reais (Kaggle).
+# SQL & Analytics: Sistema de Fidelidade (Case TeoMeWhy).
 
 ## 📌 Sobre o Projeto:
-Este projeto demonstra o processo de ETL (Extração, Transformação e Carga) de um dataset de vendas com mais de 1 milhão de registros. O foco principal foi transformar dados brutos e "sujos" em um modelo relacional otimizado.
 
-## 🛠️ Desafios Superados (Aprendizado)
-- **Normalização**: Divisão de tabelas flat em tabelas de Fato e Dimensões (Star Schema).
-- **Limpeza de Dados**: Tratamento de erros de `DATETIME` (Erro 1292) e conversão de tipos de dados.
-- **Performance**: Implementação de índices em colunas estratégicas para acelerar Joins em grandes volumes.
-- **Consultas Complexas**: Criação de Views para facilitar a geração de relatórios de faturamento.
+Este repositório contém o desenvolvimento completo de um processo de **Saneamento e Normalização de Dados** utilizando o dataset de um sistema de fidelidade. O objetivo foi transformar dados brutos com inconsistências em um banco de dados relacional otimizado para análise.
 
-## 📁 Estrutura do Repositório
-- `/scripts`: Scripts SQL de saneamento e automação.
-- `/queries`: Consultas de Business Intelligence.
-- `/documentation`: Screenshots dos resultados no MySQL Workbench.
+## 🎓 Referências e Base de Estudo: 
+O desenvolvimento deste projeto foi baseado no excelente conteúdo educativo do **Téo Calvo (Téo Me Why)**:
+- **Dataset (Kaggle):** [TéoMeWhy Loyalty System](https://www.kaggle.com/datasets/teocalvo/teomewhy-loyalty-system)
+- **Curso/Playlist de Apoio:** [SQL para Análise de Dados - Téo Me Why](https://www.youtube.com/playlist?list=PLvlkVRRKOYFRo651oD0JptVqfQGDvMi3j)
 
-## 🚀 Como replicar
-1. Importe os CSVs originais no MySQL.
-2. Execute o script `01_cleanup_and_migration.sql`.
-3. Valide os dados através da View `vw_relatorio_vendas`.
+## 🛠️ Tecnologias Utilizadas
+- **Banco de Dados:** MySQL (Workbench)
+- **Infraestrutura:** Ubuntu (WSL)
+- **Versionamento:** Git & GitHub
+
+## 📈 Etapas do Projeto (Hands-on)
+1. **Importação:** Carga dos arquivos CSV brutos (mais de 1 milhão de registros).
+2. **Tratamento de Erros:** Resolução de conflitos de data (Erro 1292), tipos de dados incorretos e nomes inconsistentes.
+3. **Normalização:** Criação de tabelas `tb_` seguindo o modelo relacional.
+4. **Otimização:** Implementação de Índices para performance e Views para relatórios concisos.
+
+## 📂 Organização do Repositório: 
+- `src/sql/normalization`: Scripts de ETL e criação de estrutura.
+- `src/sql/analysis`: Consultas de Business Intelligence.
+- `docs/assets`: Documentação visual (prints de sucesso das queries).
