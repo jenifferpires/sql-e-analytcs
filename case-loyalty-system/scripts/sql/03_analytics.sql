@@ -1,13 +1,16 @@
 USE curso_sql;
 
--- 1. CRIAÇÃO DA VIEW DE RELATÓRIO CONSOLIDADO
--- Esta view une as dimensões e fatos para facilitar qualquer análise posterior.
+-- =========================================================================
+-- 1. CAMADA DE ABSTRAÇÃO: VIEW CONSOLIDADA E HUMANIZADA
+-- Descrição: Une dimensões e fatos, trazendo nomes e e-mails higienizados.
+-- =========================================================================
 CREATE OR REPLACE VIEW vw_relatorio_vendas AS
 SELECT 
     v.id_venda,
     v.data_venda,
     v.origem,
-    c.id_cliente,
+    c.nome AS nome_cliente,
+    c.email AS email_contato,
     c.pontos AS cliente_pontos_acumulados,
     p.nome AS nome_produto,
     p.categoria AS categoria_produto,
@@ -19,34 +22,38 @@ JOIN tb_vendas v ON iv.id_venda = v.id_venda
 JOIN tb_produtos p ON iv.id_produto = p.id_produto
 JOIN tb_clientes c ON v.id_cliente = c.id_cliente;
 
--- 2. ANÁLISE: Ranking de Faturamento por Categoria
--- Utilizada para identificar os produtos que mais geram receita.
+-- =========================================================================
+-- 2. KPI: TOP 5 CLIENTES POR FATURAMENTO (ATENDIMENTO VIP)
+-- Objetivo: Identificar usuários para ações de fidelidade personalizadas.
+-- =========================================================================
+SELECT 
+    nome_cliente, 
+    email_contato, 
+    SUM(subtotal_venda) AS total_gasto
+FROM vw_relatorio_vendas 
+GROUP BY nome_cliente, email_contato 
+ORDER BY total_gasto DESC
+LIMIT 5;
+
+-- =========================================================================
+-- 3. KPI: PERFORMANCE POR CATEGORIA DE PRODUTO
+-- Objetivo: Validar quais categorias dominam o volume financeiro.
+-- =========================================================================
 SELECT 
     categoria_produto,
-    COUNT(DISTINCT id_venda) AS total_vendas,
-    SUM(quantidade) AS itens_vendidos,
-    SUM(subtotal_venda) AS faturamento_total
+    COUNT(DISTINCT id_venda) AS volume_pedidos,
+    SUM(subtotal_venda) AS faturamento_categoria
 FROM vw_relatorio_vendas
 GROUP BY categoria_produto
-ORDER BY faturamento_total DESC;
+ORDER BY faturamento_categoria DESC;
 
--- 3. ANÁLISE: Faturamento Mensal (Sazonalidade)
--- Essencial para identificar meses de pico nas plataformas (Twitch/YouTube).
+-- =========================================================================
+-- 4. KPI: TICKET MÉDIO POR ORIGEM (TWITCH, YOUTUBE, ETC)
+-- Objetivo: Avaliar qual canal de aquisição gera vendas mais valiosas.
+-- =========================================================================
 SELECT 
-    DATE_FORMAT(data_venda, '%Y-%m') AS mes_ano,
-    COUNT(DISTINCT id_venda) AS total_pedidos,
-    SUM(subtotal_venda) AS faturamento_mensal
+    origem,
+    ROUND(AVG(subtotal_venda), 2) AS ticket_medio
 FROM vw_relatorio_vendas
-GROUP BY mes_ano
-ORDER BY mes_ano DESC;
-
--- 4. ANÁLISE: Top Clientes por Engajamento e Compra
-SELECT 
-    id_cliente,
-    cliente_pontos_acumulados,
-    COUNT(id_venda) AS frequencia_compra,
-    SUM(subtotal_venda) AS valor_gasto_total
-FROM vw_relatorio_vendas
-GROUP BY id_cliente, cliente_pontos_acumulados
-ORDER BY valor_gasto_total DESC
-LIMIT 10;
+GROUP BY origem
+ORDER BY ticket_medio DESC;

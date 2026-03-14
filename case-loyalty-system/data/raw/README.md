@@ -1,12 +1,12 @@
-# 📁 Camada de Dados (Raw Data)
+# 📁 Camada de Dados (Raw Data):  
 
 Esta pasta contém as amostras dos dados brutos utilizados no projeto **Loyalty System ETL**. 
 
-## 📝 Origem dos Dados
+## 📝 Origem dos Dados:  
 O dataset original foi extraído do **Kaggle**, referente ao sistema de fidelidade "TeomeWhy". 
 - **Link do Dataset:** [Kaggle - TeomeWhy Loyalty System](https://www.kaggle.com/datasets/teomewhy/teomewhy-loyalty-system)
 
-## 📊 Estrutura dos Arquivos
+## 📊 Estrutura dos Arquivos:  
 O projeto processa quatro arquivos principais:
 
 1.  **clientes.csv**: Informações cadastrais dos usuários e pontos acumulados.

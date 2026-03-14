@@ -1,23 +1,30 @@
-/* PROJETO: SQL & Analytics
-   OBJETIVO: Criar uma visão consolidada de vendas para análise de faturamento.
-   TABELAS UTILIZADAS: tb_itens_venda, tb_produtos
-*/
-
 USE curso_sql;
 
--- 1. Remoção da View anterior para atualização
-DROP VIEW IF EXISTS vw_relatorio_vendas;
-
--- 2. Criação da View com métricas de faturamento
-CREATE VIEW vw_relatorio_vendas AS
+-- Reconstruindo a View com os nomes corretos das colunas
+CREATE OR REPLACE VIEW vw_relatorio_vendas AS
 SELECT 
-    p.nome_produto AS Produto,
-    p.categoria AS Categoria,
-    i.quantidade AS Qtd_Vendida,
-    i.valor_unitario AS Preco_Unit,
-    (i.quantidade * i.valor_unitario) AS Faturamento_Item
-FROM tb_itens_venda i
-JOIN tb_produtos p ON i.id_produto = p.id_produto;
+    v.id_venda,
+    v.data_venda,
+    v.origem,
+    c.nome AS nome_cliente,
+    c.email AS email_contato,
+    c.pontos AS cliente_pontos_acumulados,
+    p.nome AS nome_produto,
+    p.categoria AS categoria_produto,
+    iv.quantidade,
+    iv.valor_unitario,
+    (iv.quantidade * iv.valor_unitario) AS subtotal_venda
+FROM tb_itens_venda iv
+JOIN tb_vendas v ON iv.id_venda = v.id_venda
+JOIN tb_produtos p ON iv.id_produto = p.id_produto
+JOIN tb_clientes c ON v.id_cliente = c.id_cliente;
 
--- 3. Teste de validação
-SELECT * FROM vw_relatorio_vendas LIMIT 10;
+-- 2. Testando o novo resultado humanizado
+SELECT 
+    nome_cliente, 
+    email_contato, 
+    SUM(subtotal_venda) AS total_gasto
+FROM vw_relatorio_vendas 
+GROUP BY nome_cliente, email_contato 
+ORDER BY total_gasto DESC
+LIMIT 5;
