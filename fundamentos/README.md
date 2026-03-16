@@ -1,118 +1,67 @@
-# 🗂️ Fundamentos de SQL.  
+# 🗂️ SQL & Data Analytics: Do Core à Automação.
 
-Este diretório reúne os **conceitos fundamentais de SQL**, organizados de forma progressiva,
-com foco em **entendimento conceitual**, **uso prático** e **aplicação em cenários reais de trabalho**.
+Este repositório documenta minha jornada de especialização técnica em SQL, unindo o domínio de fundamentos relacionais à implementação de soluções de Business Intelligence e Automação de Dados. Através de cenários reais de suporte e análise, os projetos aqui contidos demonstram a capacidade de transformar grandes volumes de dados brutos em decisões estratégicas.   
 
-O conteúdo utiliza **MySQL** como banco de dados, mas os conceitos aqui apresentados
-são amplamente aplicáveis a outros SGBDs relacionais.
+Utilizando o MySQL como tecnologia central, o material percorre desde a higienização de dados até a criação de ecossistemas autossuficientes com Triggers e Procedures.   
 
 ---
 
-## 🎯 Objetivos deste módulo
+## 🎯 Pilares Estratégicos:     
 
-- Construir uma **base sólida em SQL**
-- Entender o **porquê** de cada comando, não apenas o *como*
-- Aplicar SQL para:
-  - Consulta de dados
-  - Análise
-  - Suporte técnico
-  - Integrações e sistemas reais
+* **Fundamentação Sólida:** Domínio completo da sintaxe DQL, DML e DDL para manipulação precisa de dados.   
 
----
+* **Data Engineering (ETL):** Processamento e carga massiva de registros (+5.000) com foco em integridade e limpeza.   
 
-## 🧱 Estrutura dos Fundamentos
+* **Troubleshooting Avançado:** Resolução de conflitos de chaves estrangeiras, tratamento de erros de schema e otimização de queries.   
 
-### 🔹 01 – Introdução:  
-Conceitos iniciais sobre SQL, bancos de dados relacionais e como pensar em dados.
-
-- O que é SQL?  
-- O que é um banco de dados relacional?  
-- Tabelas, colunas e registros. 
-- Primeiros contatos com queries. 
-
-📂 `01-introducao/`
+* **Automação & Sustentabilidade:** Implementação de inteligência nativa no banco de dados para redução de intervenção manual.    
 
 ---
 
-### 🔹 02 – Consultas Básicas:  
-Base de qualquer uso real de SQL: **consultar dados corretamente**.
+## 🚀 Projeto em Destaque: Loyalty & Analytics System.
+O ponto culminante deste repositório é um sistema de fidelidade onde apliquei conceitos de **Feature Engineering** para segmentar perfis de usuários em tempo real:
 
-- `SELECT`
-- `WHERE`
-- `ORDER BY`
-- `LIMIT`
-- `DISTINCT`
-- `ALIASES`
-
-📂 `02-consultas-basicas/`
+* **Segmentação Inteligente:** Classificação dinâmica entre perfis VIP, Frequente e Iniciante baseada em volumetria de pontos.
+* **Análise de Performance:** Cruzamento de dados entre 4 entidades distintas para identificação de Ticket Médio e produtos de maior conversão.
+* **Automação de Fluxo:** Uso de Triggers e Stored Procedures para garantir que a base permaneça higienizada e categorizada automaticamente a cada nova transação.
 
 ---
 
-### 🔹 03 – Funções Básicas:  
-Manipulação e transformação de dados diretamente nas queries.
+### 🧱 Arquitetura dos Fundamentos:  
+O conhecimento está organizado de forma progressiva para facilitar o onboarding e a consulta técnica:
 
-- Funções de texto
-- Funções numéricas
-- Funções de data
-- Funções de agregação básicas
+#### 🔹 01 – Exploração e Consultas (Core).  
+Extração precisa e filtros dinâmicos para suporte técnico e diagnósticos rápidos.     
+📂 `fundamentos/`   
+`01-introducao/`      
+`02-consultas-basicas/`     
 
-📂 `03-funcoes-basicas/`
+#### 🔹 02 – Transformação e Agregados.  
+Uso de funções nativas para limpeza de strings, cálculos financeiros e agrupamentos analíticos.   
+📂 `fundamentos/`  
+`03-funcoes-basicas/`  
+`04-agrupamentos/`   
 
----
+#### 🔹 03 – Relacionamentos Intermediários.  
+Lógica de Joins, Subqueries e CTEs para conectar silos de dados e gerar relatórios complexos.    
+📂 `intermediario/`   
 
-### 🔹 04 – Agrupamentos
-Análise de dados usando agregações.
+#### 🔹 04 – Engenharia e DevOps (Avançado). 
+Tópicos de performance, automação de rotinas e manutenção de integridade do banco de dados.    
+📂 `avancado/`   
+`scripts/`  
 
-- `GROUP BY`
-- `HAVING`
-- Contagens, somas e médias por grupo
+--- 
 
-📂 `04-agrupamentos/`
+### 🧠 Metodologia de Suporte Aplicado.
 
----
+Este repositório reflete uma mentalidade de Sustentabilidade de Aplicações:
 
-### 🔹 Intermediário: 
-Recursos essenciais para consultas mais complexas.
+Diagnóstico: Identificação de gargalos e inconsistências no schema.
+Limpeza: Higienização via Scripts de ETL (Data Cleansing).
+Monitoramento: Criação de visualizações rápidas e histogramas SQL para acompanhamento de KPIs.
 
-- `Joins`
-- Subqueries
-- CTEs (Common Table Expressions)
-
-📂 `intermediario/`
-
----
-
-### 🔹 Avançado:  
-Tópicos aplicados a cenários reais e otimização.
-
-- Performance
-- Window Functions
-- Queries reais e estudos de caso
-
-📂 `avancado/`
+*📌 Foco em precisão técnica, automação de processos e clareza analítica.*
 
 ---
 
-## 📌 Como usar este material? 
-
-- Leia primeiro os arquivos **README.md** de cada módulo
-- Em seguida:
-  1. `conceitos.md`
-  2. Arquivos teóricos
-  3. `exemplos.sql`
-  4. `exercicios.md`
-
-Este fluxo garante **entendimento + prática**, não apenas memorização.
-
----
-
-## 🧠 Público-alvo:  
-
-- Pessoas iniciando em SQL
-- Profissionais que desejam reforçar fundamentos
-- Times técnicos (suporte, dados, engenharia)
-- Material de onboarding e referência interna
-
----
-
-📌 *Este repositório foi criado com foco em aprendizado contínuo e clareza técnica.*
